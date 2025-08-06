@@ -1,10 +1,13 @@
+import os
+
 import pyaudio
 import speech_recognition as sr
 import subprocess as sp
 r = sr.Recognizer();
-r.energy_threshold = 4000
+r.energy_threshold = 5000
 r.pause_threshold = 0.8
 inputString = "";
+
 import winreg
 
 key_path = r"Software\Valve\Steam"
@@ -32,9 +35,12 @@ with sr.Microphone() as source:
      print("Say something!")
      audio = r.listen(source)
 try:
+
     print("Sphinx thinks you said " + r.recognize_sphinx(audio))
     inputString = r.recognize_sphinx(audio)
-    if("stop" in inputString): sp.Popen([value])
+    steam_exe = os.path.join(value, "steam.exe")
+    if "stop" in inputString.lower():
+        sp.Popen([steam_exe])
 
 except sr.UnknownValueError:
     print("Sphinx could not understand audio")
