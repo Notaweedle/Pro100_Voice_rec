@@ -1,25 +1,22 @@
 import os
-
-import pyaudio
 import speech_recognition as sr
 import subprocess as sp
-r = sr.Recognizer();
+r = sr.Recognizer()
 r.energy_threshold = 5000
-r.pause_threshold = 0.8
-inputString = "";
+r.pause_threshold = 0.7
+inputString = ""
 
 import winreg
 
 key_path = r"Software\Valve\Steam"
 
 try:
-
+    # finds the Steam Path
     registry_key = winreg.OpenKey(winreg.HKEY_CURRENT_USER, key_path, 0, winreg.KEY_READ)
 
     value_name = "SteamPath"
     value, regtype = winreg.QueryValueEx(registry_key, value_name)
     print(f"{value_name} = {value}")  # Value = Path
-
     winreg.CloseKey(registry_key)
 
 except FileNotFoundError:
@@ -27,15 +24,15 @@ except FileNotFoundError:
 except Exception as e:
     print(f"Error: {e}")
 for index, name in enumerate(sr.Microphone.list_microphone_names()):
-    print("Microphone with name \"{1}\" found for `Microphone(device_index={0})`".format(index, name));
+    print("Microphone with name \"{1}\" found for `Microphone(device_index={0})`".format(index, name))
 
 
-
+# Hears what you say's and outputs it
 with sr.Microphone() as source:
      print("Say something!")
      audio = r.listen(source)
 try:
-
+    # Opens Steam
     print("Sphinx thinks you said " + r.recognize_sphinx(audio))
     inputString = r.recognize_sphinx(audio)
     steam_exe = os.path.join(value, "steam.exe")
