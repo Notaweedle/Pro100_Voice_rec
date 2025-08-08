@@ -1,6 +1,5 @@
 # ----------------------------------NOTES------------------------------------------------------------
 # .pyw allows the script to run in the background and detect it in general
-# Slow start because it's a big trained model, only slow on start
 # very basic and not 100% accurate on the words it picks up. However, it does a good job when up close.
 # ----------------------------------------------------------------------------------------------------
 
