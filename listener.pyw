@@ -48,7 +48,7 @@ def listen_model():
                 break
 
 
-def callback(indata, status):
+def callback(indata, frame, time, status):
     # Do not touch this it's for the model.
     global q, model
     if status:
