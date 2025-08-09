@@ -8,11 +8,12 @@ from PySide6.QtWidgets import QApplication, QWidget
 #     pyside6-uic form.ui -o ui_form.py, or
 #     pyside2-uic form.ui -o ui_form.py
 from ui_form import Ui_Widget
+from calibration_widget import CalibrationWidget
 import speech_recognition as sr
 
 class Widget(QWidget):
+    # variables used for recording and processing
     recording = False
-    end_recording_func = None
     r = sr.Recognizer()
     mic = sr.Microphone(device_index=1)
 
@@ -21,8 +22,10 @@ class Widget(QWidget):
         self.ui = Ui_Widget()
         self.ui.setupUi(self)
 
+        #calibration open
+        self.ui.openCalibrationBtn.clicked.connect(self.showCalibration)
+
         #testing stuff
-        self.ui.addItemButton.clicked.connect(self.addItem)
         self.ui.listWidget.itemClicked.connect(self.selectItemInList)
         self.ui.removeItemButton.clicked.connect(self.removeItem)
 
@@ -35,12 +38,9 @@ class Widget(QWidget):
             self.r.adjust_for_ambient_noise(source)
 
 
-    #testing functionz
-    def addItem(self):
-        text = self.ui.itemEdit.text()
-        if text and text != "":
-            self.ui.listWidget.addItem(text)
-            self.ui.itemEdit.clear()
+    def showCalibration(self):
+        self.calibration = CalibrationWidget()
+        self.calibration.show()
 
 
     def selectItemInList(self, item):

@@ -25,7 +25,7 @@ class Ui_Widget(object):
             Widget.setObjectName(u"Widget")
         Widget.resize(700, 500)
         icon = QIcon()
-        icon.addFile(u"../../../Downloads/1345442634985898067.webp", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        icon.addFile(u"../../../../../Downloads/1345442634985898067.webp", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
         Widget.setWindowIcon(icon)
         Widget.setWindowOpacity(1.000000000000000)
         self.gridLayout_2 = QGridLayout(Widget)
@@ -104,6 +104,11 @@ class Ui_Widget(object):
 
         self.gridLayout_2.addLayout(self.gridLayout, 2, 0, 1, 1)
 
+        self.openCalibrationBtn = QPushButton(Widget)
+        self.openCalibrationBtn.setObjectName(u"openCalibrationBtn")
+
+        self.gridLayout_2.addWidget(self.openCalibrationBtn, 4, 0, 1, 1)
+
 
         self.retranslateUi(Widget)
 
@@ -118,5 +123,6 @@ class Ui_Widget(object):
         self.label.setText(QCoreApplication.translate("Widget", u"Input Testing", None))
         self.addItemButton.setText(QCoreApplication.translate("Widget", u"Add Item", None))
         self.removeItemButton.setText(QCoreApplication.translate("Widget", u"Remove", None))
+        self.openCalibrationBtn.setText(QCoreApplication.translate("Widget", u"Open Calibration", None))
     # retranslateUi
 

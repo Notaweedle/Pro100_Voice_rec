@@ -1,0 +1,14 @@
+# This Python file uses the following encoding: utf-8
+from PyQt6 import QtCore
+from PyQt6 import QtWidgets
+
+from ui_setttings import Ui_Dialog
+
+class SettingsWidget(QtWidgets.QWidget):
+    def __init__(self, parent=None):
+        super().init(parent)
+        self.ui = Ui_Dialog()
+        self.setupUi(self)
+
+        
+

@@ -15,7 +15,7 @@
   </property>
   <property name="windowIcon">
    <iconset>
-    <normaloff>../../../Downloads/1345442634985898067.webp</normaloff>../../../Downloads/1345442634985898067.webp</iconset>
+    <normaloff>../../../../../Downloads/1345442634985898067.webp</normaloff>../../../../../Downloads/1345442634985898067.webp</iconset>
   </property>
   <property name="windowOpacity">
    <double>1.000000000000000</double>
@@ -168,6 +168,13 @@
       </widget>
      </item>
     </layout>
+   </item>
+   <item row="4" column="0">
+    <widget class="QPushButton" name="openCalibrationBtn">
+     <property name="text">
+      <string>Open Calibration</string>
+     </property>
+    </widget>
    </item>
   </layout>
  </widget>
