@@ -10,11 +10,19 @@ def commands(command):
         os._exit(0)
 
     elif 'steam' in command:
-        a.say("Opening steam")
-        time.sleep(.2)
-        os.startfile(r"C:\Program Files (x86)\Steam\Steam.exe")
+        load_dotenv(dotenv_path=r'.env')
+        if os.getenv('DEVICE_TYPE') == 'win32':
+            time.sleep(.2)
+            os.startfile(r"C:\Program Files (x86)\Steam\Steam.exe")
+        elif os.getenv('DEVICE_TYPE') == 'linux':
+            import shutil
+            app_path = shutil.which('steam')
+            if app_path is None:
+                print('Steam NOT installed')
+            else:
+                os.startfile(app_path)
 
-
+        
     elif 'open browser' in command:
         time.sleep(.2)
         webbrowser.open_new('www.google.com')
