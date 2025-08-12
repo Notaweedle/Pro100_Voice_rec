@@ -6,7 +6,7 @@ if os.getenv('DEVICE_TYPE') == 'win32':
     from comtypes import CLSCTX_ALL
     from ctypes import cast, POINTER
 elif os.getenv('DEVICE_TYPE') == 'linux':
-    import pyvolume
+    import pyvolume.pyvolume as pyinner
 
 
 # These are for the speakers not the input, so output!!
@@ -37,7 +37,7 @@ def turn_up_volume() -> None:
         except:
             volume.SetMasterVolumeLevelScalar(1, None)
     elif os.getenv('DEVICE_TYPE') == 'linux':
-        pyvolume.increase()
+        pyinner.increase()
 
 turn_up_volume()
 
@@ -56,7 +56,7 @@ def turn_down_volume() -> None:
         except:
             volume.SetMasterVolumeLevelScalar(0, None)
     elif os.getenv('DEVICE_TYPE') == 'linux':
-        pyvolume.decrease()
+        pyinner.decrease()
     
         
 
@@ -69,7 +69,7 @@ def min_volume() -> None:
         volume = get_Speaker_volume()
         volume.SetMasterVolumeLevelScalar(0, None)
     elif os.getenv('DEVICE_TYPE') == 'linux':
-        pyvolume.custom(percent=0)
+        pyinner.custom(percent=0)
 
 def max_volume() -> None:
     """
@@ -80,7 +80,7 @@ def max_volume() -> None:
         volume = get_Speaker_volume()
         volume.SetMasterVolumeLevelScalar(1, None)
     elif os.getenv('DEVICE_TYPE') == 'linux':
-        pyvolume.custom(percent=150)
+        pyinner.custom(percent=150)
     
 
 def unmute_speakers() -> None:
@@ -93,7 +93,7 @@ def unmute_speakers() -> None:
         volume = get_Speaker_volume()
         volume.SetMute(0,None)
     elif os.getenv('DEVICE_TYPE') == 'linux':
-        pyvolume.custom(percent=50)
+        pyinner.custom(percent=50)
 
 # ------------------------------------------------------------------------------------------------
 
