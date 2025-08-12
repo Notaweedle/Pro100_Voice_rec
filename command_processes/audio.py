@@ -1,17 +1,33 @@
-from pycaw.pycaw import AudioUtilities, IAudioEndpointVolume
-from comtypes import CLSCTX_ALL
-from ctypes import cast, POINTER
 import os
+from dotenv import load_dotenv
+load_dotenv(dotenv_path=r'.env')
+if os.getenv('DEVICE_TYPE') == 'win32':
+    from pycaw.pycaw import AudioUtilities, IAudioEndpointVolume
+    from comtypes import CLSCTX_ALL
+    from ctypes import cast, POINTER
+elif os.getenv('DEVICE_TYPE') == 'linux':
+    import pyvolume
+
 
 # These are for the speakers not the input, so output!!
 def get_Speaker_volume():
+    """
+    UNSAFE FOR LINUX!
+    Get the current speaker volume.
+    :return: Volume object.
+    """
     devices = AudioUtilities.GetSpeakers()
     interface = devices.Activate(
         IAudioEndpointVolume._iid_, CLSCTX_ALL, None)
     volume = cast(interface, POINTER(IAudioEndpointVolume))
     return volume
 
-def turn_up_volume():
+def turn_up_volume() -> None:
+    """
+    Turn up the volume.
+    WINDOWS BEHAVIOR: Increase volume by two.
+    LINUX BEHAVIOR: Increase the volume.
+    """
     if os.getenv('DEVICE_TYPE') == 'win32':
         volume = get_Speaker_volume()
         currentVolume = volume.GetMasterVolumeLevel()
@@ -21,10 +37,15 @@ def turn_up_volume():
         except:
             volume.SetMasterVolumeLevelScalar(1, None)
     elif os.getenv('DEVICE_TYPE') == 'linux':
-        pass
+        pyvolume.increase()
 
 
-def turn_down_volume():
+def turn_down_volume() -> None:
+    """
+    Turn down the volume.
+    WINDOWS BEHAVIOR: Decrease volume by 1.5
+    LINUX BEHAVIOR: Decrease the volume.
+    """
     if os.getenv('DEVICE_TYPE') == 'win32':
         volume = get_Speaker_volume()
         currentVolume = volume.GetMasterVolumeLevel()
@@ -34,32 +55,45 @@ def turn_down_volume():
         except:
             volume.SetMasterVolumeLevelScalar(0, None)
     elif os.getenv('DEVICE_TYPE') == 'linux':
-        pass
+        pyvolume.decrease()
     
         
 
-def min_volume():
+def min_volume() -> None:
+    """
+    Turn down the volume.
+    BEHAVIOR: Volume decreased to zero.
+    """
     if os.getenv('DEVICE_TYPE') == 'win32':
         volume = get_Speaker_volume()
         volume.SetMasterVolumeLevelScalar(0, None)
     elif os.getenv('DEVICE_TYPE') == 'linux':
-        pass
+        pyvolume.custom(percent=0)
 
-def max_volume():
+def max_volume() -> None:
+    """
+    Turn up the volume.
+    BEHAVIOR: Volume increased to max.
+    """
     if os.getenv('DEVICE_TYPE') == 'win32':
         volume = get_Speaker_volume()
         volume.SetMasterVolumeLevelScalar(1, None)
     elif os.getenv('DEVICE_TYPE') == 'linux':
-        pass
+        pyvolume.custom(percent=150)
     
 
-def unmute_speakers():
+def unmute_speakers() -> None:
+    """
+    Unmute the speakers.
+    WINDOWS BEHAVIOR: Volume unmuted.
+    LINUX BEHAVIOR: Volume set to 50%.
+    """
     if os.getenv('DEVICE_TYPE') == 'win32':
         volume = get_Speaker_volume()
         volume.SetMute(0,None)
     elif os.getenv('DEVICE_TYPE') == 'linux':
-        pass
-    
+        pyvolume.custom(percent=50)
+
 # ------------------------------------------------------------------------------------------------
 
 # These are for the microphone!!!
@@ -116,5 +150,8 @@ engine.say("My current speaking rate is " + str(rate))
 engine.runAndWait()
 engine.stop()
 
-
-
+max_volume()
+print("RAN")
+print("ENV TOKEN DEVICE TYPE:" + os.getenv('DEVICE_TYPE'))
+import sys
+print("SYS PLATFORM DEVICE TYPE:" + str(sys.platform))
