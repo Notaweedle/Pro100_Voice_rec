@@ -52,7 +52,7 @@ def turn_down_volume() -> None:
         currentVolume = volume.GetMasterVolumeLevel()
 
         try:
-            volume.SetMasterVolumeLevel((currentVolume - 1.5), None)
+            volume.SetMasterVolumeLevel((currentVolume - 1.8), None)
         except:
             volume.SetMasterVolumeLevelScalar(0, None)
     elif os.getenv('DEVICE_TYPE') == 'linux':

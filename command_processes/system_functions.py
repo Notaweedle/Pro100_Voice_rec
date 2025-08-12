@@ -1,4 +1,4 @@
-import screen_brightness_control as sbc, os
+import screen_brightness_control as sbc, os, subprocess
 
 # Screen brightness controls
 
@@ -25,9 +25,24 @@ def get_active_window():
     _, pid = win32process.GetWindowThreadProcessId(hwnd)
     process_name = psutil.Process(pid).name()
 
+
     print(f"Title: {title}")
     print(f"Process: {process_name}")
     print(f"PID: {pid}")
+
+    info = [title, process_name, pid]
+    return info
+
+def kill_active_window():
+    info = get_active_window()
+    title = info[0]
+    process = info[1]
+    pid = info[2]
+
+    #ADD tts to speak what function is being killed, using the title
+
+    subprocess.run(f"taskkill /PID {pid} /F", shell=True)
+    
 
 
 def get_linux_active():
