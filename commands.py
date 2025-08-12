@@ -11,7 +11,6 @@ def commands(command):
 
     elif 'steam' in command:
         load_dotenv(dotenv_path=r'.env')
-        
         if os.getenv('DEVICE_TYPE') == 'win32':
             time.sleep(.2)
             os.startfile(r"C:\Program Files (x86)\Steam\Steam.exe")
@@ -61,6 +60,7 @@ def commands(command):
     elif 'unmute mic' in command or 'mute microphone' in command:
         a.unmute_mic()
 
+    
 
     else:
         print("No command found")
