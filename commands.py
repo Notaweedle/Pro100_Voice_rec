@@ -11,6 +11,7 @@ def commands(command):
 
     elif 'steam' in command:
         load_dotenv(dotenv_path=r'.env')
+        
         if os.getenv('DEVICE_TYPE') == 'win32':
             time.sleep(.2)
             os.startfile(r"C:\Program Files (x86)\Steam\Steam.exe")
@@ -45,14 +46,20 @@ def commands(command):
 
         subprocess.Popen([python_exe, script_path])
     
-    elif 'mute volume' in command or 'mute' in command:
+    elif 'mute volume' in command or 'mute audio' in command:
         a.mute()
     
     elif 'max volume' in command or 'full volume' in command:
         a.max_volume()
 
-    elif 'unmute' in command or 'unmute audio' in command:
+    elif 'unmute volume' in command or 'unmute audio' in command:
         a.unmute()
+
+    elif 'mute mic' in command or 'mute microphone' in command:
+        a.mute_mic()
+    
+    elif 'unmute mic' in command or 'mute microphone' in command:
+        a.unmute_mic()
 
 
     else:
