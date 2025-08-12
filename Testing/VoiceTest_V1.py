@@ -1,6 +1,9 @@
 import os
 import speech_recognition as sr
 import subprocess as sp
+import webbrowser
+import pyttsx3
+
 r = sr.Recognizer()
 r.energy_threshold = 5000
 r.pause_threshold = 0.7
@@ -33,11 +36,14 @@ with sr.Microphone() as source:
      audio = r.listen(source)
 try:
     # Opens Steam
-    print("Sphinx thinks you said " + r.recognize_sphinx(audio))
     inputString = r.recognize_sphinx(audio)
+    pyttsx3.speak(inputString)
+    print(inputString)
+
     steam_exe = os.path.join(value, "steam.exe")
     if "stop" in inputString.lower():
         sp.Popen([steam_exe])
+        webbrowser.WindowsDefault.open_new_tab(webbrowser.get(using=None),"http://twitch.tv/wendywonka")
 
 except sr.UnknownValueError:
     print("Sphinx could not understand audio")
