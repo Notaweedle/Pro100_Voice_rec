@@ -33,12 +33,13 @@ def turn_up_volume() -> None:
         currentVolume = volume.GetMasterVolumeLevel()
 
         try:
-            volume.SetMasterVolumeLevel((currentVolume + 2), None)
+            volume.SetMasterVolumeLevel((currentVolume + 1.8), None)
         except:
             volume.SetMasterVolumeLevelScalar(1, None)
     elif os.getenv('DEVICE_TYPE') == 'linux':
         pyvolume.increase()
 
+turn_up_volume()
 
 def turn_down_volume() -> None:
     """

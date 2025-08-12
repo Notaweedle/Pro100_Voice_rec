@@ -16,7 +16,6 @@ def min_brightness():
 
 # ______________________________________________________________________________
  
-
 def get_active_window():
     import win32gui, win32process , psutil
 
@@ -29,6 +28,7 @@ def get_active_window():
     print(f"Title: {title}")
     print(f"Process: {process_name}")
     print(f"PID: {pid}")
+
 
 def get_linux_active():
     if os.environ.get("WAYLAND_DISPLAY"):
