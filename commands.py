@@ -51,6 +51,9 @@ def commands(command):
     elif 'max volume' in command or 'full volume' in command:
         a.max_volume()
 
+    elif 'min volume' in command or 'minimum volume' in command:
+        a.min_volume()
+    
     elif 'unmute volume' in command or 'unmute audio' in command:
         a.unmute()
 
@@ -63,7 +66,16 @@ def commands(command):
     elif 'minimum brightness' in command:
         sf.min_brightness()
 
-    elif
+    elif 'max brightness' in command or 'maximum brightness' in command:
+        sf.max_brightness()
+
+    elif 'decrease brightness' in command:
+        sf.decrease_brightness()
+
+    elif 'increase brightness' in command:
+        sf.increase_brightness
+
+
     else:
         print("No command found")
 

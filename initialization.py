@@ -11,7 +11,7 @@ DEVICE_TYPE = sys.platform
 if DEVICE_TYPE == 'win32':
     bat = f'@echo off\ncd /d "%~dp0"\nstart "" "{PYTHONW_EXE}" "{LISTENER_PATH}"\nexit'
 elif DEVICE_TYPE == 'linux':
-    bat = f'#!/bin/bash\ncd "$(dirname "$0")"\n{PYTHONW_EXE}\n"{LISTENER_PATH}"\nexit'
+    bat = f'#!/bin/bash\ncd "$(dirname "$0")"\n{PYTHON_EXE} "{LISTENER_PATH}"\nexit'
 
 with open('app.bat', 'w') as f:
     f.write(bat)

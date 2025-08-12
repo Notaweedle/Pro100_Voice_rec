@@ -38,7 +38,7 @@ def turn_down_volume():
     
         
 
-def mute_speakers():
+def min_volume():
     if os.getenv('DEVICE_TYPE') == 'win32':
         volume = get_Speaker_volume()
         volume.SetMasterVolumeLevelScalar(0, None)
