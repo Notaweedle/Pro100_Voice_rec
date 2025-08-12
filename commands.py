@@ -78,6 +78,9 @@ def commands(command):
 
     elif 'increase brightness' in command:
         sf.increase_brightness
+    
+    elif 'close window' in command or 'close application' in command or 'kill application' in command:
+        sf.kill_active_window
 
 
     else:
