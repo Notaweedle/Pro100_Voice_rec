@@ -83,5 +83,9 @@ def unmute_mic():
         volume.SetMute(0, None)
     elif os.getenv('DEVICE_TYPE') == 'linux':
         pass
+
+# --------------------------------------------------------------------------------------
+
+# Text to speech code
     
 
