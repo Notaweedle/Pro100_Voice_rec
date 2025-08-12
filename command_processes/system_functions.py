@@ -12,7 +12,6 @@ def max_brightness():
 def min_brightness():
      sbc.set_brightness('0')
 
-max_brightness()
 
 
 

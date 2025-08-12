@@ -1,6 +1,6 @@
 import os, webbrowser, time, json
 from dotenv import load_dotenv
-from command_processes import audio as a
+from command_processes import audio as a, system_functions as sf
 
 def commands(command):
 
@@ -60,8 +60,10 @@ def commands(command):
     elif 'unmute mic' in command or 'mute microphone' in command:
         a.unmute_mic()
 
-    
+    elif 'minimum brightness' in command:
+        sf.min_brightness()
 
+    elif
     else:
         print("No command found")
 
