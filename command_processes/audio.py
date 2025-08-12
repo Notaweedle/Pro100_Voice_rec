@@ -28,3 +28,16 @@ def turn_down_volume():
     except:
         volume.SetMasterVolumeLevelScalar(0, None)
 
+def mute():
+    volume = get_volume()
+
+    volume.SetMasterVolumeLevelScalar(0, None)
+
+def max_volume():
+    volume = get_volume()
+
+    volume.SetMasterVolumeLevelScalar(1, None)
+
+def unmute():
+    volume = get_volume()
+    volume.SetMute(0,None)

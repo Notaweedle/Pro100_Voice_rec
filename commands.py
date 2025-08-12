@@ -22,7 +22,7 @@ def commands(command):
             else:
                 os.startfile(app_path)
 
-        
+    
     elif 'open browser' in command:
         time.sleep(.2)
         webbrowser.open_new('www.google.com')
@@ -44,7 +44,15 @@ def commands(command):
         script_path = os.getenv('SCRIPT_PATH')
 
         subprocess.Popen([python_exe, script_path])
+    
+    elif 'mute volume' in command or 'mute' in command:
+        a.mute()
+    
+    elif 'max volume' in command or 'full volume' in command:
+        a.max_volume()
 
+    elif 'unmute' in command or 'unmute audio' in command:
+        a.unmute()
 
 
     else:
