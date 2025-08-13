@@ -150,9 +150,3 @@ engine.say("Hello World!")
 engine.say("My current speaking rate is " + str(rate))
 engine.runAndWait()
 engine.stop()
-
-max_volume()
-print("RAN")
-print("ENV TOKEN DEVICE TYPE:" + os.getenv('DEVICE_TYPE'))
-import sys
-print("SYS PLATFORM DEVICE TYPE:" + str(sys.platform))

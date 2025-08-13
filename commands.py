@@ -1,4 +1,4 @@
-import os, webbrowser, time, json
+import os, webbrowser, time
 from dotenv import load_dotenv
 from command_processes import audio as a, system_functions as sf
 
@@ -81,7 +81,6 @@ def commands(command):
     
     elif 'close window' in command or 'close application' in command or 'kill application' in command:
         sf.kill_active_window
-
 
     else:
         print("No command found")
