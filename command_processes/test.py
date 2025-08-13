@@ -1,3 +1,3 @@
 import audio as a 
 
-a.rewind_track()
+a.pause_or_play()
