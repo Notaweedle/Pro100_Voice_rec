@@ -1,12 +1,17 @@
-import os
+import os, ctypes, time
 from dotenv import load_dotenv
+
 load_dotenv(dotenv_path=r'.env')
+
 if os.getenv('DEVICE_TYPE') == 'win32':
     from pycaw.pycaw import AudioUtilities, IAudioEndpointVolume
     from comtypes import CLSCTX_ALL
     from ctypes import cast, POINTER
+
 elif os.getenv('DEVICE_TYPE') == 'linux':
+
     import pyvolume.pyvolume as pyinner
+
 
 
 # These are for the speakers not the input, so output!!
@@ -39,8 +44,6 @@ def turn_up_volume() -> None:
     elif os.getenv('DEVICE_TYPE') == 'linux':
         pyinner.increase()
 
-turn_up_volume()
-
 def turn_down_volume() -> None:
     """
     Turn down the volume.
@@ -58,7 +61,6 @@ def turn_down_volume() -> None:
     elif os.getenv('DEVICE_TYPE') == 'linux':
         pyinner.decrease()
     
-        
 
 def min_volume() -> None:
     """
@@ -150,3 +152,33 @@ engine.say("Hello World!")
 engine.say("My current speaking rate is " + str(rate))
 engine.runAndWait()
 engine.stop()
+
+# ________________________________________________________________________
+
+# Music controls
+
+def pause_or_play():
+    VK_MEDIA_PLAY_PAUSE = 0xB3
+    ctypes.windll.user32.keybd_event(VK_MEDIA_PLAY_PAUSE, 0, 0, 0)
+    ctypes.windll.user32.keybd_event(VK_MEDIA_PLAY_PAUSE, 0, 2, 0) 
+    time.sleep(1)
+    print('media paused or played')
+
+def next_track():
+    VK_MEDIA_NEXT_TRACK = 0xB0
+    ctypes.windll.user32.keybd_event(VK_MEDIA_NEXT_TRACK, 0, 0, 0)  
+    ctypes.windll.user32.keybd_event(VK_MEDIA_NEXT_TRACK, 0, 2, 0) 
+    time.sleep(1)
+    print('skipped to next track')
+
+def rewind_track():
+    VK_MEDIA_PREV_TRACK = 0xB1
+    ctypes.windll.user32.keybd_event(VK_MEDIA_PREV_TRACK, 0, 0, 0) 
+    ctypes.windll.user32.keybd_event(VK_MEDIA_PREV_TRACK, 0, 2, 0)
+    time.sleep(1)
+    print('rewinded')
+
+
+
+    
+    

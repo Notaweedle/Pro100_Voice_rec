@@ -82,6 +82,8 @@ def commands(command):
     elif 'close window' in command or 'close application' in command or 'kill application' in command:
         sf.kill_active_window
 
+        
+
     else:
         print("No command found")
 
