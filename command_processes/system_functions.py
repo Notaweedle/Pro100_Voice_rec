@@ -68,6 +68,7 @@ def decrease_brightness():
     elif user_device == 'linux':
         current = linux_get_brightness_raw()
         linux_set_brightness(current - int(0.2 * current))
+        
 def increase_brightness():
      if user_device == 'win32':
         sbc.set_brightness('+20')
