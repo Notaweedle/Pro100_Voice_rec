@@ -28,11 +28,10 @@ def get_linux_brightness_properties() -> list[int]:
 
     with open(max_path, "r") as f:
         max_brightness = int(f.read().strip())
-        print(max_brightness)
+
 
     with open(brightness_path, "r") as f:
         current_brightness = int(f.read().strip())
-        print(current_brightness)
 
     return [int(current_brightness), int(max_brightness)]
 
@@ -94,6 +93,9 @@ def min_brightness():
 # ______________________________________________________________________________
 
 def get_active_window():
+    if user_device != "win32":
+        warnings.warn("Attempted usage of a windows only feature on a UNIX platform.")
+        return
     import win32gui, win32process , psutil
 
     hwnd = win32gui.GetForegroundWindow()
@@ -111,6 +113,9 @@ def get_active_window():
     return info
 
 def kill_active_window():
+    if user_device != "win32":
+        warnings.warn("Attempted usage of a windows only feature on a UNIX platform.")
+        return
     info = get_active_window()
     title = info[0]
     process = info[1]
@@ -123,6 +128,7 @@ def kill_active_window():
 
 
 def get_linux_active():
+
     if os.environ.get("WAYLAND_DISPLAY"):
         return "Wayland"
     elif os.environ.get("DISPLAY"):
