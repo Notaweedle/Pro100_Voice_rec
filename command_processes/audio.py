@@ -129,14 +129,14 @@ def mute_mic():
         volume = get_microphone_volume()
         volume.SetMute(1, None)
     elif user_device == 'linux':
-        pyautogui.press('micmute')
+        os.system("amixer set Capture nocap")
 
 def unmute_mic():
     if user_device == 'win32':
         volume = get_microphone_volume()
         volume.SetMute(0, None)
     elif user_device == 'linux':
-        pyautogui.press('micmute')
+        os.system("amixer set Capture cap")
 
 # --------------------------------------------------------------------------------------
 
