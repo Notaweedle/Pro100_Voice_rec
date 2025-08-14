@@ -73,7 +73,7 @@ def min_volume():
         volume = get_Speaker_volume()
         volume.SetMasterVolumeLevelScalar(0, None)
     elif user_device == 'linux':
-        os.system("pactl set-sink-volume 0 0")
+        pyinner.custom(percent=0)
 
 def max_volume():
     """
@@ -84,7 +84,7 @@ def max_volume():
         volume = get_Speaker_volume()
         volume.SetMasterVolumeLevelScalar(1, None)
     elif user_device == 'linux':
-        os.system("pactl set-sink-volume 0 65565")
+        pyinner.custom(percent=150)
     
 
 def unmute_speakers():
@@ -97,21 +97,21 @@ def unmute_speakers():
         volume = get_Speaker_volume()
         volume.SetMute(0,None)
     elif user_device == 'linux':
-        os.system("amixer -q -D pulse sset Master toggle")
+        pyinner.custom(percent=50)
 
 def mute_speakers():
     """
     Unmute the speakers.
     WINDOWS BEHAVIOR: Volume unmuted.
-    LINUX BEHAVIOR: Volume set to 0%.
+    LINUX BEHAVIOR: Volume set to 50%.
     """
     if user_device == 'win32':
         volume = get_Speaker_volume()
         volume.SetMute(1,None)
     elif user_device == 'linux':
-        os.system(f"amixer -q -D pulse sset Master toggle")
+        pyinner.custom(percent=0)
 
-    
+
 
 # ------------------------------------------------------------------------------------------------
 
