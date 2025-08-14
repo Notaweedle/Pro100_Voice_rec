@@ -97,8 +97,7 @@ def unmute_speakers():
         volume = get_Speaker_volume()
         volume.SetMute(0,None)
     elif user_device == 'linux':
-        vol = 65564/2
-        os.system(f"pactl set-sink-volume 0 {vol}")
+        os.system("amixer -q -D pulse sset Master toggle")
 
 def mute_speakers():
     """
@@ -110,7 +109,7 @@ def mute_speakers():
         volume = get_Speaker_volume()
         volume.SetMute(1,None)
     elif user_device == 'linux':
-        os.system(f"pactl set-sink-volume 0 0")
+        os.system(f"amixer -q -D pulse sset Master toggle")
 
     
 
