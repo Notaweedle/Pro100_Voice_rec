@@ -1,6 +1,6 @@
 import os, ctypes, time
 from dotenv import load_dotenv
-
+import pyautogui
 load_dotenv(dotenv_path=r'.env')
 
 user_device = os.getenv('DEVICE_TYPE')
@@ -73,7 +73,7 @@ def min_volume():
         volume = get_Speaker_volume()
         volume.SetMasterVolumeLevelScalar(0, None)
     elif user_device == 'linux':
-        pyinner.custom(percent=0)
+        os.system("pactl set-sink-volume 0 0")
 
 def max_volume():
     """
@@ -84,7 +84,7 @@ def max_volume():
         volume = get_Speaker_volume()
         volume.SetMasterVolumeLevelScalar(1, None)
     elif user_device == 'linux':
-        pyinner.custom(percent=150)
+        os.system("pactl set-sink-volume 0 65565")
     
 
 def unmute_speakers():
@@ -97,17 +97,20 @@ def unmute_speakers():
         volume = get_Speaker_volume()
         volume.SetMute(0,None)
     elif user_device == 'linux':
-        pyinner.custom(percent=50)
+        vol = 65564/2
+        os.system(f"pactl set-sink-volume 0 {vol}")
 
 def mute_speakers():
     """
     Unmute the speakers.
     WINDOWS BEHAVIOR: Volume unmuted.
-    LINUX BEHAVIOR: Volume set to 50%.
+    LINUX BEHAVIOR: Volume set to 0%.
     """
     if user_device == 'win32':
         volume = get_Speaker_volume()
         volume.SetMute(1,None)
+    elif user_device == 'linux':
+        os.system(f"pactl set-sink-volume 0 0")
 
     
 
@@ -115,6 +118,7 @@ def mute_speakers():
 
 # These are for the microphone!!!
 def get_microphone_volume():
+
     devices = AudioUtilities.GetMicrophone()
     interface = devices.Activate(
         IAudioEndpointVolume._iid_, CLSCTX_ALL, None)
@@ -126,14 +130,14 @@ def mute_mic():
         volume = get_microphone_volume()
         volume.SetMute(1, None)
     elif user_device == 'linux':
-        pass
+        pyautogui.press('micmute')
 
 def unmute_mic():
     if user_device == 'win32':
         volume = get_microphone_volume()
         volume.SetMute(0, None)
     elif user_device == 'linux':
-        pass
+        pyautogui.press('micmute')
 
 # --------------------------------------------------------------------------------------
 
