@@ -49,8 +49,7 @@ def commands(command):
         subprocess.Popen([python_exe, script_path])
     
     elif 'mute volume' in command or 'mute audio' in command:
-    
-        a.mute()
+        a.mute_speakers()
     
     elif 'max volume' in command or 'full volume' in command:
         a.max_volume()

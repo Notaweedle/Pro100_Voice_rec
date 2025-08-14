@@ -29,7 +29,7 @@ def get_Speaker_volume():
     volume = cast(interface, POINTER(IAudioEndpointVolume))
     return volume
 
-def turn_up_volume() -> None:
+def turn_up_volume():
     """
     Turn up the volume.
     WINDOWS BEHAVIOR: Increase volume by two.
@@ -46,7 +46,7 @@ def turn_up_volume() -> None:
     elif user_device == 'linux':
         pyinner.increase()
 
-def turn_down_volume() -> None:
+def turn_down_volume():
     """
     Turn down the volume.
     WINDOWS BEHAVIOR: Decrease volume by 1.5
@@ -64,7 +64,7 @@ def turn_down_volume() -> None:
         pyinner.decrease()
     
 
-def min_volume() -> None:
+def min_volume():
     """
     Turn down the volume.
     BEHAVIOR: Volume decreased to zero.
@@ -75,7 +75,7 @@ def min_volume() -> None:
     elif user_device == 'linux':
         pyinner.custom(percent=0)
 
-def max_volume() -> None:
+def max_volume():
     """
     Turn up the volume.
     BEHAVIOR: Volume increased to max.
@@ -87,7 +87,7 @@ def max_volume() -> None:
         pyinner.custom(percent=150)
     
 
-def unmute_speakers() -> None:
+def unmute_speakers():
     """
     Unmute the speakers.
     WINDOWS BEHAVIOR: Volume unmuted.
@@ -98,6 +98,18 @@ def unmute_speakers() -> None:
         volume.SetMute(0,None)
     elif user_device == 'linux':
         pyinner.custom(percent=50)
+
+def mute_speakers():
+    """
+    Unmute the speakers.
+    WINDOWS BEHAVIOR: Volume unmuted.
+    LINUX BEHAVIOR: Volume set to 50%.
+    """
+    if user_device == 'win32':
+        volume = get_Speaker_volume()
+        volume.SetMute(1,None)
+
+    
 
 # ------------------------------------------------------------------------------------------------
 

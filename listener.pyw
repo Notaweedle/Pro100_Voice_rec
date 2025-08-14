@@ -23,21 +23,13 @@ def listen_model():
 
 
         while True:
-
-            try:
-                data = q.get(timeout=0.1)
-            except queue.Empty:
-                continue
-
-            if stop_listening == True:
-                if rec.AcceptWaveform(data):
-                    print("🛑 Stopped listening.")
-                    result = json.loads(rec.FinalResult())
-                    text = result.get("text", "").strip()
-                    if text:
-                        print("📝 Final result:", text)
-                        commands.commands(text)
-                    break
+            data = q.get()
+            if rec.AcceptWaveform(data):
+                result = json.loads(rec.Result())
+                print("📝 You said:", result.get("text", ""))
+                text = result.get("text", "")
+                commands.commands(text)
+                break
 
 
 def callback(indata, frame, time, status):
