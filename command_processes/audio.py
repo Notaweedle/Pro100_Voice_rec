@@ -1,6 +1,6 @@
 import os, ctypes, time
 from dotenv import load_dotenv
-
+import pyautogui
 load_dotenv(dotenv_path=r'.env')
 
 user_device = os.getenv('DEVICE_TYPE')
@@ -108,13 +108,16 @@ def mute_speakers():
     if user_device == 'win32':
         volume = get_Speaker_volume()
         volume.SetMute(1,None)
+    elif user_device == 'linux':
+        pyinner.custom(percent=0)
 
-    
+
 
 # ------------------------------------------------------------------------------------------------
 
 # These are for the microphone!!!
 def get_microphone_volume():
+
     devices = AudioUtilities.GetMicrophone()
     interface = devices.Activate(
         IAudioEndpointVolume._iid_, CLSCTX_ALL, None)
@@ -126,14 +129,14 @@ def mute_mic():
         volume = get_microphone_volume()
         volume.SetMute(1, None)
     elif user_device == 'linux':
-        pass
+        os.system("amixer set Capture nocap")
 
 def unmute_mic():
     if user_device == 'win32':
         volume = get_microphone_volume()
         volume.SetMute(0, None)
     elif user_device == 'linux':
-        pass
+        os.system("amixer set Capture cap")
 
 # --------------------------------------------------------------------------------------
 
