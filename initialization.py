@@ -1,5 +1,5 @@
 import os, sys
-
+import subprocess
 
 PYTHON_EXE = sys.executable
 PYTHONW_EXE = os.path.join(os.path.dirname(sys.executable), "pythonw.exe")
