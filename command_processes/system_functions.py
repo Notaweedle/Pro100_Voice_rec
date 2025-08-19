@@ -161,16 +161,22 @@ def lock_screen():
     if user_device == 'win32':
         ctypes.windll.user32.LockWorkStation() 
     elif user_device == 'linux':
-        pass
+        os.system('xdg-screensaver lock')
 
 def restart():
-    os.system('shutdown /r /t 1')
+    if user_device == 'win32':
+        os.system('shutdown /r /t 1')
+    elif user_device == 'linux':
+        os.system('reboot')
 
 def shutdown():
-    os.system('shutdown /s /t 2')
+    if user_device == 'win32':
+        os.system('shutdown /s /t 2')
+    elif user_device == 'linux':
+        os.system('shutdown --no-wall -P')
 
 def screenshot():
     from PIL import ImageGrab as ig
 
-
-
+restart()
+os.system('reboot')
