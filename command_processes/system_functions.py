@@ -175,8 +175,6 @@ def shutdown():
     elif user_device == 'linux':
         os.system('shutdown --no-wall -P')
 
-def screenshot():
-    from PIL import ImageGrab as ig
 
 restart()
 os.system('reboot')
