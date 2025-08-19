@@ -1,5 +1,4 @@
-import os
-import warnings
+import ctypes, os, warnings
 
 if os.getenv('DEVICE_TYPE') == 'win32':
     import screen_brightness_control as sbc, os, subprocess
@@ -153,11 +152,25 @@ def get_linux_active():
         process_name = psutil.Process(pid).name()
 
         print(f'title: {window_name}, pid: {pid}, process: {process_name}')
+# ______________________________________________________________________________________________________________
+
+# Other system functions 
 
 
+def lock_screen():
+    if user_device == 'win32':
+        ctypes.windll.user32.LockWorkStation() 
+    elif user_device == 'linux':
+        pass
 
+def restart():
+    os.system('shutdown /r /t 1')
 
+def shutdown():
+    os.system('shutdown /s /t 2')
 
+def screenshot():
+    from PIL import ImageGrab as ig
 
 
 

@@ -13,7 +13,7 @@ def add_command():
     print("Running add_command interactive mode")
 
 
-    print("list of types commands:\n1.open file\n2.add hotkey\n\n")
+    print("list of types commands:\n1.open file\n2.add shortcut\n\n")
     cmd = input("What type of command? ")
 
     if cmd == "open file":
@@ -56,8 +56,9 @@ def add_command():
         else:
             print("No file selected.")
 
-    elif cmd == 'add hotkey':
+    elif cmd == 'add shortcut':
         pass
+    
     else:
         print("Not valid choice.")
         os.system('cls')

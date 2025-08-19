@@ -3,7 +3,7 @@
 # very basic and not 100% accurate on the words it picks up. However, it does a good job when up close.
 # ----------------------------------------------------------------------------------------------------
 
-import keyboard, threading, commands, sounddevice as sd, queue, sys, json, os
+import keyboard, threading, commands, sounddevice as sd, queue, sys, json, os, speech_recognition as sr
 from vosk import Model, KaldiRecognizer
 
 
@@ -20,7 +20,6 @@ def listen_model():
     with stream:
         print("🎤 Say something...")
         rec = KaldiRecognizer(model, 16000)
-
 
         while True:
             data = q.get()

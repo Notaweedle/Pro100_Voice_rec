@@ -76,11 +76,13 @@ def commands(command):
         sf.decrease_brightness()
 
     elif 'increase brightness' in command:
-        sf.increase_brightness
+        sf.increase_brightness()
     
     elif 'close window' in command or 'close application' in command or 'kill application' in command:
-        sf.kill_active_window
+        sf.kill_active_window()
 
+    elif 'lock' in command or 'lock computer' in command:
+        sf.lock_screen()
         
 
     else:
