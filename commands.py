@@ -81,6 +81,11 @@ def commands(command):
     elif 'lock' in command or 'lock computer' in command:
         sf.lock_screen()
         
+    elif 'restart' in command or 'restart computer' in command:
+        sf.restart()
+    
+    elif 'shutdown' in command or 'shut down computer' in command or 'shut down' in command:
+        sf.shutdown()
     
 
 

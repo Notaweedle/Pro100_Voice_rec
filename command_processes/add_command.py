@@ -19,24 +19,40 @@ def add_command():
     cmd = input("What type of command? ")
 
     if cmd == "open file" or cmd == '1' or cmd == 1:
-        import time
+        open_create()
 
-        print("Please select the file to open")
-        time.sleep(1)
-        from tkinter import Tk, filedialog
+    elif cmd == 'add mode' or cmd == '2' or cmd == 2:
+       global name
+       print('Example names: [work, school, etc]')
+       name = input("What name?: ")
+       mode_create()
+    
+    elif cmd == 'hotkey' or cmd == '3' or cmd == 3:
+         pass
+    
+    else:
+        print("Not valid choice.")
+        os.system('cls')
+        add_command()
+    
+def kill():
+    with open("pid.txt", "r") as f:
+        old_pid = f.read().strip()
+    subprocess.run(f"taskkill /PID {old_pid} /F", shell=True)
 
-        Tk().withdraw()
+def open_create():
+    import time
 
-        desktop_path = os.path.join(os.path.expanduser("~"), "Desktop")
-
-
-        exe_path = filedialog.askopenfilename(
-            title="Select an application",
-            initialdir = desktop_path
-        )
-
-
-        if exe_path:
+    print("Please select the file to open")
+    time.sleep(1)
+    from tkinter import Tk, filedialog
+    Tk().withdraw()
+    desktop_path = os.path.join(os.path.expanduser("~"), "Desktop")
+    exe_path = filedialog.askopenfilename(
+        title="Select an application",
+        initialdir = desktop_path
+    )
+    if exe_path:
             os.system('cls')
             print("Click the CMD Window before typing.\n")
             program_name = input("Whats the programs name? ")
@@ -52,29 +68,8 @@ def add_command():
                 load_dotenv(dotenv_path=r'.env')
                 subprocess.Popen([os.getenv('APP')], shell=True, creationflags=subprocess.DETACHED_PROCESS | subprocess.CREATE_NEW_PROCESS_GROUP)
                 kill()
-
-
-        else:
-            print("No file selected.")
-
-    elif cmd == 'add mode' or cmd == '2' or cmd == 2:
-       global name
-       print('Example names: [work, school, etc]')
-       name = input("What name?: ")
-       mode_create()
-    
     else:
-        print("Not valid choice.")
-        os.system('cls')
-        add_command()
-    
-
-
-def kill():
-    with open("pid.txt", "r") as f:
-        old_pid = f.read().strip()
-    subprocess.run(f"taskkill /PID {old_pid} /F", shell=True)
-
+        print("No file selected.")
 
 def mode_create():
     import time

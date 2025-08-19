@@ -169,8 +169,6 @@ def restart():
 def shutdown():
     os.system('shutdown /s /t 2')
 
-def screenshot():
-    from PIL import ImageGrab as ig
 
 
 
