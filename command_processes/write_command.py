@@ -1,12 +1,21 @@
 import os
-
 def write_open_file_command(file_path, program_name):
 
     new_block = (
         f'    elif "open {program_name.lower()}" in command:\n'
-        f'        a.say("opening {program_name.lower()}")\n'
         f'        os.startfile(r"{file_path}")\n\n'
     )
+
+    write_new_command(new_block)
+
+
+def write_mode(mode_name, file_paths):
+    
+    new_block = f'    elif "{mode_name} mode" in command:\n'
+
+    for fp in file_paths:
+        new_block += f'        os.startfile(r"{fp}")\n'
+
 
     write_new_command(new_block)
 
@@ -27,8 +36,10 @@ def write_new_command(new_block):
     if insert_index is None:
         raise ValueError("No 'else:' block found in commands.py")
 
+    new_block += '\n'
 
     lines.insert(insert_index, new_block)
 
     with open(commands_file, 'w', encoding='utf-8') as f:
         f.writelines(lines)
+

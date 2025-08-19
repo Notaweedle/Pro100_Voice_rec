@@ -20,10 +20,7 @@ def commands(command):
             app_path = shutil.which('steam')
             if app_path is None:
                 print('Steam NOT installed')
-            else:
-                os.startfile(app_path)
 
-    
     elif 'open browser' in command:
          
         time.sleep(.2)
@@ -84,6 +81,9 @@ def commands(command):
     elif 'lock' in command or 'lock computer' in command:
         sf.lock_screen()
         
+    
+
+
 
     else:
         print("No command found")
