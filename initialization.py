@@ -13,6 +13,3 @@ env_write = f'PYTHON_EXE={PYTHON_EXE}\nPYTHONW_EXE={PYTHONW_EXE}\nSCRIPT_PATH={S
 
 with open('.env', 'w') as env:
     env.write(env_write)
-
-if DEVICE_TYPE == 'linux':
-    subprocess.run("chmod +x ./app.bat", shell=True)
