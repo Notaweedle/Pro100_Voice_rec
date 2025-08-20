@@ -3,13 +3,18 @@ import os, sys
 from dotenv import load_dotenv
 import write_command, subprocess
 
+user_device = os.getenv('DEVICE_TYPE')
+
 filepaths = []
 name = ''
 
 def add_command():
-    if "--inside-cmd" not in sys.argv:
-        os.system(f'start cmd /c python "{__file__}" --inside-cmd')
-        sys.exit()
+
+    #TODO: Fix this
+    if user_device == 'win32':
+        if "--inside-cmd" not in sys.argv:
+         os.system(f'start cmd /c python "{__file__}" --inside-cmd')
+         sys.exit()
 
 
     print("Running add_command interactive mode")
@@ -32,7 +37,10 @@ def add_command():
     
     else:
         print("Not valid choice.")
-        os.system('cls')
+        if user_device == 'win32':
+            os.system('cls')
+        elif user_device == 'linux':
+            os.system('clear')
         add_command()
     
 def kill():
@@ -53,7 +61,10 @@ def open_create():
         initialdir = desktop_path
     )
     if exe_path:
-            os.system('cls')
+            if user_device == 'win32':
+                os.system('cls')
+            elif user_device == 'linux':
+                os.system('clear')
             print("Click the CMD Window before typing.\n")
             program_name = input("Whats the programs name? ")
             write_command.write_open_file_command(exe_path, program_name)
@@ -61,12 +72,18 @@ def open_create():
 
             user_choice = input("\n\nWant to add another? (yes or no): ")
             if user_choice == "yes" or user_choice == "y":
-                os.system('cls')
+                # TODO: Make this clear
+                if user_device == 'win32':
+                    os.system('cls')
+                elif user_device == 'linux':
+                    os.system('clear')
                 add_command()
             else:
                 #another example of the .env in play this currently will just kill the program if .bat not setup properly.
                 load_dotenv(dotenv_path=r'.env')
-                subprocess.Popen([os.getenv('APP')], shell=True, creationflags=subprocess.DETACHED_PROCESS | subprocess.CREATE_NEW_PROCESS_GROUP)
+                # TODO: Fix this
+                if user_device == 'win32':
+                    subprocess.Popen([os.getenv('APP')], shell=True, creationflags=subprocess.DETACHED_PROCESS | subprocess.CREATE_NEW_PROCESS_GROUP)
                 kill()
     else:
         print("No file selected.")
@@ -90,20 +107,32 @@ def mode_create():
 
 
     if exe_path:
-            os.system('cls')
+
+            # TODO: Make this clear
+            if user_device == 'win32':
+                os.system('cls')
+            elif user_device == 'linux':
+                os.system('clear')
             print("Click the CMD Window before typing.\n")
             user_choice = input("\n\nWant to add another? (yes or no): ")
             filepaths.append(exe_path)
 
             if user_choice == "yes" or user_choice == "y":
-                os.system('cls')
+
+                # TODO: Make this clear
+                if user_device == 'win32':
+                    os.system('cls')
+                elif user_device == 'linux':
+                    os.system('clear')
                 mode_create()
             else:
                 global name
                 write_command.write_mode(name, filepaths)
                 #another example of the .env in play this currently will just kill the program if .bat not setup properly.
                 load_dotenv(dotenv_path=r'.env')
-                subprocess.Popen([os.getenv('APP')], shell=True, creationflags=subprocess.DETACHED_PROCESS | subprocess.CREATE_NEW_PROCESS_GROUP)
+                # TODO: Remove this line
+                if user_device == 'win32':
+                    subprocess.Popen([os.getenv('APP')], shell=True, creationflags=subprocess.DETACHED_PROCESS | subprocess.CREATE_NEW_PROCESS_GROUP)
                 kill()
 
 
