@@ -2,12 +2,12 @@
 from PySide6 import QtCore
 from PySide6 import QtWidgets
 
-from ui_calibration import Ui_Form
+from ui_calibration import Ui_CalibrationDialog
 
 class CalibrationWidget(QtWidgets.QWidget):
     def __init__(self, parent=None):
         super().__init__(parent)
-        self.ui = Ui_Form()
+        self.ui = Ui_CalibrationDialog()
         self.ui.setupUi(self)
 
 
