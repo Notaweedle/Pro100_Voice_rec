@@ -2,4 +2,4 @@
 name = "PySide Widgets Project"
 
 [tool.pyside6-project]
-files = ["Recorder.py", "calibration.ui", "calibration_widget.py", "edit_command.ui", "edit_command_widget.py", "form.ui", "widget.py"]
+files = ["calibration.ui", "calibration_widget.py", "command_handler.py", "confirm_dialog.py", "confirm_dialog.ui", "create_command.ui", "create_command_widget.py", "edit_command.ui", "edit_command_widget.py", "form.ui", "recorder.py", "widget.py"]

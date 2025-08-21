@@ -4,6 +4,7 @@ import sys
 from PySide6.QtWidgets import QApplication, QWidget, QTableWidgetItem
 from PySide6.QtCore import Qt
 
+from Recorder import Recorder
 # Important:
 # You need to run the following command to generate the ui_form.py file
 #     pyside6-uic form.ui -o ui_form.py, or
@@ -11,6 +12,8 @@ from PySide6.QtCore import Qt
 from ui_form import Ui_Widget
 from calibration_widget import CalibrationWidget
 from edit_command_widget import EditCommandWidget
+from create_command_widget import CreateCommandWidget
+
 
 class Widget(QWidget):
     def __init__(self, parent=None):
@@ -18,75 +21,98 @@ class Widget(QWidget):
         self.ui = Ui_Widget()
         self.ui.setupUi(self)
 
-        # setup table on start
+        # home page setup
+        self.Recorder = Recorder(self.recording_callback, self.ui.startRecordingBtn, self.ui.stopRecordingBtn)
+        self.ui.startRecordingBtn.clicked.connect(self.Recorder.startRecording)
+        self.ui.stopRecordingBtn.clicked.connect(self.Recorder.stopRecording)
+
+        # command history table setup
         self.setupHistoryTable(self.ui.executedCommandTable)
-        # add item to history table button
         self.ui.addItemHistoryBtn.clicked.connect(self.onAddItemToHistory)
-        # remove row from history table button
         self.ui.deleteRowHistoryBtn.clicked.connect(self.onRemoveHistoryRow)
 
-        # setup custom command table on start
+        # custom command table setup
         self.setupCustomCommandsTable(self.ui.customCommandsTable)
         self.ui.customCommandsTable.itemClicked.connect(self.onSelectCustomCommand)
-        # edit item in custom table (TEST)
+        self.ui.createCustomRowBtn.clicked.connect(self.onCreateCommand)
         self.ui.editCustomRowBtn.clicked.connect(self.onEditCustomRow)
 
-        # setup calibration open
+        # settings page setup
         self.ui.openCalibrationBtn.clicked.connect(self.showCalibration)
 
-        #testing stuff
+        # main window testing stuff
         self.ui.listWidget.itemClicked.connect(self.selectItemInList)
         self.ui.clearHistoryBtn.clicked.connect(self.clearSpeechHistory)
 
+    #testing recording callback to print the text afterwards
+    def recording_callback(self, recognized_text):
+        print(recognized_text)
 
+    # UNIVERSAL TABLE CELL CREATOR
+    # since they all need to be centered (and maybe more to add)
     def createTableWidgetItem(self, table, data, row, column):
         item = QTableWidgetItem(data)
         item.setTextAlignment(Qt.AlignCenter)
         table.setItem(row, column, item)
 
+    # CREATES A ROW IN CUSTOM COMMANDS TABLE GIVEN AN ARRAY OF 6 VALUES
+    def createCustomTableRow(self, commandItems):
+        table = self.ui.customCommandsTable
+        if len(commandItems) == 6:
+            table.setRowCount(table.rowCount()+1)
+            for i in range(len(commandItems)):
+                self.createTableWidgetItem(table, commandItems[i], table.rowCount()-1, i)
+
+    # SETUP MOCK DATA IN CUSTOM COMMANDS TABLE
+    # TODO (TO BE DELETED)
     def setupCustomCommandsTable(self, table):
-        table.setColumnCount(7)
+        table.setColumnCount(6)
         table.setRowCount(0)
         # add table headers
-        table.setHorizontalHeaderLabels(["Date", "Name", "Speech", "Enabled", "Category", "Type", "Target"])
+        table.setHorizontalHeaderLabels(["Name", "Speech", "Enabled", "Category", "Type", "Target"])
         #test commands
         testCommands = [
-            ["8/18/2025", "Fake Command", "open burger.exe", "False", "Custom", "Program", "C:/Path/To/Burger.exe"],
-            ["8/17/2025", "Volume Up", "volume up by 5", "True", "Default", "Utility", "N/A"],
-            ["8/17/2025", "Volume Down", "volume down by 5", "True", "Default", "Utility", "N/A"],
-            ["8/17/2025", "Browser", "open browser", "True", "Default", "Browser", "google.com"]
+            ["Volume Up", "volume up by 5", "True", "Default", "Utility", "N/A"],
+            ["Volume Down", "volume down by 5", "True", "Default", "Utility", "N/A"],
+            ["Browser", "open browser", "True", "Default", "Browser", "google.com"],
+            ["Fake Command", "open burger.exe", "False", "Custom", "Program", "C:/Path/To/Burger.exe"]
         ]
-        for i, (date, name, speech, enabled, category, type, target) in enumerate(testCommands):
-            rowIndex = table.rowCount()
-            table.setRowCount(rowIndex+1)
-            # create base widget item for each and put on table
-            self.createTableWidgetItem(table, date, rowIndex, 0)
-            self.createTableWidgetItem(table, name, rowIndex, 1)
-            self.createTableWidgetItem(table, speech, rowIndex, 2)
-            self.createTableWidgetItem(table, enabled, rowIndex, 3)
-            self.createTableWidgetItem(table, category, rowIndex, 4)
-            self.createTableWidgetItem(table, type, rowIndex, 5)
-            self.createTableWidgetItem(table, target, rowIndex, 6)
+        for i in range(len(testCommands)):
+            self.createCustomTableRow(testCommands[i])
 
+    # DISABLES / ENABLES edit button based on if a row is selected
     def onSelectCustomCommand(self):
         self.ui.editCustomRowBtn.setEnabled(True)
 
+    # EDIT WINDOW FOR EDITING A CUSTOM COMMAND
     def onEditCustomRow(self):
         table = self.ui.customCommandsTable
         row = table.currentRow()
         # get all items from current row
         commandItems = {}
-        commandItems['date'] = table.item(row, 0).text()
-        commandItems['name'] = table.item(row, 1).text()
-        commandItems['speech'] = table.item(row, 2).text()
-        commandItems['enabled'] = table.item(row, 3).text()
-        commandItems['category'] = table.item(row, 4).text()
-        commandItems['type'] = table.item(row, 5).text()
-        commandItems['target'] = table.item(row, 6).text()
-
+        commandItems['name'] = table.item(row, 0).text()
+        commandItems['speech'] = table.item(row, 1).text()
+        commandItems['enabled'] = table.item(row, 2).text()
+        commandItems['category'] = table.item(row, 3).text()
+        commandItems['type'] = table.item(row, 4).text()
+        commandItems['target'] = table.item(row, 5).text()
         # pass params to editcommand window
         self.EditCommandWidget = EditCommandWidget(commandItems, table)
         self.EditCommandWidget.show()
+
+    # CREATE WINDOW FOR CREATING A CUSTOM COMMAND
+    def onCreateCommand(self):
+        self.CreateCommandWidget = CreateCommandWidget(self)
+        self.CreateCommandWidget.show()
+
+    # SAVING A NEWLY CREATED CUSTOM COMMAND
+    def onSaveNewCommand(self):
+        # update values, take the new values, and create a row
+        # then free up resources
+        self.CreateCommandWidget.updateValues()
+        commandItems = self.CreateCommandWidget.commandItems
+        self.createCustomTableRow(commandItems)
+        self.CreateCommandWidget.destroy()
 
     # OPENING A NEW WINDOW FOR CALIBRATION
     def showCalibration(self):

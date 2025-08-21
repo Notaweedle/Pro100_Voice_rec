@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>EditCommandWidget</class>
- <widget class="QWidget" name="EditCommandWidget">
+ <class>CreateCommandWidget</class>
+ <widget class="QWidget" name="CreateCommandWidget">
   <property name="windowModality">
    <enum>Qt::WindowModality::ApplicationModal</enum>
   </property>
@@ -32,7 +32,7 @@
    </size>
   </property>
   <property name="windowTitle">
-   <string>Edit Command</string>
+   <string>Create Command</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
@@ -89,13 +89,42 @@
        </item>
       </layout>
      </item>
-     <item row="0" column="1">
-      <layout class="QVBoxLayout" name="verticalLayout_7">
+     <item row="2" column="2">
+      <layout class="QVBoxLayout" name="verticalLayout_8">
        <property name="spacing">
         <number>2</number>
        </property>
        <item>
-        <spacer name="verticalSpacer_9">
+        <widget class="QLabel" name="label_6">
+         <property name="text">
+          <string>Target</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignmentFlag::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="targetEdit">
+         <property name="text">
+          <string/>
+         </property>
+         <property name="echoMode">
+          <enum>QLineEdit::EchoMode::Normal</enum>
+         </property>
+         <property name="readOnly">
+          <bool>false</bool>
+         </property>
+         <property name="placeholderText">
+          <string>Website/Program</string>
+         </property>
+         <property name="clearButtonEnabled">
+          <bool>false</bool>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <spacer name="verticalSpacer_12">
          <property name="orientation">
           <enum>Qt::Orientation::Vertical</enum>
          </property>
@@ -106,121 +135,39 @@
           </size>
          </property>
         </spacer>
-       </item>
-       <item>
-        <widget class="QLabel" name="label_5">
-         <property name="text">
-          <string>Command Speech</string>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignmentFlag::AlignCenter</set>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QLineEdit" name="speechEdit">
-         <property name="inputMask">
-          <string/>
-         </property>
-         <property name="placeholderText">
-          <string>Command Speech</string>
-         </property>
-        </widget>
        </item>
       </layout>
      </item>
-     <item row="0" column="0">
-      <layout class="QVBoxLayout" name="verticalLayout_6">
-       <property name="spacing">
-        <number>2</number>
-       </property>
+     <item row="3" column="0" colspan="3">
+      <layout class="QHBoxLayout" name="horizontalLayout">
        <item>
-        <spacer name="verticalSpacer_7">
-         <property name="orientation">
-          <enum>Qt::Orientation::Vertical</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
+        <widget class="QPushButton" name="cancelBtn">
+         <property name="minimumSize">
           <size>
-           <width>20</width>
+           <width>0</width>
            <height>40</height>
           </size>
          </property>
-        </spacer>
-       </item>
-       <item>
-        <widget class="QLabel" name="label_4">
          <property name="text">
-          <string>Command Name</string>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignmentFlag::AlignCenter</set>
+          <string>Cancel</string>
          </property>
         </widget>
        </item>
        <item>
-        <widget class="QLineEdit" name="nameEdit">
-         <property name="inputMask">
-          <string/>
+        <widget class="QPushButton" name="createBtn">
+         <property name="enabled">
+          <bool>false</bool>
          </property>
-         <property name="maxLength">
-          <number>32767</number>
-         </property>
-         <property name="placeholderText">
-          <string>Command Name</string>
-         </property>
-        </widget>
-       </item>
-      </layout>
-     </item>
-     <item row="2" column="1">
-      <layout class="QVBoxLayout" name="verticalLayout_4">
-       <property name="spacing">
-        <number>2</number>
-       </property>
-       <item>
-        <widget class="QLabel" name="label">
-         <property name="text">
-          <string>Type</string>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignmentFlag::AlignCenter</set>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QComboBox" name="typeCombo">
-         <property name="placeholderText">
-          <string>Command Type</string>
-         </property>
-         <item>
-          <property name="text">
-           <string>Program</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>Browser</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>Script</string>
-          </property>
-         </item>
-        </widget>
-       </item>
-       <item>
-        <spacer name="verticalSpacer_4">
-         <property name="orientation">
-          <enum>Qt::Orientation::Vertical</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
+         <property name="minimumSize">
           <size>
-           <width>20</width>
+           <width>0</width>
            <height>40</height>
           </size>
          </property>
-        </spacer>
+         <property name="text">
+          <string>Create</string>
+         </property>
+        </widget>
        </item>
       </layout>
      </item>
@@ -309,42 +256,13 @@
        </item>
       </layout>
      </item>
-     <item row="2" column="2">
-      <layout class="QVBoxLayout" name="verticalLayout_8">
+     <item row="0" column="0">
+      <layout class="QVBoxLayout" name="verticalLayout_6">
        <property name="spacing">
         <number>2</number>
        </property>
        <item>
-        <widget class="QLabel" name="label_6">
-         <property name="text">
-          <string>Target</string>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignmentFlag::AlignCenter</set>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QLineEdit" name="targetEdit">
-         <property name="text">
-          <string/>
-         </property>
-         <property name="echoMode">
-          <enum>QLineEdit::EchoMode::Normal</enum>
-         </property>
-         <property name="readOnly">
-          <bool>true</bool>
-         </property>
-         <property name="placeholderText">
-          <string>Website/Program</string>
-         </property>
-         <property name="clearButtonEnabled">
-          <bool>false</bool>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <spacer name="verticalSpacer_12">
+        <spacer name="verticalSpacer_7">
          <property name="orientation">
           <enum>Qt::Orientation::Vertical</enum>
          </property>
@@ -356,48 +274,120 @@
          </property>
         </spacer>
        </item>
+       <item>
+        <widget class="QLabel" name="label_4">
+         <property name="text">
+          <string>Command Name</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignmentFlag::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="nameEdit">
+         <property name="inputMask">
+          <string/>
+         </property>
+         <property name="maxLength">
+          <number>32767</number>
+         </property>
+         <property name="placeholderText">
+          <string>Command Name</string>
+         </property>
+        </widget>
+       </item>
       </layout>
      </item>
-     <item row="3" column="0" colspan="3">
-      <layout class="QHBoxLayout" name="horizontalLayout">
+     <item row="0" column="1">
+      <layout class="QVBoxLayout" name="verticalLayout_7">
+       <property name="spacing">
+        <number>2</number>
+       </property>
        <item>
-        <widget class="QPushButton" name="cancelBtn">
-         <property name="minimumSize">
+        <spacer name="verticalSpacer_9">
+         <property name="orientation">
+          <enum>Qt::Orientation::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
           <size>
-           <width>0</width>
+           <width>20</width>
            <height>40</height>
           </size>
          </property>
+        </spacer>
+       </item>
+       <item>
+        <widget class="QLabel" name="label_5">
          <property name="text">
-          <string>Cancel</string>
+          <string>Command Speech</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignmentFlag::AlignCenter</set>
          </property>
         </widget>
        </item>
        <item>
-        <widget class="QPushButton" name="deleteBtn">
-         <property name="minimumSize">
-          <size>
-           <width>0</width>
-           <height>40</height>
-          </size>
+        <widget class="QLineEdit" name="speechEdit">
+         <property name="inputMask">
+          <string/>
          </property>
+         <property name="placeholderText">
+          <string>Command Speech</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item row="2" column="1">
+      <layout class="QVBoxLayout" name="verticalLayout_4">
+       <property name="spacing">
+        <number>2</number>
+       </property>
+       <item>
+        <widget class="QLabel" name="label">
          <property name="text">
-          <string>Delete</string>
+          <string>Type</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignmentFlag::AlignCenter</set>
          </property>
         </widget>
        </item>
        <item>
-        <widget class="QPushButton" name="saveBtn">
-         <property name="minimumSize">
+        <widget class="QComboBox" name="typeCombo">
+         <property name="placeholderText">
+          <string>Command Type</string>
+         </property>
+         <item>
+          <property name="text">
+           <string>Program</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Browser</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Script</string>
+          </property>
+         </item>
+        </widget>
+       </item>
+       <item>
+        <spacer name="verticalSpacer_4">
+         <property name="orientation">
+          <enum>Qt::Orientation::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
           <size>
-           <width>0</width>
+           <width>20</width>
            <height>40</height>
           </size>
          </property>
-         <property name="text">
-          <string>Save</string>
-         </property>
-        </widget>
+        </spacer>
        </item>
       </layout>
      </item>
