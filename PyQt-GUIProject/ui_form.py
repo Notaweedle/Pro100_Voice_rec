@@ -276,11 +276,11 @@ class Ui_Widget(object):
 
         self.horizontalLayout_7 = QHBoxLayout()
         self.horizontalLayout_7.setObjectName(u"horizontalLayout_7")
-        self.pushButton = QPushButton(self.customCommandsTab)
-        self.pushButton.setObjectName(u"pushButton")
-        self.pushButton.setMinimumSize(QSize(0, 40))
+        self.createCustomRowBtn = QPushButton(self.customCommandsTab)
+        self.createCustomRowBtn.setObjectName(u"createCustomRowBtn")
+        self.createCustomRowBtn.setMinimumSize(QSize(0, 40))
 
-        self.horizontalLayout_7.addWidget(self.pushButton)
+        self.horizontalLayout_7.addWidget(self.createCustomRowBtn)
 
         self.editCustomRowBtn = QPushButton(self.customCommandsTab)
         self.editCustomRowBtn.setObjectName(u"editCustomRowBtn")
@@ -644,7 +644,7 @@ class Ui_Widget(object):
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.commandHistoryTab), QCoreApplication.translate("Widget", u"Command History", None))
         self.sortOptionsCustomBtn.setText(QCoreApplication.translate("Widget", u"Sort Options", None))
         self.label_11.setText(QCoreApplication.translate("Widget", u"Custom Commands", None))
-        self.pushButton.setText(QCoreApplication.translate("Widget", u"Create Command", None))
+        self.createCustomRowBtn.setText(QCoreApplication.translate("Widget", u"Create Command", None))
         self.editCustomRowBtn.setText(QCoreApplication.translate("Widget", u"Edit Command", None))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.customCommandsTab), QCoreApplication.translate("Widget", u"Custom Commands", None))
         self.label_3.setText(QCoreApplication.translate("Widget", u"Text To Speech", None))

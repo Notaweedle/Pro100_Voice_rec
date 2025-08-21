@@ -3,6 +3,7 @@ from PySide6 import QtCore
 from PySide6 import QtWidgets
 
 from ui_edit_command import Ui_EditCommandWidget
+from confirm_dialog import ConfirmDialog
 
 class EditCommandWidget(QtWidgets.QWidget):
     def __init__(self, commandItems, table, parent=None):
@@ -23,33 +24,36 @@ class EditCommandWidget(QtWidgets.QWidget):
         self.loadValues()
 
     def loadValues(self):
-        # set basic values
+        # sets basic values
         self.ui.nameEdit.setText(self.commandItems['name'])
         self.ui.speechEdit.setText(self.commandItems['speech'])
 
-        # check if enabled or not (since string is stored by default)
+        # checks if enabled or not (since a string is stored by default)
         if self.commandItems['enabled'] == "True":
             self.ui.enabledCheck.setChecked(True)
         else:
             self.ui.enabledCheck.setChecked(False)
 
-        # figure these two out
-        #self.ui.categoryCombo
-        #self.ui.typeCombo
-
-        # disable certain fields / buttons if its a default command
+        # disables certain fields / buttons if its a default command
         if self.commandItems['category'] == "Default":
             self.ui.nameEdit.setEnabled(False)
-            self.ui.categoryCombo.setEnabled(False)
+            self.ui.categoryEdit.setEnabled(False)
             self.ui.typeCombo.setEnabled(False)
             self.ui.deleteBtn.setEnabled(False)
-        else:
-            # maybe need an else?
-            pass
+        self.ui.categoryEdit.setText(self.commandItems['category'])
+
+        # AVAILABLE TYPES
+        # - Program
+        # - Browser
+        # - Script
+        # insert non-user category such as "Utility" into combo box and set to it
+        if self.ui.typeCombo.findText(self.commandItems['type']) == -1 and self.commandItems['category'] == "Default":
+                self.ui.typeCombo.insertItem(0, self.commandItems['type'])
+        self.ui.typeCombo.setCurrentText(self.commandItems['type'])
 
         # NEED a better way of detection later
-        # (when changing type, this should become active)
-        # but for now this works
+        # (UPDATE: only necessary to add if more types are added that do not require the target field)
+        # for now it will stay the same
         cmd_target = self.commandItems['target']
         self.ui.targetEdit.setText(cmd_target)
         if cmd_target != "N/A":
@@ -58,39 +62,61 @@ class EditCommandWidget(QtWidgets.QWidget):
             self.ui.targetEdit.setEnabled(False)
 
     def onCancel(self):
-        # TODO maybe confirm if unsaved changes first?
+        # maybe confirm if unsaved changes first?
+        # not sure if that's necessary or just annoying to the user tho
+        # maybe only for command creation
         self.destroy()
 
     def onDelete(self):
-        #confirm deletion first before proceeding
-        doDelete = True #TODO update with new dialog to confirm
-        if doDelete:
+        # confirm deletion first before proceeding
+        self.confirmDialog = ConfirmDialog("Confirm Command Deletion", "Are you sure you want to delete this command?", "Cancel", "Yes")
+        self.confirmDialog.setModal(True)
+        self.confirmDialog.show()
+        # and call once the dialog is finished
+        self.confirmDialog.finished.connect(self.onConfirmDelete)
+
+    def onConfirmDelete(self, result):
+        if result == 1:
             row = self.table.currentRow()
             self.table.removeRow(row)
             self.destroy()
-        #otherwise do nothing else
 
     def readNewValues(self):
-        #TODO stuff for other fields
-        self.commandItems['name'] = self.ui.nameEdit.text()
-        self.commandItems['speech'] = self.ui.speechEdit.text()
+        # name and speech CANNOT be blank strings
+        name = self.ui.nameEdit.text().strip()
+        speech = self.ui.speechEdit.text().strip()
+        if name:
+            self.commandItems['name'] = name
+        if speech:
+            self.commandItems['speech'] = speech
+
+        # stored as a string
         if self.ui.enabledCheck.isChecked():
             self.commandItems['enabled'] = "True"
         else:
             self.commandItems['enabled'] = "False"
+
+        # don't update category if the line contains "Default"/"default"
+        # prevents user from making a new default command, otherwise it'd be impossible to edit / delete
+        category = self.ui.categoryEdit.text().strip()
+        if category.lower() != "default":
+            self.commandItems['category'] = category
+
+        # target might need to be validated for program / script commands, but otherwise these two are fine
+        self.commandItems['type'] = self.ui.typeCombo.currentText()
         self.commandItems['target'] = self.ui.targetEdit.text()
 
     # this should be finished for good
     # (unless changes are made to the commandItems dict thing itself)
     def onSave(self):
+        # set all the row items to the new values
         self.readNewValues()
         row = self.table.currentRow()
-        self.table.item(row, 0).setText(self.commandItems['date'])
-        self.table.item(row, 1).setText(self.commandItems['name'])
-        self.table.item(row, 2).setText(self.commandItems['speech'])
-        self.table.item(row, 3).setText(self.commandItems['enabled'])
-        self.table.item(row, 4).setText(self.commandItems['category'])
-        self.table.item(row, 5).setText(self.commandItems['type'])
-        self.table.item(row, 6).setText(self.commandItems['target'])
+        self.table.item(row, 0).setText(self.commandItems['name'])
+        self.table.item(row, 1).setText(self.commandItems['speech'])
+        self.table.item(row, 2).setText(self.commandItems['enabled'])
+        self.table.item(row, 3).setText(self.commandItems['category'])
+        self.table.item(row, 4).setText(self.commandItems['type'])
+        self.table.item(row, 5).setText(self.commandItems['target'])
         #finally destroy the window to free resources and let the user proceed with the main application
         self.destroy()

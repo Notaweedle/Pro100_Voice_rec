@@ -47,10 +47,10 @@ class Ui_EditCommandWidget(object):
 
         self.verticalLayout_2.addWidget(self.label_2)
 
-        self.categoryCombo = QComboBox(EditCommandWidget)
-        self.categoryCombo.setObjectName(u"categoryCombo")
+        self.categoryEdit = QLineEdit(EditCommandWidget)
+        self.categoryEdit.setObjectName(u"categoryEdit")
 
-        self.verticalLayout_2.addWidget(self.categoryCombo)
+        self.verticalLayout_2.addWidget(self.categoryEdit)
 
         self.verticalSpacer_2 = QSpacerItem(20, 40, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
 
@@ -95,6 +95,7 @@ class Ui_EditCommandWidget(object):
 
         self.nameEdit = QLineEdit(EditCommandWidget)
         self.nameEdit.setObjectName(u"nameEdit")
+        self.nameEdit.setMaxLength(32767)
 
         self.verticalLayout_6.addWidget(self.nameEdit)
 
@@ -111,6 +112,9 @@ class Ui_EditCommandWidget(object):
         self.verticalLayout_4.addWidget(self.label)
 
         self.typeCombo = QComboBox(EditCommandWidget)
+        self.typeCombo.addItem("")
+        self.typeCombo.addItem("")
+        self.typeCombo.addItem("")
         self.typeCombo.setObjectName(u"typeCombo")
 
         self.verticalLayout_4.addWidget(self.typeCombo)
@@ -222,13 +226,19 @@ class Ui_EditCommandWidget(object):
     def retranslateUi(self, EditCommandWidget):
         EditCommandWidget.setWindowTitle(QCoreApplication.translate("EditCommandWidget", u"Edit Command", None))
         self.label_2.setText(QCoreApplication.translate("EditCommandWidget", u"Category", None))
-        self.categoryCombo.setPlaceholderText(QCoreApplication.translate("EditCommandWidget", u"Category", None))
+        self.categoryEdit.setPlaceholderText(QCoreApplication.translate("EditCommandWidget", u"Command Category", None))
         self.label_5.setText(QCoreApplication.translate("EditCommandWidget", u"Command Speech", None))
+        self.speechEdit.setInputMask("")
         self.speechEdit.setPlaceholderText(QCoreApplication.translate("EditCommandWidget", u"Command Speech", None))
         self.label_4.setText(QCoreApplication.translate("EditCommandWidget", u"Command Name", None))
+        self.nameEdit.setInputMask("")
         self.nameEdit.setPlaceholderText(QCoreApplication.translate("EditCommandWidget", u"Command Name", None))
         self.label.setText(QCoreApplication.translate("EditCommandWidget", u"Type", None))
-        self.typeCombo.setPlaceholderText(QCoreApplication.translate("EditCommandWidget", u"Type", None))
+        self.typeCombo.setItemText(0, QCoreApplication.translate("EditCommandWidget", u"Program", None))
+        self.typeCombo.setItemText(1, QCoreApplication.translate("EditCommandWidget", u"Browser", None))
+        self.typeCombo.setItemText(2, QCoreApplication.translate("EditCommandWidget", u"Script", None))
+
+        self.typeCombo.setPlaceholderText(QCoreApplication.translate("EditCommandWidget", u"Command Type", None))
         self.label_3.setText(QCoreApplication.translate("EditCommandWidget", u"Enabled", None))
         self.enabledCheck.setText("")
         self.label_6.setText(QCoreApplication.translate("EditCommandWidget", u"Target", None))
