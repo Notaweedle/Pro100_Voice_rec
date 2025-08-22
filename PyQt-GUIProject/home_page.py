@@ -23,7 +23,8 @@ class HomePageHandler():
     def onExecuteMockSpeech(self):
         mock_command = self.parentWindow.ui.mockSpeechEdit.text().strip()
         if mock_command:
-            self.parentWindow.CommandHandler.check_speech(mock_command)
+            self.recording_callback(mock_command)
+            #self.parentWindow.CommandHandler.check_speech(mock_command)
 
     def select_list_item(self, item):
         self.speechHistory.setCurrentItem(item)

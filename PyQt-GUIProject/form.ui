@@ -268,22 +268,6 @@
            <column/>
           </widget>
          </item>
-         <item row="0" column="1">
-          <widget class="QLabel" name="label_10">
-           <property name="font">
-            <font>
-             <pointsize>12</pointsize>
-             <bold>true</bold>
-            </font>
-           </property>
-           <property name="text">
-            <string>Executed Command History</string>
-           </property>
-           <property name="alignment">
-            <set>Qt::AlignmentFlag::AlignCenter</set>
-           </property>
-          </widget>
-         </item>
          <item row="3" column="0">
           <layout class="QVBoxLayout" name="verticalLayout_13">
            <item>
@@ -485,6 +469,22 @@
            </property>
            <property name="text">
             <string>Delete Row</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="0" colspan="2">
+          <widget class="QLabel" name="label_10">
+           <property name="font">
+            <font>
+             <pointsize>12</pointsize>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="text">
+            <string>Executed Command History</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignmentFlag::AlignCenter</set>
            </property>
           </widget>
          </item>
