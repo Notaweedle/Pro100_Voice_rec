@@ -47,7 +47,7 @@ class CommandHandler():
 
     def check_consecutive_words(self, phrase_list, speech_list):
         # makes sure phrase_list can even fit in speech_list
-        if len(speech_list) > len(phrase_list):
+        if len(speech_list) >= len(phrase_list):
             # finds amount of loops by taking
             # length of speech_list - length of phrase_list (+1 cus 0-index)
             # for example, if phrase_list = ["open","browser"]

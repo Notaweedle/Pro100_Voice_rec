@@ -166,13 +166,6 @@ class Ui_Widget(object):
 
         self.gridLayout_2.addWidget(self.executedCommandTable, 3, 1, 1, 1)
 
-        self.label_10 = QLabel(self.commandHistoryTab)
-        self.label_10.setObjectName(u"label_10")
-        self.label_10.setFont(font)
-        self.label_10.setAlignment(Qt.AlignmentFlag.AlignCenter)
-
-        self.gridLayout_2.addWidget(self.label_10, 0, 1, 1, 1)
-
         self.verticalLayout_13 = QVBoxLayout()
         self.verticalLayout_13.setObjectName(u"verticalLayout_13")
         self.verticalSpacer = QSpacerItem(0, 40, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
@@ -254,6 +247,13 @@ class Ui_Widget(object):
         self.deleteRowHistoryBtn.setMinimumSize(QSize(100, 40))
 
         self.gridLayout_2.addWidget(self.deleteRowHistoryBtn, 4, 0, 1, 2)
+
+        self.label_10 = QLabel(self.commandHistoryTab)
+        self.label_10.setObjectName(u"label_10")
+        self.label_10.setFont(font)
+        self.label_10.setAlignment(Qt.AlignmentFlag.AlignCenter)
+
+        self.gridLayout_2.addWidget(self.label_10, 0, 0, 1, 2)
 
 
         self.verticalLayout_12.addLayout(self.gridLayout_2)
@@ -687,7 +687,6 @@ class Ui_Widget(object):
         self.mockSpeechEdit.setPlaceholderText(QCoreApplication.translate("Widget", u"Speech Text", None))
         self.executeMockSpeechBtn.setText(QCoreApplication.translate("Widget", u"execute command", None))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.homeTab), QCoreApplication.translate("Widget", u"Home", None))
-        self.label_10.setText(QCoreApplication.translate("Widget", u"Executed Command History", None))
         self.label_12.setText(QCoreApplication.translate("Widget", u"This will be removed!!!!!!!", None))
         self.timeEdit.setPlaceholderText(QCoreApplication.translate("Widget", u"Time", None))
         self.dateEdit.setPlaceholderText(QCoreApplication.translate("Widget", u"Date", None))
@@ -699,6 +698,7 @@ class Ui_Widget(object):
         self.addItemHistoryBtn.setText(QCoreApplication.translate("Widget", u"Add Item", None))
         self.sortOptionsHistoryBtn.setText(QCoreApplication.translate("Widget", u"Sort Options", None))
         self.deleteRowHistoryBtn.setText(QCoreApplication.translate("Widget", u"Delete Row", None))
+        self.label_10.setText(QCoreApplication.translate("Widget", u"Executed Command History", None))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.commandHistoryTab), QCoreApplication.translate("Widget", u"Command History", None))
         self.sortOptionsCustomBtn.setText(QCoreApplication.translate("Widget", u"Sort Options", None))
         self.label_11.setText(QCoreApplication.translate("Widget", u"Custom Commands", None))

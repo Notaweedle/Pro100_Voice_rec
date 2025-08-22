@@ -42,7 +42,7 @@
   {
     "name": "Max Volume",
     "speech": "max volume",
-    "enabled": "True",
+    "enabled": "False",
     "category": "Default",
     "type": "Utility",
     "target": "N/A"
