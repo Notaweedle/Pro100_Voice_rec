@@ -43,7 +43,7 @@ class CreateCommandWidget(QtWidgets.QWidget):
 
     def updateValues(self):
         name = self.ui.nameEdit.text().strip()
-        speech = self.ui.speechEdit.text().strip()
+        speech = self.ui.speechEdit.text().strip().lower()
         enabled = ""
         if self.ui.enabledCheck.isChecked():
             enabled = "True"

@@ -1,19 +1,20 @@
-# This Python file uses the following encoding: utf-8
+# external libraries
 import sys
-
 from PySide6.QtWidgets import QApplication, QWidget, QTableWidgetItem
 from PySide6.QtCore import Qt
 
-from Recorder import Recorder
-# Important:
-# You need to run the following command to generate the ui_form.py file
-#     pyside6-uic form.ui -o ui_form.py, or
-#     pyside2-uic form.ui -o ui_form.py
+# auto generated stuff
 from ui_form import Ui_Widget
 from calibration_widget import CalibrationWidget
 from edit_command_widget import EditCommandWidget
 from create_command_widget import CreateCommandWidget
 
+# our modules
+from recorder import Recorder
+from command_handler import CommandHandler
+
+from home_page import HomePageHandler
+from settings_page import SettingsPageHandler
 
 class Widget(QWidget):
     def __init__(self, parent=None):
@@ -22,9 +23,10 @@ class Widget(QWidget):
         self.ui.setupUi(self)
 
         # home page setup
-        self.Recorder = Recorder(self.recording_callback, self.ui.startRecordingBtn, self.ui.stopRecordingBtn)
-        self.ui.startRecordingBtn.clicked.connect(self.Recorder.startRecording)
-        self.ui.stopRecordingBtn.clicked.connect(self.Recorder.stopRecording)
+        self.HomeHandler = HomePageHandler(self)
+
+        # handles the loading and saving of all commands
+        self.CommandHandler = CommandHandler(self)
 
         # command history table setup
         self.setupHistoryTable(self.ui.executedCommandTable)
@@ -32,21 +34,14 @@ class Widget(QWidget):
         self.ui.deleteRowHistoryBtn.clicked.connect(self.onRemoveHistoryRow)
 
         # custom command table setup
-        self.setupCustomCommandsTable(self.ui.customCommandsTable)
+        #self.setupCustomCommandsTable(self.ui.customCommandsTable) #no longer necessary, data is loaded on start wth command handler
         self.ui.customCommandsTable.itemClicked.connect(self.onSelectCustomCommand)
         self.ui.createCustomRowBtn.clicked.connect(self.onCreateCommand)
         self.ui.editCustomRowBtn.clicked.connect(self.onEditCustomRow)
 
         # settings page setup
-        self.ui.openCalibrationBtn.clicked.connect(self.showCalibration)
-
-        # main window testing stuff
-        self.ui.listWidget.itemClicked.connect(self.selectItemInList)
-        self.ui.clearHistoryBtn.clicked.connect(self.clearSpeechHistory)
-
-    #testing recording callback to print the text afterwards
-    def recording_callback(self, recognized_text):
-        print(recognized_text)
+        self.ui.openCalibrationBtn.clicked.connect(self.showCalibration) # needs to be moved into settings handler
+        self.SettingsHandler = SettingsPageHandler(self)
 
     # UNIVERSAL TABLE CELL CREATOR
     # since they all need to be centered (and maybe more to add)
@@ -63,24 +58,22 @@ class Widget(QWidget):
             for i in range(len(commandItems)):
                 self.createTableWidgetItem(table, commandItems[i], table.rowCount()-1, i)
 
-    # SETUP MOCK DATA IN CUSTOM COMMANDS TABLE
-    # TODO (TO BE DELETED)
-    def setupCustomCommandsTable(self, table):
+    # LOAD DATA IN CUSTOM COMMANDS TABLE
+    def loadCustomCommandsTable(self, table, commands):
         table.setColumnCount(6)
-        table.setRowCount(0)
-        # add table headers
+        table.setRowCount(len(commands))
         table.setHorizontalHeaderLabels(["Name", "Speech", "Enabled", "Category", "Type", "Target"])
-        #test commands
-        testCommands = [
-            ["Volume Up", "volume up by 5", "True", "Default", "Utility", "N/A"],
-            ["Volume Down", "volume down by 5", "True", "Default", "Utility", "N/A"],
-            ["Browser", "open browser", "True", "Default", "Browser", "google.com"],
-            ["Fake Command", "open burger.exe", "False", "Custom", "Program", "C:/Path/To/Burger.exe"]
-        ]
-        for i in range(len(testCommands)):
-            self.createCustomTableRow(testCommands[i])
+        # creating cells for each key,value pair with row and column tracking
+        curRow = 0
+        for command in commands:
+            curColumn = 0
+            for key in command:
+                value = command[key]
+                self.createTableWidgetItem(table, value, curRow, curColumn)
+                curColumn += 1
+            curRow += 1
 
-    # DISABLES / ENABLES edit button based on if a row is selected
+    # ENABLES EDIT BUTTON WHEN A ROW IS SELECTED
     def onSelectCustomCommand(self):
         self.ui.editCustomRowBtn.setEnabled(True)
 
@@ -97,7 +90,7 @@ class Widget(QWidget):
         commandItems['type'] = table.item(row, 4).text()
         commandItems['target'] = table.item(row, 5).text()
         # pass params to editcommand window
-        self.EditCommandWidget = EditCommandWidget(commandItems, table)
+        self.EditCommandWidget = EditCommandWidget(commandItems, table, self.CommandHandler)
         self.EditCommandWidget.show()
 
     # CREATE WINDOW FOR CREATING A CUSTOM COMMAND
@@ -113,6 +106,10 @@ class Widget(QWidget):
         commandItems = self.CreateCommandWidget.commandItems
         self.createCustomTableRow(commandItems)
         self.CreateCommandWidget.destroy()
+
+        #TODO this is one place where the list of dicts needs to be created
+        # and hten saved to file using command_handler
+        self.CommandHandler.save_commands(self.ui.customCommandsTable)
 
     # OPENING A NEW WINDOW FOR CALIBRATION
     def showCalibration(self):
@@ -165,16 +162,6 @@ class Widget(QWidget):
         row = table.row(currentItem)
         table.removeRow(row)
 
-    def selectItemInList(self, item):
-        self.ui.listWidget.setCurrentItem(item)
-
-
-    def clearSpeechHistory(self):
-        #currentItem = self.ui.listWidget.currentItem()
-        #row = self.ui.listWidget.row(currentItem)
-        #deletedItem = self.ui.listWidget.takeItem(row)
-        #del deletedItem
-        self.ui.listWidget.clear()
 
 
 if __name__ == "__main__":

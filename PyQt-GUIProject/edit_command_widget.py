@@ -6,7 +6,7 @@ from ui_edit_command import Ui_EditCommandWidget
 from confirm_dialog import ConfirmDialog
 
 class EditCommandWidget(QtWidgets.QWidget):
-    def __init__(self, commandItems, table, parent=None):
+    def __init__(self, commandItems, table, CommandHandler, parent=None):
         # defaults for pyside
         super().__init__()
         self.ui = Ui_EditCommandWidget()
@@ -14,6 +14,7 @@ class EditCommandWidget(QtWidgets.QWidget):
         # set global for command items (probably unnecessary)
         self.commandItems = commandItems
         self.table = table
+        self.CommandHandler = CommandHandler
 
         # connect gui slots
         self.ui.cancelBtn.clicked.connect(self.onCancel)
@@ -79,6 +80,9 @@ class EditCommandWidget(QtWidgets.QWidget):
         if result == 1:
             row = self.table.currentRow()
             self.table.removeRow(row)
+            # update command file since changes were made
+            self.CommandHandler.save_commands(self.table)
+            # delete window to free up resources
             self.destroy()
 
     def readNewValues(self):
@@ -88,7 +92,7 @@ class EditCommandWidget(QtWidgets.QWidget):
         if name:
             self.commandItems['name'] = name
         if speech:
-            self.commandItems['speech'] = speech
+            self.commandItems['speech'] = speech.lower()
 
         # stored as a string
         if self.ui.enabledCheck.isChecked():
@@ -118,5 +122,8 @@ class EditCommandWidget(QtWidgets.QWidget):
         self.table.item(row, 3).setText(self.commandItems['category'])
         self.table.item(row, 4).setText(self.commandItems['type'])
         self.table.item(row, 5).setText(self.commandItems['target'])
+        # update command file since changes were made
+        self.CommandHandler.save_commands(self.table)
         #finally destroy the window to free resources and let the user proceed with the main application
         self.destroy()
+
