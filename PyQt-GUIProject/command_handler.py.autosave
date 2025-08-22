@@ -38,8 +38,6 @@ class CommandHandler():
                     if command['speech'] == phrase:
                         self.CommandExecutor.execute_command(command)
 
-
-
     def load_commands(self):
         if os.path.exists(self.commands_file):
             try:

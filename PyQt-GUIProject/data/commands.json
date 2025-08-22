@@ -1,0 +1,58 @@
+[
+  {
+    "name": "Steam",
+    "speech": "open steam",
+    "enabled": "True",
+    "category": "Default",
+    "type": "Program",
+    "target": "C:\\Program Files (x86)\\Steam\\Steam.exe"
+  },
+  {
+    "name": "Volume Up",
+    "speech": "volume up by 5",
+    "enabled": "True",
+    "category": "Default",
+    "type": "Utility",
+    "target": "N/A"
+  },
+  {
+    "name": "Volume Down",
+    "speech": "volume down by 5",
+    "enabled": "True",
+    "category": "Default",
+    "type": "Utility",
+    "target": "N/A"
+  },
+  {
+    "name": "Browser",
+    "speech": "open browser",
+    "enabled": "True",
+    "category": "Default",
+    "type": "Browser",
+    "target": "google.com"
+  },
+  {
+    "name": "test",
+    "speech": "test",
+    "enabled": "True",
+    "category": "test",
+    "type": "Program",
+    "target": "test"
+  },
+  {
+    "name": "fdsafsaf",
+    "speech": "burger",
+    "enabled": "True",
+    "category": "testasdf",
+    "type": "Program",
+    "target": "tasdf"
+  },
+  {
+    "name": "Youtube",
+    "speech": "open youtube",
+    "enabled": "True",
+    "category": "sites",
+    "type": "Browser",
+    "target": "youtube.com"
+  }
+]

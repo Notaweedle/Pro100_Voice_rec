@@ -33,9 +33,8 @@ class Ui_Widget(object):
         Widget.setWindowIcon(icon)
         Widget.setWindowOpacity(1.000000000000000)
         Widget.setAutoFillBackground(False)
-        self.horizontalLayout_5 = QHBoxLayout(Widget)
-        self.horizontalLayout_5.setObjectName(u"horizontalLayout_5")
-        self.horizontalLayout_5.setContentsMargins(10, 10, 10, 10)
+        self.verticalLayout_11 = QVBoxLayout(Widget)
+        self.verticalLayout_11.setObjectName(u"verticalLayout_11")
         self.tabWidget = QTabWidget(Widget)
         self.tabWidget.setObjectName(u"tabWidget")
         self.tabWidget.setTabPosition(QTabWidget.TabPosition.North)
@@ -55,11 +54,11 @@ class Ui_Widget(object):
         self.verticalLayout.setSpacing(10)
         self.verticalLayout.setObjectName(u"verticalLayout")
         self.verticalLayout.setContentsMargins(-1, 0, -1, -1)
-        self.listWidget = QListWidget(self.homeTab)
-        self.listWidget.setObjectName(u"listWidget")
-        self.listWidget.setMinimumSize(QSize(250, 0))
+        self.speechHistory = QListWidget(self.homeTab)
+        self.speechHistory.setObjectName(u"speechHistory")
+        self.speechHistory.setMinimumSize(QSize(250, 0))
 
-        self.verticalLayout.addWidget(self.listWidget)
+        self.verticalLayout.addWidget(self.speechHistory)
 
 
         self.gridLayout.addLayout(self.verticalLayout, 1, 0, 1, 1)
@@ -74,11 +73,24 @@ class Ui_Widget(object):
 
         self.gridLayout.addWidget(self.label_2, 0, 0, 1, 1)
 
-        self.clearHistoryBtn = QPushButton(self.homeTab)
-        self.clearHistoryBtn.setObjectName(u"clearHistoryBtn")
-        self.clearHistoryBtn.setMinimumSize(QSize(100, 40))
+        self.buttonLayout = QHBoxLayout()
+        self.buttonLayout.setSpacing(10)
+        self.buttonLayout.setObjectName(u"buttonLayout")
+        self.removeSpeechHistoryItemBtn = QPushButton(self.homeTab)
+        self.removeSpeechHistoryItemBtn.setObjectName(u"removeSpeechHistoryItemBtn")
+        self.removeSpeechHistoryItemBtn.setEnabled(False)
+        self.removeSpeechHistoryItemBtn.setMinimumSize(QSize(100, 40))
 
-        self.gridLayout.addWidget(self.clearHistoryBtn, 2, 0, 1, 1)
+        self.buttonLayout.addWidget(self.removeSpeechHistoryItemBtn)
+
+        self.clearSpeechHistoryBtn = QPushButton(self.homeTab)
+        self.clearSpeechHistoryBtn.setObjectName(u"clearSpeechHistoryBtn")
+        self.clearSpeechHistoryBtn.setMinimumSize(QSize(100, 40))
+
+        self.buttonLayout.addWidget(self.clearSpeechHistoryBtn)
+
+
+        self.gridLayout.addLayout(self.buttonLayout, 4, 0, 1, 1)
 
 
         self.verticalLayout_2.addLayout(self.gridLayout)
@@ -103,6 +115,21 @@ class Ui_Widget(object):
 
         self.verticalLayout_2.addLayout(self.recordingButtonLayout)
 
+        self.label_13 = QLabel(self.homeTab)
+        self.label_13.setObjectName(u"label_13")
+
+        self.verticalLayout_2.addWidget(self.label_13)
+
+        self.mockSpeechEdit = QLineEdit(self.homeTab)
+        self.mockSpeechEdit.setObjectName(u"mockSpeechEdit")
+
+        self.verticalLayout_2.addWidget(self.mockSpeechEdit)
+
+        self.executeMockSpeechBtn = QPushButton(self.homeTab)
+        self.executeMockSpeechBtn.setObjectName(u"executeMockSpeechBtn")
+
+        self.verticalLayout_2.addWidget(self.executeMockSpeechBtn)
+
         self.tabWidget.addTab(self.homeTab, "")
         self.commandHistoryTab = QWidget()
         self.commandHistoryTab.setObjectName(u"commandHistoryTab")
@@ -110,12 +137,6 @@ class Ui_Widget(object):
         self.verticalLayout_12.setObjectName(u"verticalLayout_12")
         self.gridLayout_2 = QGridLayout()
         self.gridLayout_2.setObjectName(u"gridLayout_2")
-        self.sortOptionsHistoryBtn = QPushButton(self.commandHistoryTab)
-        self.sortOptionsHistoryBtn.setObjectName(u"sortOptionsHistoryBtn")
-        self.sortOptionsHistoryBtn.setMinimumSize(QSize(100, 40))
-
-        self.gridLayout_2.addWidget(self.sortOptionsHistoryBtn, 5, 1, 1, 1)
-
         self.executedCommandTable = QTableWidget(self.commandHistoryTab)
         if (self.executedCommandTable.columnCount() < 5):
             self.executedCommandTable.setColumnCount(5)
@@ -221,11 +242,18 @@ class Ui_Widget(object):
 
         self.gridLayout_2.addLayout(self.verticalLayout_13, 3, 0, 1, 1)
 
+        self.sortOptionsHistoryBtn = QPushButton(self.commandHistoryTab)
+        self.sortOptionsHistoryBtn.setObjectName(u"sortOptionsHistoryBtn")
+        self.sortOptionsHistoryBtn.setEnabled(False)
+        self.sortOptionsHistoryBtn.setMinimumSize(QSize(100, 40))
+
+        self.gridLayout_2.addWidget(self.sortOptionsHistoryBtn, 5, 0, 1, 2)
+
         self.deleteRowHistoryBtn = QPushButton(self.commandHistoryTab)
         self.deleteRowHistoryBtn.setObjectName(u"deleteRowHistoryBtn")
         self.deleteRowHistoryBtn.setMinimumSize(QSize(100, 40))
 
-        self.gridLayout_2.addWidget(self.deleteRowHistoryBtn, 4, 1, 1, 1)
+        self.gridLayout_2.addWidget(self.deleteRowHistoryBtn, 4, 0, 1, 2)
 
 
         self.verticalLayout_12.addLayout(self.gridLayout_2)
@@ -263,6 +291,7 @@ class Ui_Widget(object):
 
         self.sortOptionsCustomBtn = QPushButton(self.customCommandsTab)
         self.sortOptionsCustomBtn.setObjectName(u"sortOptionsCustomBtn")
+        self.sortOptionsCustomBtn.setEnabled(False)
         self.sortOptionsCustomBtn.setMinimumSize(QSize(100, 40))
 
         self.gridLayout_4.addWidget(self.sortOptionsCustomBtn, 5, 1, 1, 1)
@@ -360,6 +389,7 @@ class Ui_Widget(object):
         self.horizontalLayout_3.setObjectName(u"horizontalLayout_3")
         self.horizontalSlider_4 = QSlider(self.settingsTab)
         self.horizontalSlider_4.setObjectName(u"horizontalSlider_4")
+        self.horizontalSlider_4.setEnabled(False)
         sizePolicy3 = QSizePolicy(QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Fixed)
         sizePolicy3.setHorizontalStretch(0)
         sizePolicy3.setVerticalStretch(0)
@@ -372,6 +402,7 @@ class Ui_Widget(object):
 
         self.doubleSpinBox_2 = QDoubleSpinBox(self.settingsTab)
         self.doubleSpinBox_2.setObjectName(u"doubleSpinBox_2")
+        self.doubleSpinBox_2.setEnabled(False)
 
         self.horizontalLayout_3.addWidget(self.doubleSpinBox_2)
 
@@ -437,15 +468,23 @@ class Ui_Widget(object):
         sizePolicy3.setHeightForWidth(self.inputVolSlider.sizePolicy().hasHeightForWidth())
         self.inputVolSlider.setSizePolicy(sizePolicy3)
         self.inputVolSlider.setMinimumSize(QSize(50, 0))
+        self.inputVolSlider.setMaximum(100)
+        self.inputVolSlider.setSliderPosition(50)
         self.inputVolSlider.setOrientation(Qt.Orientation.Horizontal)
+        self.inputVolSlider.setInvertedAppearance(False)
+        self.inputVolSlider.setInvertedControls(False)
+        self.inputVolSlider.setTickPosition(QSlider.TickPosition.NoTicks)
+        self.inputVolSlider.setTickInterval(10)
 
         self.horizontalLayout_6.addWidget(self.inputVolSlider)
 
-        self.doubleSpinBox_4 = QDoubleSpinBox(self.settingsTab)
-        self.doubleSpinBox_4.setObjectName(u"doubleSpinBox_4")
-        self.doubleSpinBox_4.setMaximum(100.000000000000000)
+        self.inputVolSpinBox = QDoubleSpinBox(self.settingsTab)
+        self.inputVolSpinBox.setObjectName(u"inputVolSpinBox")
+        self.inputVolSpinBox.setDecimals(0)
+        self.inputVolSpinBox.setMaximum(100.000000000000000)
+        self.inputVolSpinBox.setValue(50.000000000000000)
 
-        self.horizontalLayout_6.addWidget(self.doubleSpinBox_4)
+        self.horizontalLayout_6.addWidget(self.inputVolSpinBox)
 
 
         self.verticalLayout_7.addLayout(self.horizontalLayout_6)
@@ -545,15 +584,23 @@ class Ui_Widget(object):
         sizePolicy3.setHeightForWidth(self.outputVolSlider.sizePolicy().hasHeightForWidth())
         self.outputVolSlider.setSizePolicy(sizePolicy3)
         self.outputVolSlider.setMinimumSize(QSize(50, 0))
+        self.outputVolSlider.setMaximum(100)
+        self.outputVolSlider.setSingleStep(1)
+        self.outputVolSlider.setPageStep(10)
+        self.outputVolSlider.setSliderPosition(50)
         self.outputVolSlider.setOrientation(Qt.Orientation.Horizontal)
+        self.outputVolSlider.setTickPosition(QSlider.TickPosition.NoTicks)
+        self.outputVolSlider.setTickInterval(10)
 
         self.horizontalLayout_4.addWidget(self.outputVolSlider)
 
-        self.doubleSpinBox_3 = QDoubleSpinBox(self.settingsTab)
-        self.doubleSpinBox_3.setObjectName(u"doubleSpinBox_3")
-        self.doubleSpinBox_3.setMaximum(100.000000000000000)
+        self.outputVolSpinBox = QDoubleSpinBox(self.settingsTab)
+        self.outputVolSpinBox.setObjectName(u"outputVolSpinBox")
+        self.outputVolSpinBox.setDecimals(0)
+        self.outputVolSpinBox.setMaximum(100.000000000000000)
+        self.outputVolSpinBox.setValue(50.000000000000000)
 
-        self.horizontalLayout_4.addWidget(self.doubleSpinBox_3)
+        self.horizontalLayout_4.addWidget(self.outputVolSpinBox)
 
 
         self.verticalLayout_10.addLayout(self.horizontalLayout_4)
@@ -583,21 +630,27 @@ class Ui_Widget(object):
 
         self.horizontalLayout = QHBoxLayout()
         self.horizontalLayout.setObjectName(u"horizontalLayout")
-        self.horizontalSlider_3 = QSlider(self.settingsTab)
-        self.horizontalSlider_3.setObjectName(u"horizontalSlider_3")
-        sizePolicy3.setHeightForWidth(self.horizontalSlider_3.sizePolicy().hasHeightForWidth())
-        self.horizontalSlider_3.setSizePolicy(sizePolicy3)
-        self.horizontalSlider_3.setMinimumSize(QSize(50, 0))
-        self.horizontalSlider_3.setOrientation(Qt.Orientation.Horizontal)
+        self.pauseThreshSlider = QSlider(self.settingsTab)
+        self.pauseThreshSlider.setObjectName(u"pauseThreshSlider")
+        sizePolicy3.setHeightForWidth(self.pauseThreshSlider.sizePolicy().hasHeightForWidth())
+        self.pauseThreshSlider.setSizePolicy(sizePolicy3)
+        self.pauseThreshSlider.setMinimumSize(QSize(50, 0))
+        self.pauseThreshSlider.setMinimum(50)
+        self.pauseThreshSlider.setMaximum(1000)
+        self.pauseThreshSlider.setSingleStep(10)
+        self.pauseThreshSlider.setPageStep(100)
+        self.pauseThreshSlider.setValue(80)
+        self.pauseThreshSlider.setOrientation(Qt.Orientation.Horizontal)
 
-        self.horizontalLayout.addWidget(self.horizontalSlider_3)
+        self.horizontalLayout.addWidget(self.pauseThreshSlider)
 
-        self.doubleSpinBox = QDoubleSpinBox(self.settingsTab)
-        self.doubleSpinBox.setObjectName(u"doubleSpinBox")
-        self.doubleSpinBox.setMinimum(0.500000000000000)
-        self.doubleSpinBox.setMaximum(10.000000000000000)
+        self.pauseThreshSpinBox = QDoubleSpinBox(self.settingsTab)
+        self.pauseThreshSpinBox.setObjectName(u"pauseThreshSpinBox")
+        self.pauseThreshSpinBox.setMinimum(0.500000000000000)
+        self.pauseThreshSpinBox.setMaximum(10.000000000000000)
+        self.pauseThreshSpinBox.setValue(0.800000000000000)
 
-        self.horizontalLayout.addWidget(self.doubleSpinBox)
+        self.horizontalLayout.addWidget(self.pauseThreshSpinBox)
 
 
         self.verticalLayout_8.addLayout(self.horizontalLayout)
@@ -611,12 +664,12 @@ class Ui_Widget(object):
 
         self.tabWidget.addTab(self.settingsTab, "")
 
-        self.horizontalLayout_5.addWidget(self.tabWidget)
+        self.verticalLayout_11.addWidget(self.tabWidget)
 
 
         self.retranslateUi(Widget)
 
-        self.tabWidget.setCurrentIndex(2)
+        self.tabWidget.setCurrentIndex(0)
 
 
         QMetaObject.connectSlotsByName(Widget)
@@ -625,11 +678,15 @@ class Ui_Widget(object):
     def retranslateUi(self, Widget):
         Widget.setWindowTitle(QCoreApplication.translate("Widget", u"Speech Recognition TEST GUI", None))
         self.label_2.setText(QCoreApplication.translate("Widget", u"Detected Speech History", None))
-        self.clearHistoryBtn.setText(QCoreApplication.translate("Widget", u"Clear History", None))
+        self.removeSpeechHistoryItemBtn.setText(QCoreApplication.translate("Widget", u"Delete Selected Item", None))
+        self.clearSpeechHistoryBtn.setText(QCoreApplication.translate("Widget", u"Clear History", None))
         self.startRecordingBtn.setText(QCoreApplication.translate("Widget", u"Start Recording", None))
         self.stopRecordingBtn.setText(QCoreApplication.translate("Widget", u"Stop Recording", None))
+        self.label_13.setText(QCoreApplication.translate("Widget", u"for easily testing commands without recording", None))
+        self.mockSpeechEdit.setText(QCoreApplication.translate("Widget", u"uhhh open browser please", None))
+        self.mockSpeechEdit.setPlaceholderText(QCoreApplication.translate("Widget", u"Speech Text", None))
+        self.executeMockSpeechBtn.setText(QCoreApplication.translate("Widget", u"execute command", None))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.homeTab), QCoreApplication.translate("Widget", u"Home", None))
-        self.sortOptionsHistoryBtn.setText(QCoreApplication.translate("Widget", u"Sort Options", None))
         self.label_10.setText(QCoreApplication.translate("Widget", u"Executed Command History", None))
         self.label_12.setText(QCoreApplication.translate("Widget", u"This will be removed!!!!!!!", None))
         self.timeEdit.setPlaceholderText(QCoreApplication.translate("Widget", u"Time", None))
@@ -640,6 +697,7 @@ class Ui_Widget(object):
         self.typeEdit.setText("")
         self.typeEdit.setPlaceholderText(QCoreApplication.translate("Widget", u"Type", None))
         self.addItemHistoryBtn.setText(QCoreApplication.translate("Widget", u"Add Item", None))
+        self.sortOptionsHistoryBtn.setText(QCoreApplication.translate("Widget", u"Sort Options", None))
         self.deleteRowHistoryBtn.setText(QCoreApplication.translate("Widget", u"Delete Row", None))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.commandHistoryTab), QCoreApplication.translate("Widget", u"Command History", None))
         self.sortOptionsCustomBtn.setText(QCoreApplication.translate("Widget", u"Sort Options", None))
