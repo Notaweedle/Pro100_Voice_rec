@@ -1,6 +1,5 @@
 import os, ctypes, time
 from dotenv import load_dotenv
-import pyautogui
 load_dotenv(dotenv_path=r'.env')
 
 user_device = os.getenv('DEVICE_TYPE')

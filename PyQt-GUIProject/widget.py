@@ -3,6 +3,7 @@ import sys
 
 from PySide6.QtWidgets import QApplication, QWidget, QTableWidgetItem
 from PySide6.QtCore import Qt
+from command_processes import commands
 
 from Recorder import Recorder
 # Important:
@@ -47,6 +48,8 @@ class Widget(QWidget):
     #testing recording callback to print the text afterwards
     def recording_callback(self, recognized_text):
         print(recognized_text)
+        commands.commands(recognized_text)
+        
 
     # UNIVERSAL TABLE CELL CREATOR
     # since they all need to be centered (and maybe more to add)

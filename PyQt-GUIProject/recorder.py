@@ -1,12 +1,13 @@
 #TODO this was just moved frm widget.py nothing is really working or updated
 import speech_recognition as sr
 
+
 class Recorder():
     def __init__(self, callbackFunc, startRecordingBtn, stopRecordingBtn, parent=None):
         # used for recording and processing
         self.recording = False
         self.r = sr.Recognizer()
-        self.mic = sr.Microphone(device_index=1)
+        self.mic = sr.Microphone()
 
         self.callbackFunc = callbackFunc
         self.startRecordingBtn = startRecordingBtn
@@ -37,5 +38,5 @@ class Recorder():
         #text_recognized = recognizer.recognize_vosk(audio)
 
         if text_recognized and text_recognized != "":
-            #self.ui.listWidget.addItem(text_recognized) #CHANGE
+            self.ui.listWidget.addItem(text_recognized) #CHANGE
             self.callbackFunc(text_recognized)
