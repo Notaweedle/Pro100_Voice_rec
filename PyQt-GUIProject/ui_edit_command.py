@@ -179,7 +179,7 @@ class Ui_EditCommandWidget(object):
         self.targetEdit = QLineEdit(EditCommandWidget)
         self.targetEdit.setObjectName(u"targetEdit")
         self.targetEdit.setEchoMode(QLineEdit.EchoMode.Normal)
-        self.targetEdit.setReadOnly(True)
+        self.targetEdit.setReadOnly(False)
         self.targetEdit.setClearButtonEnabled(False)
 
         self.verticalLayout_8.addWidget(self.targetEdit)
