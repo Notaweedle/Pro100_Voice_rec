@@ -40,8 +40,10 @@ def turn_up_volume():
 
         try:
             volume.SetMasterVolumeLevel((currentVolume + 1.8), None)
-        except:
+            return(True, "") 
+        except Exception as e:
             volume.SetMasterVolumeLevelScalar(1, None)
+            return(False, f"Already was max volume {e}")
     elif user_device == 'linux':
         pyinner.increase()
 
@@ -57,8 +59,10 @@ def turn_down_volume():
 
         try:
             volume.SetMasterVolumeLevel((currentVolume - 1.8), None)
-        except:
+            return(True, "") 
+        except Exception as e:
             volume.SetMasterVolumeLevelScalar(0, None)
+            return(False, f"Already at min volume: {e}")
     elif user_device == 'linux':
         pyinner.decrease()
     
@@ -69,8 +73,12 @@ def min_volume():
     BEHAVIOR: Volume decreased to zero.
     """
     if user_device == 'win32':
-        volume = get_Speaker_volume()
-        volume.SetMasterVolumeLevelScalar(0, None)
+        try:
+            volume = get_Speaker_volume()
+            volume.SetMasterVolumeLevelScalar(0, None)
+            return(True, "") 
+        except Exception as e:
+            return(False, f"Error occured: {e}")
     elif user_device == 'linux':
         pyinner.custom(percent=0)
 
@@ -80,8 +88,13 @@ def max_volume():
     BEHAVIOR: Volume increased to max.
     """
     if user_device == 'win32':
-        volume = get_Speaker_volume()
-        volume.SetMasterVolumeLevelScalar(1, None)
+        try:
+            volume = get_Speaker_volume()
+            volume.SetMasterVolumeLevelScalar(1, None)
+            return(True, "") 
+        except Exception as e:
+            return(False, f"Error occured: {e}")
+        
     elif user_device == 'linux':
         pyinner.custom(percent=150)
     
@@ -93,8 +106,13 @@ def unmute_speakers():
     LINUX BEHAVIOR: Volume set to 50%.
     """
     if user_device == 'win32':
-        volume = get_Speaker_volume()
-        volume.SetMute(0,None)
+        try:
+            volume = get_Speaker_volume()
+            volume.SetMute(0,None)
+            return(True, "") 
+        except Exception as e:
+            return(False, f"Error occured: {e}")
+        
     elif user_device == 'linux':
         pyinner.custom(percent=50)
 
@@ -105,8 +123,12 @@ def mute_speakers():
     LINUX BEHAVIOR: Volume set to 50%.
     """
     if user_device == 'win32':
-        volume = get_Speaker_volume()
-        volume.SetMute(1,None)
+        try:
+            volume = get_Speaker_volume()
+            volume.SetMute(1,None)
+            return(True, "") 
+        except Exception as e:
+            return(False, f"Error occured: {e}")
     elif user_device == 'linux':
         pyinner.custom(percent=0)
 
@@ -125,17 +147,16 @@ def get_microphone_volume():
 
 def mute_mic():
     if user_device == 'win32':
-        volume = get_microphone_volume()
-        volume.SetMute(1, None)
+        try:
+            volume = get_microphone_volume()
+            volume.SetMute(1, None)
+            return(True, "") 
+        except Exception as e:
+            return(False, f"Error occured: {e}")
+        
     elif user_device == 'linux':
         os.system("amixer set Capture nocap")
 
-def unmute_mic():
-    if user_device == 'win32':
-        volume = get_microphone_volume()
-        volume.SetMute(0, None)
-    elif user_device == 'linux':
-        os.system("amixer set Capture cap")
 
 # --------------------------------------------------------------------------------------
 
@@ -156,38 +177,51 @@ def speak(text):
 # media controls
 
 def pause_or_play():
-    
-    VK_MEDIA_PLAY_PAUSE = 0xB3
-    ctypes.windll.user32.keybd_event(VK_MEDIA_PLAY_PAUSE, 0, 0, 0)
-    ctypes.windll.user32.keybd_event(VK_MEDIA_PLAY_PAUSE, 0, 2, 0) 
-    time.sleep(1)
-    print('media paused or played')
+    try:
+        VK_MEDIA_PLAY_PAUSE = 0xB3
+        ctypes.windll.user32.keybd_event(VK_MEDIA_PLAY_PAUSE, 0, 0, 0)
+        ctypes.windll.user32.keybd_event(VK_MEDIA_PLAY_PAUSE, 0, 2, 0) 
+        time.sleep(1)
+        return(True, "") 
+    except Exception as e:
+        return(False, f"Error occured: {e}")
 
 def next_track():
+    try:
+        VK_MEDIA_NEXT_TRACK = 0xB0
+        ctypes.windll.user32.keybd_event(VK_MEDIA_NEXT_TRACK, 0, 0, 0)  
+        ctypes.windll.user32.keybd_event(VK_MEDIA_NEXT_TRACK, 0, 2, 0) 
+        time.sleep(1)
+        return(True, "") 
+    except Exception as e:
+        return(False, f"Error occured: {e}")
 
-    VK_MEDIA_NEXT_TRACK = 0xB0
-    ctypes.windll.user32.keybd_event(VK_MEDIA_NEXT_TRACK, 0, 0, 0)  
-    ctypes.windll.user32.keybd_event(VK_MEDIA_NEXT_TRACK, 0, 2, 0) 
-    time.sleep(1)
-    print('skipped to next track')
 
 def rewind_track():
-    VK_MEDIA_PREV_TRACK = 0xB1
-    ctypes.windll.user32.keybd_event(VK_MEDIA_PREV_TRACK, 0, 0, 0) 
-    ctypes.windll.user32.keybd_event(VK_MEDIA_PREV_TRACK, 0, 2, 0)
-    time.sleep(1)
-    print('rewinded')
-
-def previous_track():
-    VK_MEDIA_PREV_TRACK = 0xB1
-
-    for i in range(2):
+    try:
+        VK_MEDIA_PREV_TRACK = 0xB1
         ctypes.windll.user32.keybd_event(VK_MEDIA_PREV_TRACK, 0, 0, 0) 
         ctypes.windll.user32.keybd_event(VK_MEDIA_PREV_TRACK, 0, 2, 0)
-        time.sleep(.2)
+        time.sleep(1)
+        return(True, "")
+    except Exception as e:
+        return(False, f"Error occured: {e}")
+    
 
-    time.sleep(1)
-    print('previous media playing')
+def previous_track():
+    try:
+        VK_MEDIA_PREV_TRACK = 0xB1
+
+        for i in range(2):
+            ctypes.windll.user32.keybd_event(VK_MEDIA_PREV_TRACK, 0, 0, 0) 
+            ctypes.windll.user32.keybd_event(VK_MEDIA_PREV_TRACK, 0, 2, 0)
+            time.sleep(.2)
+
+        time.sleep(1)
+        return(True, "")
+    except Exception as e:
+        return(False, f"Error occured: {e}")
+    
 
 
 

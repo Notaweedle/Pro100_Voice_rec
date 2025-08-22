@@ -50,6 +50,7 @@ def linux_set_brightness(brightness: int) -> None:
     try:
         with open(brightness_path, "w") as f:
             f.write(str(brightness))
+            return(True, "") 
     except PermissionError:
         raise PermissionError("Denied - execute as root.")
 
@@ -62,31 +63,69 @@ def linux_get_brightness() -> int:
 
 def decrease_brightness():
     if user_device == 'win32':
-        sbc.set_brightness('-20')
+        try:
+            sbc.set_brightness('-20')
+            return(True, "") 
+        except Exception as e:
+            return(False, f"Failed to decrease brightness because: {e}") 
     elif user_device == 'linux':
-        current = linux_get_brightness_raw()
-        linux_set_brightness(current - int(0.2 * current))
+        try:
+            current = linux_get_brightness_raw()
+            linux_set_brightness(current - int(0.2 * current))
+            return(True, "") 
+        except Exception as e:
+            return(False, f"Failed to decrease brightness because: {e}") 
+
+
         
 def increase_brightness():
      if user_device == 'win32':
-        sbc.set_brightness('+20')
+        try:
+            sbc.set_brightness('+20')
+            return(True, "") 
+        except Exception as e:
+            return(False, f"Failed to increase brightness because: {e}") 
+        
      elif user_device == 'linux':
-        current = linux_get_brightness_raw()
-        linux_set_brightness(current + int(0.2 * current))
+        try:
+            current = linux_get_brightness_raw()
+            linux_set_brightness(current + int(0.2 * current))
+            return(True, "") 
+        except Exception as e:
+            return(False, f"Failed to increase brightness because: {e}") 
 
 def max_brightness():
     if user_device == 'win32':
-        sbc.set_brightness('100')
+        try:
+            sbc.set_brightness('100')
+            return(True, "") 
+        except Exception as e:
+            return(False, f"Failed to max brightness because: {e}") 
+        
     elif user_device == 'linux':
-        _, max_brightness = get_linux_brightness_properties()  # get current max
-        linux_set_brightness(max_brightness)
+        try:
+            _, max_brightness = get_linux_brightness_properties()  # get current max
+            linux_set_brightness(max_brightness)
+            return(True, "") 
+        except Exception as e:
+            return(False, f"Failed to max brightness because: {e}") 
+
 
 def min_brightness():
     if user_device == 'win32':
-        sbc.set_brightness('0.7', force=True)
+        try:
+            sbc.set_brightness('0.7', force=True)
+            return(True, "") 
+        except Exception as e:
+            return(False, f"Failed to min brightness because: {e}") 
 
     elif user_device == 'linux':
-        linux_set_brightness(5) # DO NOT SET TO ZERO!
+        try:
+            linux_set_brightness(5) # DO NOT SET TO ZERO!
+            return(True, "") 
+        except Exception as e:
+            return(False, f"Failed to min brightness because: {e}") 
+        
 
 
 # ______________________________________________________________________________
@@ -121,37 +160,11 @@ def kill_active_window():
     pid = info[2]
 
     #ADD tts to speak what function is being killed, using the title
-
-    subprocess.run(f"taskkill /PID {pid} /F", shell=True)
-
-
-
-def get_linux_active():
-
-    if os.environ.get("WAYLAND_DISPLAY"):
-        return "Wayland"
-    elif os.environ.get("DISPLAY"):
-        from Xlib import display
-        import psutil, subprocess
-
-
-        d = display.Display()
-        root = d.screen().root
-
-        NET_ACTIVE_WINDOW = d.intern_atom('_NET_ACTIVE_WINDOW')
-        NET_WM_NAME = d.intern_atom('_NET_WM_NAME')
-
-        window_id = root.get_full_property(NET_ACTIVE_WINDOW, display.X.AnyPropertyType).value[0]
-        window = d.create_resource_object('window', window_id)
-
-
-        window_name = window.get_full_property(NET_WM_NAME, 0).value.decode('utf-8')
-
-        pid_atom = d.intern_atom('_NET_WM_PID')
-        pid = window.get_full_property(pid_atom, 0).value[0]
-        process_name = psutil.Process(pid).name()
-
-        print(f'title: {window_name}, pid: {pid}, process: {process_name}')
+    try:
+        subprocess.run(f"taskkill /PID {pid} /F", shell=True)
+        return(True, "")
+    except Exception as e:
+            return(False, f"Failed to kill app : {e}") 
 # ______________________________________________________________________________________________________________
 
 # Other system functions 
@@ -159,22 +172,47 @@ def get_linux_active():
 
 def lock_screen():
     if user_device == 'win32':
-        ctypes.windll.user32.LockWorkStation() 
+        try:
+            ctypes.windll.user32.LockWorkStation() 
+            return(True, "") 
+        except Exception as e:
+            return(False, f"Failed to lock screen : {e}") 
+        
     elif user_device == 'linux':
-        os.system('xdg-screensaver lock')
+        try:
+            os.system('xdg-screensaver lock')
+            return(True, "") 
+        except Exception as e:
+            return(False, f"Failed to shutdown: {e}") 
 
 def restart():
     if user_device == 'win32':
-        os.system('shutdown /r /t 1')
+        try:
+            os.system('shutdown /r /t 1')
+            return(True, "") 
+        except Exception as e:
+            return(False, f"Failed to restart : {e}") 
+        
     elif user_device == 'linux':
-        os.system('reboot')
+        try:
+            os.system('reboot')
+            return(True, "") 
+        except Exception as e:
+            return(False, f"Failed to shutdown: {e}") 
+
 
 def shutdown():
     if user_device == 'win32':
-        os.system('shutdown /s /t 2')
+        try:
+            os.system('shutdown /s /t 2')
+            return(True, "") 
+        except Exception as e:
+            return(False, f"Failed to shutdown: {e}") 
+        
     elif user_device == 'linux':
-        os.system('shutdown --no-wall -P')
+        try:
+            os.system('shutdown --no-wall -P')
+            return(True, "") 
+        except Exception as e:
+            return(False, f"Failed to shutdown: {e}") 
 
-
-restart()
-os.system('reboot')

@@ -1,5 +1,5 @@
-import sys, os, webbrowser, time
-#from command_processes import audio as a, system_functions as sf
+import sys, os, webbrowser, subprocess
+from command_processes import audio as a, system_functions as sf
 
 class CommandExecutor():
     def __init__(self):
@@ -7,8 +7,6 @@ class CommandExecutor():
         self.python_exe = sys.executable
         self.pythonw_exe = os.path.join(os.path.dirname(sys.executable), "pythonw.exe")
         self.device_type = sys.platform
-        #self.script_path = os.path.join(os.path.dirname(__file__), "command_processes", "add_command.py") # redoing this
-        #self.listener_path = os.path.join(os.path.dirname(__file__), "listener.pyw") # old
 
     def execute_command(self, command):
         if command['category'].lower() == "default":
@@ -16,28 +14,47 @@ class CommandExecutor():
         else:
             match command['type']:
                 case 'Program':
-                    return self.execute_program_command(command['target'])
+                    return self.execute_program_command(command['target'], command['name'].lower())
                 case 'Browser':
-                    return self.execute_browser_command(command['target'])
+                    return self.execute_browser_command(command['target'], command['name'].lower())
                 case 'Script':
-                    return self.execute_script_command(command['target'])
+                    return self.execute_script_command(command['target'], command['name'].lower())
         # DON'T FORGET TO ADD COMMAND LOGGING
 
-    def execute_program_command(self, program_path):
-        print(program_path)
+    def execute_program_command(self, program_path, name):
+        if os.path.exists(program_path):
+            a.speak(f"Opening {name}")
+            os.startfile(program_path)
+            return (True, "")
+        else:
+            return(False, f"Program path does not exist: {program_path}")
 
-    def execute_browser_command(self, url):
+    def execute_browser_command(self, url, name):
         if not url.startswith("http://") or not url.startswith("https://"):
             url = "https://" + url
+        a.speak(f'Opening {name}')
         webbrowser.open(url)
         return (True, "")
 
-    def execute_script_command(self, script_path):
-        print(script_path)
+    def execute_script_command(self, script_path, name):
+        if not os.path.isfile(script_path):
+            return(False, f"The Script path doesnt exsist: {script_path}")
+        
+        if not sys.executable or not os.path.isfile(sys.executable):
+            print("Python interpreter not found")
+            return(False, "Python interpreter not found")
+
+        try:
+            a.speak(f'Running {name}.py')
+            subprocess.run([sys.executable, script_path])
+        except subprocess.CalledProcessError as e:
+            print("could not run script, heres the error", e.stderr)
+            return(False, f"An error occured: {e.stderr}")
 
     # DEFAULT COMMANDS BELOW HERE
 
     def execute_default_command(self, command):
+        import time
         name = command['name'].lower()
         target = command['target']
 
@@ -50,21 +67,102 @@ class CommandExecutor():
                 if os.path.exists(target):
                     return (False, 'Steam not installed')
                 else:
+                    a.speak(f'opening steam')
                     os.startfile(target)
 
             elif self.device_type == 'linux':
                 import shutil
+                a.speak(f'opening steam')
                 app_path = shutil.which('steam')
                 # report / warning
                 if app_path is None:
                     return (False, 'Steam not installed')
 
         elif 'browser' in name:
+           return self.execute_browser_command(target, 'Browser')
+
+        elif 'volume down' in name:
+            a.speak('Turning down volume')
             time.sleep(.2)
-            webbrowser.open_new('google.com')
+            return a.turn_down_volume()
+
+        elif 'volume up' in name:
+            a.speak('Turning up volume')
+            time.sleep(.2)
+            return a.turn_up_volume()
+
+        elif 'mute volume' in name or 'mute audio' in name:
+            return a.mute_speakers()
+
+        elif 'max volume' in name or 'full volume' in name:
+            a.speak('Maxed out the volume')
+            return a.max_volume()
+
+        elif 'min volume' in name or 'minimum volume' in name:
+            return a.min_volume()
+
+        elif 'unmute volume' in name or 'unmute audio' in name:
+            a.speak('Unmuted volume')
+            return a.unmute()
+
+        elif 'mute mic' in name or 'mute microphone' in name:
+            a.speak('Muted mic')
+            return a.mute_mic()
+
+        elif 'minimum brightness' in name:
+            a.speak('Minimized Brightness')
+            return sf.min_brightness()
+
+        elif 'max brightness' in name or 'maximum brightness' in name:
+            a.speak('Maximized the Brightness')
+            return sf.max_brightness()
+
+        elif 'decrease brightness' in name:
+            a.speak('I have decreased the brightness')
+            return sf.decrease_brightness()
+
+        elif 'increase brightness' in name:
+            a.speak('I have increased the brightness')
+            return sf.increase_brightness()
+
+        elif 'close window' in name or 'close application' in name or 'kill application' in name:
+            a.speak('I have closed the active window')
+            return sf.kill_active_window()
+
+        elif 'lock' in name or 'lock computer' in name:
+            a.speak('Locking your computer')
+            return sf.lock_screen()
+
+        elif 'restart' in name or 'restart computer' in name:
+            a.speak('Restarting')
+            return sf.restart()
+
+        elif 'shutdown' in name or 'shut down computer' in name or 'shut down' in name:
+            a.speak('Shutting down')
+            return sf.shutdown()
+        
+        elif 'pause music' in name:
+            a.speak('Paused music')
+            return a.pause_or_play()
+
+        elif 'play music' in name:
+            a.speak("Playing music")
+            return a.pause_or_play()
+        
+        elif 'next song' in name: 
+            a.speak('Skipping to next song')
+            return a.next_track()
+        
+        elif 'rewind song' in name:
+            a.speak("Rewinded song")
+            return a.rewind_track()
+        
+        elif 'previous song' in name:
+            a.speak("Playing Previous song")
+            return a.previous_track()
+
 
         # return true if a command reaches this far
         return (True, "")
-
 
 

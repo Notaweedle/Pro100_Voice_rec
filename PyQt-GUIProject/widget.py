@@ -2,7 +2,7 @@
 import sys
 from PySide6.QtWidgets import QApplication, QWidget, QTableWidgetItem
 from PySide6.QtCore import Qt
-from command_processes import commands
+
 
 # auto generated stuff
 from ui_form import Ui_Widget
