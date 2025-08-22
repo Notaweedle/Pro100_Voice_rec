@@ -9,7 +9,7 @@
   },
   {
     "name": "Volume Up",
-    "speech": "volume up by 5",
+    "speech": "volume up",
     "enabled": "True",
     "category": "Default",
     "type": "Utility",
@@ -17,7 +17,151 @@
   },
   {
     "name": "Volume Down",
-    "speech": "volume down by 5",
+    "speech": "volume down",
+    "enabled": "True",
+    "category": "Default",
+    "type": "Utility",
+    "target": "N/A"
+  },
+  {
+    "name": "Mute Volume",
+    "speech": "mute volume",
+    "enabled": "True",
+    "category": "Default",
+    "type": "Utility",
+    "target": "N/A"
+  },
+  {
+    "name": "Unmute Volume",
+    "speech": "unmute volume",
+    "enabled": "True",
+    "category": "Default",
+    "type": "Utility",
+    "target": "N/A"
+  },
+  {
+    "name": "Max Volume",
+    "speech": "max volume",
+    "enabled": "True",
+    "category": "Default",
+    "type": "Utility",
+    "target": "N/A"
+  },
+  {
+    "name": "Min Volume",
+    "speech": "min volume",
+    "enabled": "True",
+    "category": "Default",
+    "type": "Utility",
+    "target": "N/A"
+  },
+  {
+    "name": "Mute Microphone",
+    "speech": "mute microphone",
+    "enabled": "True",
+    "category": "Default",
+    "type": "Utility",
+    "target": "N/A"
+  },
+  {
+    "name": "Min Brightness",
+    "speech": "min brightness",
+    "enabled": "True",
+    "category": "Default",
+    "type": "Utility",
+    "target": "N/A"
+  },
+  {
+    "name": "Max Brightness",
+    "speech": "max brightness",
+    "enabled": "True",
+    "category": "Default",
+    "type": "Utility",
+    "target": "N/A"
+  },
+  {
+    "name": "Brightness Up",
+    "speech": "brightness up",
+    "enabled": "True",
+    "category": "Default",
+    "type": "Utility",
+    "target": "N/A"
+  },
+  {
+    "name": "Brightness Down",
+    "speech": "brightness down",
+    "enabled": "True",
+    "category": "Default",
+    "type": "Utility",
+    "target": "N/A"
+  },
+  {
+    "name": "Close Active Window",
+    "speech": "close window",
+    "enabled": "True",
+    "category": "Default",
+    "type": "Utility",
+    "target": "N/A"
+  },
+  {
+    "name": "Lock Computer",
+    "speech": "lock computer",
+    "enabled": "True",
+    "category": "Default",
+    "type": "Utility",
+    "target": "N/A"
+  },
+  {
+    "name": "Restart Computer",
+    "speech": "restart computer",
+    "enabled": "True",
+    "category": "Default",
+    "type": "Utility",
+    "target": "N/A"
+  },
+  {
+    "name": "Shutdown Computer",
+    "speech": "shutdown computer",
+    "enabled": "True",
+    "category": "Default",
+    "type": "Utility",
+    "target": "N/A"
+  },
+  {
+    "name": "Pause Music",
+    "speech": "pause music",
+    "enabled": "True",
+    "category": "Default",
+    "type": "Utility",
+    "target": "N/A"
+  },
+  {
+    "name": "Play Music",
+    "speech": "play music",
+    "enabled": "True",
+    "category": "Default",
+    "type": "Utility",
+    "target": "N/A"
+  },
+  {
+    "name": "Next Song",
+    "speech": "next song",
+    "enabled": "True",
+    "category": "Default",
+    "type": "Utility",
+    "target": "N/A"
+  },
+  {
+    "name": "Previous Song",
+    "speech": "previous song",
+    "enabled": "True",
+    "category": "Default",
+    "type": "Utility",
+    "target": "N/A"
+  },
+  {
+    "name": "Rewind Song",
+    "speech": "rewind song",
     "enabled": "True",
     "category": "Default",
     "type": "Utility",
@@ -32,27 +176,27 @@
     "target": "google.com"
   },
   {
-    "name": "test",
-    "speech": "test",
+    "name": "Notepad++",
+    "speech": "open notepad",
     "enabled": "True",
-    "category": "test",
+    "category": "testing",
     "type": "Program",
-    "target": "test"
-  },
-  {
-    "name": "fdsafsaf",
-    "speech": "burger",
-    "enabled": "True",
-    "category": "testasdf",
-    "type": "Program",
-    "target": "tasdf"
+    "target": "C:\\Program Files\\Notepad++\\notepad++.exe"
   },
   {
     "name": "Youtube",
     "speech": "open youtube",
     "enabled": "True",
-    "category": "sites",
+    "category": "testing",
     "type": "Browser",
     "target": "youtube.com"
+  },
+  {
+    "name": "Test Script",
+    "speech": "test script",
+    "enabled": "True",
+    "category": "testing",
+    "type": "Script",
+    "target": "C:\\Users\\waypa\\Downloads\\test_script.py"
   }
 ]

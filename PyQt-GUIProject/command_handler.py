@@ -28,6 +28,7 @@ class CommandHandler():
         parentWindow.loadCustomCommandsTable(parentWindow.ui.customCommandsTable, self.commands_dict)
 
     def check_speech(self, speech):
+        print(speech)
         # current idea to work on:
         # check_speech(speech) decides if speech matches a command
         # if so, it passes the command name to the other module
@@ -36,9 +37,9 @@ class CommandHandler():
             if phrase in speech:
                 for command in self.commands_dict:
                     if command['speech'] == phrase:
-                        self.CommandExecutor.execute_command(command)
-
-
+                        print("Attempted to execute command: " + str(command))
+                        success = self.CommandExecutor.execute_command(command)
+                        print(success)
 
     def load_commands(self):
         if os.path.exists(self.commands_file):
@@ -64,6 +65,7 @@ class CommandHandler():
         # update full dict
         self.commands_dict = commands_json
         # and then speech phrases for an easy index with check_speech
+        self.command_speech_phrases = []
         for command in commands_json:
             if command['enabled'] == "True":
                 self.command_speech_phrases.append(command['speech'])
