@@ -1,8 +1,6 @@
-import os, ctypes, time
-from dotenv import load_dotenv
-load_dotenv(dotenv_path=r'.env')
+import os, ctypes, time, sys
 
-user_device = os.getenv('DEVICE_TYPE')
+user_device = sys.platform
 
 if user_device == 'win32':
     from pycaw.pycaw import AudioUtilities, IAudioEndpointVolume

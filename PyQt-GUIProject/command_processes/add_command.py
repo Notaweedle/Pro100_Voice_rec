@@ -3,7 +3,7 @@ import os, sys
 from dotenv import load_dotenv
 import write_command, subprocess
 
-user_device = os.getenv('DEVICE_TYPE')
+user_device = sys.platform
 
 filepaths = []
 name = ''
