@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-import sys, os, webbrowser, subprocess
-=======
 import sys, os, webbrowser, time, subprocess
->>>>>>> b3b80a12f484814045fb2f68adbfea1fb9e388a5
 from command_processes import audio as a, system_functions as sf
 
 class CommandExecutor():
@@ -25,15 +21,9 @@ class CommandExecutor():
                     return self.execute_script_command(command['target'], command['name'].lower())
         # DON'T FORGET TO ADD COMMAND LOGGING
 
-<<<<<<< HEAD
     def execute_program_command(self, program_path, name):
         if os.path.exists(program_path):
             a.speak(f"Opening {name}")
-=======
-    def execute_program_command(self, program_path):
-        if os.path.exists(program_path):
-            #a.speak(f"Opening {name}")
->>>>>>> b3b80a12f484814045fb2f68adbfea1fb9e388a5
             os.startfile(program_path)
             return (True, "")
         else:
@@ -42,7 +32,6 @@ class CommandExecutor():
     def execute_browser_command(self, url, name):
         if not url.startswith("http://") or not url.startswith("https://"):
             url = "https://" + url
-<<<<<<< HEAD
         a.speak(f'Opening {name}')
         webbrowser.open(url)
         return (True, "")
@@ -51,30 +40,13 @@ class CommandExecutor():
         if not os.path.isfile(script_path):
             return(False, f"The Script path doesnt exsist: {script_path}")
         
-=======
-        #a.speak(f'Opening {name}')
-        webbrowser.open(url)
-        return (True, "")
-
-    def execute_script_command(self, script_path):
-        if not os.path.isfile(script_path):
-            return(False, f"Script path doesnt exsist: {script_path}")
-
->>>>>>> b3b80a12f484814045fb2f68adbfea1fb9e388a5
         if not sys.executable or not os.path.isfile(sys.executable):
             print("Python interpreter not found")
             return(False, "Python interpreter not found")
 
         try:
-<<<<<<< HEAD
             a.speak(f'Running {name}.py')
             subprocess.run([sys.executable, script_path])
-=======
-            #a.speak(f'Running {name}.py')
-            result = subprocess.run([sys.executable, script_path], capture_output=True, text=True)
-            print(result.stdout)
-            return (True, "")
->>>>>>> b3b80a12f484814045fb2f68adbfea1fb9e388a5
         except subprocess.CalledProcessError as e:
             print("could not run script, heres the error", e.stderr)
             return(False, f"An error occured: {e.stderr}")
@@ -95,26 +67,17 @@ class CommandExecutor():
                 if not os.path.exists(target):
                     return (False, f'Steam path not found: {target} (possibly not installed?)')
                 else:
-<<<<<<< HEAD
                     a.speak(f'opening steam')
-=======
-                    #a.speak('opening steam')
->>>>>>> b3b80a12f484814045fb2f68adbfea1fb9e388a5
                     os.startfile(target)
 
             elif self.device_type == 'linux':
                 import shutil
-<<<<<<< HEAD
                 a.speak(f'opening steam')
-=======
-                #a.speak('opening steam')
->>>>>>> b3b80a12f484814045fb2f68adbfea1fb9e388a5
                 app_path = shutil.which('steam')
                 # report / warning
                 if app_path is None:
                     return (False, 'Steam not installed')
 
-<<<<<<< HEAD
         elif 'browser' in name:
            return self.execute_browser_command(target, 'Browser')
 
@@ -198,15 +161,6 @@ class CommandExecutor():
             a.speak("Playing Previous song")
             return a.previous_track()
 
-=======
-        elif name == 'browser':
-           return self.execute_browser_command(target)
-
-        elif name == 'volume down':
-            #a.speak('Turning down volume')
-            time.sleep(.2)
-            return a.turn_down_volume()
->>>>>>> b3b80a12f484814045fb2f68adbfea1fb9e388a5
 
         elif name == 'volume up':
             #a.speak('Turning up volume')
@@ -285,10 +239,7 @@ class CommandExecutor():
             return a.previous_track()
 
 
-<<<<<<< HEAD
-=======
         # at this point, all implemented default commands should have been found and returned properly
         # if not, there is an implicit error and it should be returned as such
         return (False, "Default command not found!")
 
->>>>>>> b3b80a12f484814045fb2f68adbfea1fb9e388a5
