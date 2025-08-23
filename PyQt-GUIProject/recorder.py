@@ -1,6 +1,6 @@
 #TODO this was just moved frm widget.py nothing is really working or updated
 import speech_recognition as sr
-
+import re
 
 class Recorder():
     def __init__(self, callbackFunc, startRecordingBtn, stopRecordingBtn, parent=None):
@@ -34,9 +34,22 @@ class Recorder():
             self.recording = False
 
     def test_callback(self, recognizer, audio):
-        text_recognized = recognizer.recognize_whisper(audio, language="english")
+        text_recognized = recognizer.recognize_whisper(audio, language="english") # CHANGE TO BELOW
         #text_recognized = recognizer.recognize_vosk(audio)
+        #text_recognized = recognizer.recognize_pocketsphinx(audio)
 
         if text_recognized and text_recognized != "":
-            self.ui.listWidget.addItem(text_recognized) #CHANGE
-            self.callbackFunc(text_recognized)
+            #self.ui.listWidget.addItem(text_recognized)
+            parsed = self.parse_whisper_text(text_recognized)
+            self.callbackFunc(parsed)
+
+    # formats audio returned from recognize_whisper to remove punctuation, capitalization, etc.
+    def parse_whisper_text(self, text):
+        text = text.strip().lower()
+        text = re.sub(r"[^A-Za-z0-9 ]", "", text)
+        return text
+
+    def changeMic(self):
+        #self.mic = sr.Microphone(device_index=1)
+        pass
+

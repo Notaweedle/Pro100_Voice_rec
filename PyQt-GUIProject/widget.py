@@ -3,7 +3,6 @@ import sys
 from PySide6.QtWidgets import QApplication, QWidget, QTableWidgetItem
 from PySide6.QtCore import Qt
 
-
 # auto generated stuff
 from ui_form import Ui_Widget
 from calibration_widget import CalibrationWidget
@@ -41,15 +40,8 @@ class Widget(QWidget):
         self.ui.editCustomRowBtn.clicked.connect(self.onEditCustomRow)
 
         # settings page setup
-        self.ui.openCalibrationBtn.clicked.connect(self.showCalibration)
-
-        # main window testing stuff
-        self.ui.listWidget.itemClicked.connect(self.selectItemInList)
-        self.ui.clearHistoryBtn.clicked.connect(self.clearSpeechHistory)
-
-    #testing recording callback to print the text afterwards
-    def recording_callback(self, recognized_text):
-        print(recognized_text)
+        self.ui.openCalibrationBtn.clicked.connect(self.showCalibration) # needs to be moved into settings handler
+        self.SettingsHandler = SettingsPageHandler(self)
 
     # UNIVERSAL TABLE CELL CREATOR
     # since they all need to be centered (and maybe more to add)

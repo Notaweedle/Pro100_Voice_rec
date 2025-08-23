@@ -1,11 +1,21 @@
 import ctypes, os, warnings, sys
 
+'''
 if os.getenv('DEVICE_TYPE') == 'win32':
     import screen_brightness_control as sbc, os, subprocess
 else:
     pass
 
+from dotenv import load_dotenv
+load_dotenv(dotenv_path=r'.env')
+user_device = os.getenv('DEVICE_TYPE')
+'''
+
 user_device = sys.platform
+
+if user_device == 'win32':
+    import screen_brightness_control as sbc
+
 # Screen brightness controls
 
 def get_linux_brightness_paths() -> list[str]:
@@ -110,6 +120,7 @@ def max_brightness():
 
 
 def min_brightness():
+    print(user_device)
     if user_device == 'win32':
         try:
             sbc.set_brightness('0.7', force=True)
@@ -213,4 +224,3 @@ def shutdown():
             return(True, "") 
         except Exception as e:
             return(False, f"Failed to shutdown: {e}") 
-

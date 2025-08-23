@@ -1,5 +1,21 @@
 import os, ctypes, time, sys
 
+'''
+from dotenv import load_dotenv
+load_dotenv(dotenv_path=r'.env')
+
+user_device = os.getenv('DEVICE_TYPE')
+
+if user_device == 'win32':
+    from pycaw.pycaw import AudioUtilities, IAudioEndpointVolume
+    from comtypes import CLSCTX_ALL
+    from ctypes import cast, POINTER
+
+elif user_device == 'linux':
+
+    import pyvolume.pyvolume as pyinner
+'''
+
 user_device = sys.platform
 
 if user_device == 'win32':
@@ -10,7 +26,6 @@ if user_device == 'win32':
 elif user_device == 'linux':
 
     import pyvolume.pyvolume as pyinner
-
 
 
 # These are for the speakers not the input, so output!!
@@ -219,9 +234,3 @@ def previous_track():
         return(True, "")
     except Exception as e:
         return(False, f"Error occured: {e}")
-    
-
-
-
-    
-    
