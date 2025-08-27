@@ -1,4 +1,5 @@
 from recorder import Recorder
+import threading
 
 class HomePageHandler():
     def __init__(self, parentWindow):
@@ -7,8 +8,10 @@ class HomePageHandler():
         self.removeSpeechHistoryItemBtn = parentWindow.ui.removeSpeechHistoryItemBtn
         self.clearSpeechHistoryBtn = parentWindow.ui.clearSpeechHistoryBtn
 
-        # create recorder
+        # create recorder and passive recorder
         parentWindow.Recorder = Recorder(parentWindow, self.recording_callback)
+        threading.Thread(target=parentWindow.Recorder.startPassive, daemon=True).start()
+        
         # setup recording buttons
         parentWindow.ui.startRecordingBtn.clicked.connect(parentWindow.Recorder.startRecording)
         parentWindow.ui.stopRecordingBtn.clicked.connect(parentWindow.Recorder.stopRecording)
