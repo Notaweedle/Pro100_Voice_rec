@@ -1,21 +1,5 @@
 import os, ctypes, time, sys
 
-'''
-from dotenv import load_dotenv
-load_dotenv(dotenv_path=r'.env')
-
-user_device = os.getenv('DEVICE_TYPE')
-
-if user_device == 'win32':
-    from pycaw.pycaw import AudioUtilities, IAudioEndpointVolume
-    from comtypes import CLSCTX_ALL
-    from ctypes import cast, POINTER
-
-elif user_device == 'linux':
-
-    import pyvolume.pyvolume as pyinner
-'''
-
 user_device = sys.platform
 
 if user_device == 'win32':
@@ -180,7 +164,7 @@ def speak(text):
     engine.setProperty("rate", 120)  
     engine.setProperty("volume", 1) 
     voices = engine.getProperty("voices") 
-    engine.setProperty("voice", voices[1].id) 
+    engine.setProperty("voice", voices[0].id) 
     engine.say(text)
     engine.runAndWait()
     engine.stop()
