@@ -1,6 +1,7 @@
-#TODO this was just moved frm widget.py nothing is really working or updated
+
 import speech_recognition as sr
-import re
+import re, time
+from command_processes import audio as a
 
 class Recorder():
     def __init__(self, callbackFunc, startRecordingBtn, stopRecordingBtn, parent=None):
@@ -8,6 +9,8 @@ class Recorder():
         self.recording = False
         self.r = sr.Recognizer()
         self.mic = sr.Microphone()
+        self.stream = self.r.listen_in_background(self.mic, callback=self.test_callback)
+        self.passive_on = True
 
         self.callbackFunc = callbackFunc
         self.startRecordingBtn = startRecordingBtn
@@ -15,9 +18,10 @@ class Recorder():
 
     #recording functionz
     def startRecording(self):
+        self.passive_on = False
         if not self.recording:
             # start recording here
-            self.end_recording = self.r.listen_in_background(self.mic, callback=self.test_callback)
+            self.end_recording = self.stream
             # adjust boolean values
             self.startRecordingBtn.setEnabled(False) # CHANGE
             self.stopRecordingBtn.setEnabled(True) # CHANGE
@@ -28,10 +32,18 @@ class Recorder():
             # stop the recording here
             if self.end_recording is not None:
                 self.end_recording(False)
+                time.sleep(4)
+                self.stream = self.r.listen_in_background(self.mic, callback=self.test_callback)
+
             # adjust boolean values
             self.startRecordingBtn.setEnabled(True) # CHANGE
             self.stopRecordingBtn.setEnabled(False) # CHANGE
             self.recording = False
+            self.passive_on = True
+
+    def not_passive(self):
+        self.end_recording = self.stream
+        self.recording = True
 
     def test_callback(self, recognizer, audio):
         text_recognized = recognizer.recognize_whisper(audio, language="english") # CHANGE TO BELOW
@@ -41,7 +53,16 @@ class Recorder():
         if text_recognized and text_recognized != "":
             #self.ui.listWidget.addItem(text_recognized)
             parsed = self.parse_whisper_text(text_recognized)
-            self.callbackFunc(parsed)
+            if self.passive_on == True:
+                print(parsed)
+                if 'hey rat' in parsed:
+                    a.speak("Yes?")
+                    self.passive_on = False
+                    time.sleep(1)
+                    self.not_passive()
+            else:
+                self.callbackFunc(parsed)
+
 
     # formats audio returned from recognize_whisper to remove punctuation, capitalization, etc.
     def parse_whisper_text(self, text):
@@ -52,4 +73,10 @@ class Recorder():
     def changeMic(self):
         #self.mic = sr.Microphone(device_index=1)
         pass
+# ________________________________________________________________________________________
+
+    def startPassive(self):
+        self.end_recording = self.stream
+
+
 

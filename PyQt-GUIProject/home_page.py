@@ -1,4 +1,5 @@
 from recorder import Recorder
+import threading
 
 class HomePageHandler():
     def __init__(self, parentWindow):
@@ -9,6 +10,8 @@ class HomePageHandler():
 
         # create recorder
         parentWindow.Recorder = Recorder(self.recording_callback, parentWindow.ui.startRecordingBtn, parentWindow.ui.stopRecordingBtn)
+        threading.Thread(target=parentWindow.Recorder.startPassive, daemon=True).start()
+        
         # setup recording buttons
         parentWindow.ui.startRecordingBtn.clicked.connect(parentWindow.Recorder.startRecording)
         parentWindow.ui.stopRecordingBtn.clicked.connect(parentWindow.Recorder.stopRecording)
