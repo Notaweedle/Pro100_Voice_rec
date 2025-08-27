@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE QtCreatorProject>
-<!-- Written by QtCreator 17.0.0, 2025-08-22T16:51:27. -->
+<!-- Written by QtCreator 17.0.0, 2025-08-27T16:22:17. -->
 <qtcreator>
  <data>
   <variable>EnvironmentId</variable>
@@ -196,8 +196,10 @@
      <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">PythonEditor.RunConfiguration.</value>
      <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">C:/Users/waypa/OneDrive/Documents/GitHub/Pro100_Voice_rec/PyQt-GUIProject/settings_handler.py</value>
      <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">true</value>
+     <value type="QString" key="PythonEditor.RunConfiguation.Script">C:\Users\waypa\OneDrive\Documents\GitHub\Pro100_Voice_rec\PyQt-GUIProject\settings_handler.py</value>
      <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
      <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
+     <value type="QString" key="RunConfiguration.WorkingDirectory.default">C:/Users/waypa/OneDrive/Documents/GitHub/Pro100_Voice_rec/PyQt-GUIProject</value>
     </valuemap>
     <valuemap type="QVariantMap" key="ProjectExplorer.Target.RunConfiguration.11">
      <value type="bool" key="Analyzer.Perf.Settings.UseGlobalSettings">true</value>
@@ -212,7 +214,7 @@
      <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">home_page.py</value>
      <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">PythonEditor.RunConfiguration.</value>
      <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">C:/Users/waypa/OneDrive/Documents/GitHub/Pro100_Voice_rec/PyQt-GUIProject/home_page.py</value>
-     <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">false</value>
+     <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">true</value>
      <value type="QString" key="PythonEditor.RunConfiguation.Script">C:\Users\waypa\OneDrive\Documents\GitHub\Pro100_Voice_rec\PyQt-GUIProject\home_page.py</value>
      <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
      <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
@@ -231,7 +233,7 @@
      <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">settings_page.py</value>
      <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">PythonEditor.RunConfiguration.</value>
      <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">C:/Users/waypa/OneDrive/Documents/GitHub/Pro100_Voice_rec/PyQt-GUIProject/settings_page.py</value>
-     <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">false</value>
+     <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">true</value>
      <value type="QString" key="PythonEditor.RunConfiguation.Script">C:\Users\waypa\OneDrive\Documents\GitHub\Pro100_Voice_rec\PyQt-GUIProject\settings_page.py</value>
      <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
      <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
@@ -250,7 +252,7 @@
      <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">commands.py</value>
      <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">PythonEditor.RunConfiguration.</value>
      <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">C:/Users/waypa/OneDrive/Documents/GitHub/Pro100_Voice_rec/PyQt-GUIProject/commands.py</value>
-     <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">false</value>
+     <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">true</value>
      <value type="QString" key="PythonEditor.RunConfiguation.Script">C:\Users\waypa\OneDrive\Documents\GitHub\Pro100_Voice_rec\PyQt-GUIProject\commands.py</value>
      <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
      <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
@@ -269,7 +271,7 @@
      <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">command_processes\audio.py</value>
      <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">PythonEditor.RunConfiguration.</value>
      <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">C:/Users/waypa/OneDrive/Documents/GitHub/Pro100_Voice_rec/PyQt-GUIProject/command_processes/audio.py</value>
-     <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">false</value>
+     <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">true</value>
      <value type="QString" key="PythonEditor.RunConfiguation.Script">C:\Users\waypa\OneDrive\Documents\GitHub\Pro100_Voice_rec\PyQt-GUIProject\command_processes\audio.py</value>
      <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
      <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
@@ -288,7 +290,7 @@
      <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">command_processes\system_functions.py</value>
      <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">PythonEditor.RunConfiguration.</value>
      <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">C:/Users/waypa/OneDrive/Documents/GitHub/Pro100_Voice_rec/PyQt-GUIProject/command_processes/system_functions.py</value>
-     <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">false</value>
+     <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">true</value>
      <value type="QString" key="PythonEditor.RunConfiguation.Script">C:\Users\waypa\OneDrive\Documents\GitHub\Pro100_Voice_rec\PyQt-GUIProject\command_processes\system_functions.py</value>
      <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
      <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
@@ -396,7 +398,7 @@
      <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">create_command_widget.py</value>
      <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">PythonEditor.RunConfiguration.</value>
      <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">C:/Users/waypa/OneDrive/Documents/GitHub/Pro100_Voice_rec/PyQt-GUIProject/create_command_widget.py</value>
-     <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">false</value>
+     <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">true</value>
      <value type="QString" key="PythonEditor.RunConfiguation.Script">C:\Users\waypa\OneDrive\Documents\GitHub\Pro100_Voice_rec\PyQt-GUIProject\create_command_widget.py</value>
      <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
      <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
@@ -415,7 +417,7 @@
      <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">command_handler.py</value>
      <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">PythonEditor.RunConfiguration.</value>
      <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">C:/Users/waypa/OneDrive/Documents/GitHub/Pro100_Voice_rec/PyQt-GUIProject/command_handler.py</value>
-     <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">false</value>
+     <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">true</value>
      <value type="QString" key="PythonEditor.RunConfiguation.Script">C:\Users\waypa\OneDrive\Documents\GitHub\Pro100_Voice_rec\PyQt-GUIProject\command_handler.py</value>
      <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
      <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
@@ -434,7 +436,7 @@
      <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">recorder.py</value>
      <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">PythonEditor.RunConfiguration.</value>
      <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">C:/Users/waypa/OneDrive/Documents/GitHub/Pro100_Voice_rec/PyQt-GUIProject/recorder.py</value>
-     <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">false</value>
+     <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">true</value>
      <value type="QString" key="PythonEditor.RunConfiguation.Script">C:\Users\waypa\OneDrive\Documents\GitHub\Pro100_Voice_rec\PyQt-GUIProject\recorder.py</value>
      <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
      <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
@@ -509,8 +511,10 @@
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">PythonEditor.RunConfiguration.</value>
     <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">C:/Users/waypa/OneDrive/Documents/GitHub/Pro100_Voice_rec/PyQt-GUIProject/settings_handler.py</value>
     <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">true</value>
+    <value type="QString" key="PythonEditor.RunConfiguation.Script">C:\Users\waypa\OneDrive\Documents\GitHub\Pro100_Voice_rec\PyQt-GUIProject\settings_handler.py</value>
     <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
     <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
+    <value type="QString" key="RunConfiguration.WorkingDirectory.default">C:/Users/waypa/OneDrive/Documents/GitHub/Pro100_Voice_rec/PyQt-GUIProject</value>
    </valuemap>
    <valuemap type="QVariantMap" key="ProjectExplorer.Target.RunConfiguration.11">
     <value type="bool" key="Analyzer.Perf.Settings.UseGlobalSettings">true</value>
@@ -525,7 +529,7 @@
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">home_page.py</value>
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">PythonEditor.RunConfiguration.</value>
     <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">C:/Users/waypa/OneDrive/Documents/GitHub/Pro100_Voice_rec/PyQt-GUIProject/home_page.py</value>
-    <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">false</value>
+    <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">true</value>
     <value type="QString" key="PythonEditor.RunConfiguation.Script">C:\Users\waypa\OneDrive\Documents\GitHub\Pro100_Voice_rec\PyQt-GUIProject\home_page.py</value>
     <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
     <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
@@ -544,7 +548,7 @@
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">settings_page.py</value>
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">PythonEditor.RunConfiguration.</value>
     <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">C:/Users/waypa/OneDrive/Documents/GitHub/Pro100_Voice_rec/PyQt-GUIProject/settings_page.py</value>
-    <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">false</value>
+    <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">true</value>
     <value type="QString" key="PythonEditor.RunConfiguation.Script">C:\Users\waypa\OneDrive\Documents\GitHub\Pro100_Voice_rec\PyQt-GUIProject\settings_page.py</value>
     <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
     <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
@@ -563,7 +567,7 @@
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">commands.py</value>
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">PythonEditor.RunConfiguration.</value>
     <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">C:/Users/waypa/OneDrive/Documents/GitHub/Pro100_Voice_rec/PyQt-GUIProject/commands.py</value>
-    <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">false</value>
+    <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">true</value>
     <value type="QString" key="PythonEditor.RunConfiguation.Script">C:\Users\waypa\OneDrive\Documents\GitHub\Pro100_Voice_rec\PyQt-GUIProject\commands.py</value>
     <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
     <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
@@ -582,7 +586,7 @@
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">command_processes\audio.py</value>
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">PythonEditor.RunConfiguration.</value>
     <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">C:/Users/waypa/OneDrive/Documents/GitHub/Pro100_Voice_rec/PyQt-GUIProject/command_processes/audio.py</value>
-    <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">false</value>
+    <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">true</value>
     <value type="QString" key="PythonEditor.RunConfiguation.Script">C:\Users\waypa\OneDrive\Documents\GitHub\Pro100_Voice_rec\PyQt-GUIProject\command_processes\audio.py</value>
     <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
     <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
@@ -601,7 +605,7 @@
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">command_processes\system_functions.py</value>
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">PythonEditor.RunConfiguration.</value>
     <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">C:/Users/waypa/OneDrive/Documents/GitHub/Pro100_Voice_rec/PyQt-GUIProject/command_processes/system_functions.py</value>
-    <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">false</value>
+    <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">true</value>
     <value type="QString" key="PythonEditor.RunConfiguation.Script">C:\Users\waypa\OneDrive\Documents\GitHub\Pro100_Voice_rec\PyQt-GUIProject\command_processes\system_functions.py</value>
     <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
     <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
@@ -709,7 +713,7 @@
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">create_command_widget.py</value>
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">PythonEditor.RunConfiguration.</value>
     <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">C:/Users/waypa/OneDrive/Documents/GitHub/Pro100_Voice_rec/PyQt-GUIProject/create_command_widget.py</value>
-    <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">false</value>
+    <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">true</value>
     <value type="QString" key="PythonEditor.RunConfiguation.Script">C:\Users\waypa\OneDrive\Documents\GitHub\Pro100_Voice_rec\PyQt-GUIProject\create_command_widget.py</value>
     <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
     <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
@@ -728,7 +732,7 @@
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">command_handler.py</value>
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">PythonEditor.RunConfiguration.</value>
     <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">C:/Users/waypa/OneDrive/Documents/GitHub/Pro100_Voice_rec/PyQt-GUIProject/command_handler.py</value>
-    <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">false</value>
+    <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">true</value>
     <value type="QString" key="PythonEditor.RunConfiguation.Script">C:\Users\waypa\OneDrive\Documents\GitHub\Pro100_Voice_rec\PyQt-GUIProject\command_handler.py</value>
     <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
     <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
@@ -747,7 +751,7 @@
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">recorder.py</value>
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">PythonEditor.RunConfiguration.</value>
     <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">C:/Users/waypa/OneDrive/Documents/GitHub/Pro100_Voice_rec/PyQt-GUIProject/recorder.py</value>
-    <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">false</value>
+    <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">true</value>
     <value type="QString" key="PythonEditor.RunConfiguation.Script">C:\Users\waypa\OneDrive\Documents\GitHub\Pro100_Voice_rec\PyQt-GUIProject\recorder.py</value>
     <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
     <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>

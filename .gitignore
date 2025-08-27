@@ -209,3 +209,5 @@ __marimo__/
 # vosk speech recognition model
 #   shouldn't be committed, not even using it anyways
 /model/
+model/
+PyQt-GUIProject/model

@@ -1,4 +1,4 @@
-import ctypes, os, warnings, sys
+import ctypes, os, warnings, sys, subprocess
 
 '''
 if os.getenv('DEVICE_TYPE') == 'win32':

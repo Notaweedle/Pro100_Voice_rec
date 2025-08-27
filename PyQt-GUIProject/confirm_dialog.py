@@ -10,6 +10,9 @@ class ConfirmDialog(QtWidgets.QDialog):
         self.ui = Ui_ConfirmDialog()
         self.ui.setupUi(self)
 
+        if cancelText == None:
+            self.ui.cancelBtn.setVisible(False)
+            cancelText = "Cancel"
         # setup text params
         self.setupText(title, mainText, cancelText, confirmText)
         # connect buttons here!!

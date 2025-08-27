@@ -8,7 +8,7 @@ class HomePageHandler():
         self.clearSpeechHistoryBtn = parentWindow.ui.clearSpeechHistoryBtn
 
         # create recorder
-        parentWindow.Recorder = Recorder(self.recording_callback, parentWindow.ui.startRecordingBtn, parentWindow.ui.stopRecordingBtn)
+        parentWindow.Recorder = Recorder(parentWindow, self.recording_callback)
         # setup recording buttons
         parentWindow.ui.startRecordingBtn.clicked.connect(parentWindow.Recorder.startRecording)
         parentWindow.ui.stopRecordingBtn.clicked.connect(parentWindow.Recorder.stopRecording)

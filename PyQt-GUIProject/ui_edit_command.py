@@ -38,27 +38,6 @@ class Ui_EditCommandWidget(object):
         self.gridLayout.setSpacing(16)
         self.gridLayout.setObjectName(u"gridLayout")
         self.gridLayout.setContentsMargins(6, 6, 6, 6)
-        self.verticalLayout_2 = QVBoxLayout()
-        self.verticalLayout_2.setSpacing(2)
-        self.verticalLayout_2.setObjectName(u"verticalLayout_2")
-        self.label_2 = QLabel(EditCommandWidget)
-        self.label_2.setObjectName(u"label_2")
-        self.label_2.setAlignment(Qt.AlignmentFlag.AlignCenter)
-
-        self.verticalLayout_2.addWidget(self.label_2)
-
-        self.categoryEdit = QLineEdit(EditCommandWidget)
-        self.categoryEdit.setObjectName(u"categoryEdit")
-
-        self.verticalLayout_2.addWidget(self.categoryEdit)
-
-        self.verticalSpacer_2 = QSpacerItem(20, 40, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
-
-        self.verticalLayout_2.addItem(self.verticalSpacer_2)
-
-
-        self.gridLayout.addLayout(self.verticalLayout_2, 2, 0, 1, 1)
-
         self.verticalLayout_7 = QVBoxLayout()
         self.verticalLayout_7.setSpacing(2)
         self.verticalLayout_7.setObjectName(u"verticalLayout_7")
@@ -101,6 +80,50 @@ class Ui_EditCommandWidget(object):
 
 
         self.gridLayout.addLayout(self.verticalLayout_6, 0, 0, 1, 1)
+
+        self.verticalLayout_2 = QVBoxLayout()
+        self.verticalLayout_2.setSpacing(2)
+        self.verticalLayout_2.setObjectName(u"verticalLayout_2")
+        self.label_2 = QLabel(EditCommandWidget)
+        self.label_2.setObjectName(u"label_2")
+        self.label_2.setAlignment(Qt.AlignmentFlag.AlignCenter)
+
+        self.verticalLayout_2.addWidget(self.label_2)
+
+        self.categoryEdit = QLineEdit(EditCommandWidget)
+        self.categoryEdit.setObjectName(u"categoryEdit")
+
+        self.verticalLayout_2.addWidget(self.categoryEdit)
+
+        self.verticalSpacer_2 = QSpacerItem(20, 40, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
+
+        self.verticalLayout_2.addItem(self.verticalSpacer_2)
+
+
+        self.gridLayout.addLayout(self.verticalLayout_2, 2, 0, 1, 1)
+
+        self.horizontalLayout = QHBoxLayout()
+        self.horizontalLayout.setObjectName(u"horizontalLayout")
+        self.cancelBtn = QPushButton(EditCommandWidget)
+        self.cancelBtn.setObjectName(u"cancelBtn")
+        self.cancelBtn.setMinimumSize(QSize(0, 40))
+
+        self.horizontalLayout.addWidget(self.cancelBtn)
+
+        self.deleteBtn = QPushButton(EditCommandWidget)
+        self.deleteBtn.setObjectName(u"deleteBtn")
+        self.deleteBtn.setMinimumSize(QSize(0, 40))
+
+        self.horizontalLayout.addWidget(self.deleteBtn)
+
+        self.saveBtn = QPushButton(EditCommandWidget)
+        self.saveBtn.setObjectName(u"saveBtn")
+        self.saveBtn.setMinimumSize(QSize(0, 40))
+
+        self.horizontalLayout.addWidget(self.saveBtn)
+
+
+        self.gridLayout.addLayout(self.horizontalLayout, 3, 0, 1, 3)
 
         self.verticalLayout_4 = QVBoxLayout()
         self.verticalLayout_4.setSpacing(2)
@@ -167,52 +190,52 @@ class Ui_EditCommandWidget(object):
 
         self.gridLayout.addLayout(self.verticalLayout_5, 0, 2, 1, 1)
 
-        self.verticalLayout_8 = QVBoxLayout()
-        self.verticalLayout_8.setSpacing(2)
-        self.verticalLayout_8.setObjectName(u"verticalLayout_8")
-        self.label_6 = QLabel(EditCommandWidget)
-        self.label_6.setObjectName(u"label_6")
-        self.label_6.setAlignment(Qt.AlignmentFlag.AlignCenter)
+        self.verticalLayout_10 = QVBoxLayout()
+        self.verticalLayout_10.setSpacing(2)
+        self.verticalLayout_10.setObjectName(u"verticalLayout_10")
+        self.label_8 = QLabel(EditCommandWidget)
+        self.label_8.setObjectName(u"label_8")
+        self.label_8.setAlignment(Qt.AlignmentFlag.AlignCenter)
 
-        self.verticalLayout_8.addWidget(self.label_6)
+        self.verticalLayout_10.addWidget(self.label_8)
 
+        self.horizontalLayout_4 = QHBoxLayout()
+        self.horizontalLayout_4.setObjectName(u"horizontalLayout_4")
         self.targetEdit = QLineEdit(EditCommandWidget)
         self.targetEdit.setObjectName(u"targetEdit")
         self.targetEdit.setEchoMode(QLineEdit.EchoMode.Normal)
         self.targetEdit.setReadOnly(False)
         self.targetEdit.setClearButtonEnabled(False)
 
-        self.verticalLayout_8.addWidget(self.targetEdit)
-
-        self.verticalSpacer_12 = QSpacerItem(20, 40, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
-
-        self.verticalLayout_8.addItem(self.verticalSpacer_12)
+        self.horizontalLayout_4.addWidget(self.targetEdit)
 
 
-        self.gridLayout.addLayout(self.verticalLayout_8, 2, 2, 1, 1)
+        self.verticalLayout_10.addLayout(self.horizontalLayout_4)
 
-        self.horizontalLayout = QHBoxLayout()
-        self.horizontalLayout.setObjectName(u"horizontalLayout")
-        self.cancelBtn = QPushButton(EditCommandWidget)
-        self.cancelBtn.setObjectName(u"cancelBtn")
-        self.cancelBtn.setMinimumSize(QSize(0, 40))
+        self.horizontalLayout_6 = QHBoxLayout()
+        self.horizontalLayout_6.setObjectName(u"horizontalLayout_6")
+        self.horizontalSpacer_5 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
 
-        self.horizontalLayout.addWidget(self.cancelBtn)
+        self.horizontalLayout_6.addItem(self.horizontalSpacer_5)
 
-        self.deleteBtn = QPushButton(EditCommandWidget)
-        self.deleteBtn.setObjectName(u"deleteBtn")
-        self.deleteBtn.setMinimumSize(QSize(0, 40))
+        self.chooseTargetBtn = QPushButton(EditCommandWidget)
+        self.chooseTargetBtn.setObjectName(u"chooseTargetBtn")
 
-        self.horizontalLayout.addWidget(self.deleteBtn)
+        self.horizontalLayout_6.addWidget(self.chooseTargetBtn)
 
-        self.saveBtn = QPushButton(EditCommandWidget)
-        self.saveBtn.setObjectName(u"saveBtn")
-        self.saveBtn.setMinimumSize(QSize(0, 40))
+        self.horizontalSpacer_6 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
 
-        self.horizontalLayout.addWidget(self.saveBtn)
+        self.horizontalLayout_6.addItem(self.horizontalSpacer_6)
 
 
-        self.gridLayout.addLayout(self.horizontalLayout, 3, 0, 1, 3)
+        self.verticalLayout_10.addLayout(self.horizontalLayout_6)
+
+        self.verticalSpacer_14 = QSpacerItem(20, 40, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
+
+        self.verticalLayout_10.addItem(self.verticalSpacer_14)
+
+
+        self.gridLayout.addLayout(self.verticalLayout_10, 2, 2, 1, 1)
 
 
         self.verticalLayout.addLayout(self.gridLayout)
@@ -225,14 +248,17 @@ class Ui_EditCommandWidget(object):
 
     def retranslateUi(self, EditCommandWidget):
         EditCommandWidget.setWindowTitle(QCoreApplication.translate("EditCommandWidget", u"Edit Command", None))
-        self.label_2.setText(QCoreApplication.translate("EditCommandWidget", u"Category", None))
-        self.categoryEdit.setPlaceholderText(QCoreApplication.translate("EditCommandWidget", u"Command Category", None))
         self.label_5.setText(QCoreApplication.translate("EditCommandWidget", u"Command Speech", None))
         self.speechEdit.setInputMask("")
         self.speechEdit.setPlaceholderText(QCoreApplication.translate("EditCommandWidget", u"Command Speech", None))
         self.label_4.setText(QCoreApplication.translate("EditCommandWidget", u"Command Name", None))
         self.nameEdit.setInputMask("")
         self.nameEdit.setPlaceholderText(QCoreApplication.translate("EditCommandWidget", u"Command Name", None))
+        self.label_2.setText(QCoreApplication.translate("EditCommandWidget", u"Category", None))
+        self.categoryEdit.setPlaceholderText(QCoreApplication.translate("EditCommandWidget", u"Command Category", None))
+        self.cancelBtn.setText(QCoreApplication.translate("EditCommandWidget", u"Cancel", None))
+        self.deleteBtn.setText(QCoreApplication.translate("EditCommandWidget", u"Delete", None))
+        self.saveBtn.setText(QCoreApplication.translate("EditCommandWidget", u"Save", None))
         self.label.setText(QCoreApplication.translate("EditCommandWidget", u"Type", None))
         self.typeCombo.setItemText(0, QCoreApplication.translate("EditCommandWidget", u"Program", None))
         self.typeCombo.setItemText(1, QCoreApplication.translate("EditCommandWidget", u"Browser", None))
@@ -241,11 +267,9 @@ class Ui_EditCommandWidget(object):
         self.typeCombo.setPlaceholderText(QCoreApplication.translate("EditCommandWidget", u"Command Type", None))
         self.label_3.setText(QCoreApplication.translate("EditCommandWidget", u"Enabled", None))
         self.enabledCheck.setText("")
-        self.label_6.setText(QCoreApplication.translate("EditCommandWidget", u"Target", None))
+        self.label_8.setText(QCoreApplication.translate("EditCommandWidget", u"Target", None))
         self.targetEdit.setText("")
         self.targetEdit.setPlaceholderText(QCoreApplication.translate("EditCommandWidget", u"Website/Program", None))
-        self.cancelBtn.setText(QCoreApplication.translate("EditCommandWidget", u"Cancel", None))
-        self.deleteBtn.setText(QCoreApplication.translate("EditCommandWidget", u"Delete", None))
-        self.saveBtn.setText(QCoreApplication.translate("EditCommandWidget", u"Save", None))
+        self.chooseTargetBtn.setText(QCoreApplication.translate("EditCommandWidget", u"Choose File", None))
     # retranslateUi
 
