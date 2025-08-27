@@ -1,7 +1,8 @@
 # external libraries
-import sys
-from PySide6.QtWidgets import QApplication, QWidget, QTableWidgetItem
+import sys, os
+from PySide6.QtWidgets import QApplication, QWidget, QTableWidgetItem, QSystemTrayIcon, QMenu
 from PySide6.QtCore import Qt
+from PySide6.QtGui import QIcon, QAction
 
 # auto generated stuff
 from ui_form import Ui_Widget
@@ -10,7 +11,6 @@ from edit_command_widget import EditCommandWidget
 from create_command_widget import CreateCommandWidget
 
 # our modules
-from recorder import Recorder
 from command_handler import CommandHandler
 
 from home_page import HomePageHandler
@@ -163,9 +163,45 @@ class Widget(QWidget):
         table.removeRow(row)
 
 
+# ======
+def closeEvent(event):
+    event.ignore()
+    widget.hide()
+    tray.showMessage(
+        "Rat",
+        "Application minimized to tray",
+        QSystemTrayIcon.Information,
+        2000
+    )
+
+def on_tray_activated(click):
+    if click == QSystemTrayIcon.Trigger:
+        widget.showNormal()
+        widget.activateWindow()
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
     widget = Widget()
+
+    if "Users\\waypa\\" in os.getcwd():
+        icon_path = r".\assets\RatBalling.png"
+    else:
+        icon_path = r".\PyQt-GUIProject\Assets\RatBalling.png"
+    widget.setWindowIcon(QIcon(icon_path))
+    tray = QSystemTrayIcon(QIcon(icon_path), parent=app)
+    tray_menu = QMenu()
+    show_action = QAction("Show")
+    quit_action = QAction("Quit")
+    tray_menu.addAction(show_action)
+    tray_menu.addAction(quit_action)
+    tray.setContextMenu(tray_menu)
+    tray.setVisible(True)
+
+    tray.activated.connect(on_tray_activated)
+    show_action.triggered.connect(widget.show)
+    quit_action.triggered.connect(app.quit)
+
+    widget.closeEvent = closeEvent
+
     widget.show()
     sys.exit(app.exec())

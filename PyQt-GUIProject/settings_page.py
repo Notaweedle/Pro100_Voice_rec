@@ -1,6 +1,5 @@
 # i think i like this idea more where i branch out each tab into its own class
 # so that the code is more readable and organized
-import math
 from PySide6 import QtWidgets
 from settings_handler import SettingsHandler
 from confirm_dialog import ConfirmDialog

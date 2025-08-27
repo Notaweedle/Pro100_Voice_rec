@@ -1,5 +1,6 @@
 import speech_recognition as sr
-import re, json
+import re, time, json
+from command_processes import audio as a
 
 class Recorder():
     def __init__(self, parentWindow, callbackFunc):
@@ -13,6 +14,8 @@ class Recorder():
         #self.model = "whisper"
         # this one necessary tho for getting available microphones
         self.mic = sr.Microphone()
+        #self.stream = self.r.listen_in_background(self.mic, callback=self.test_callback)
+        #self.passive_on = True
 
         self.callbackFunc = callbackFunc
         self.startRecordingBtn = parentWindow.ui.startRecordingBtn
@@ -48,8 +51,9 @@ class Recorder():
     #recording functionz
     def startRecording(self):
         if not self.recording:
+            #self.passive_on = False
             # start recording here
-            self.end_recording = self.r.listen_in_background(self.mic, callback=self.test_callback)
+            self.end_recording = self.stream
             # adjust boolean values
             self.startRecordingBtn.setEnabled(False)
             self.stopRecordingBtn.setEnabled(True)
@@ -59,9 +63,12 @@ class Recorder():
 
     def stopRecording(self):
         if self.recording:
+            #self.passive_on = True
             # stop the recording here
             if self.end_recording is not None:
                 self.end_recording(False)
+                #time.sleep(4)
+                #self.stream = self.r.listen_in_background(self.mic, callback=self.test_callback)
             # adjust boolean values
             self.startRecordingBtn.setEnabled(True)
             self.stopRecordingBtn.setEnabled(False)
@@ -70,6 +77,7 @@ class Recorder():
             self.recording = False
 
     def test_callback(self, recognizer, audio):
+        # first, recognize the text
         if self.model.lower() == "whisper":
             text_recognized = recognizer.recognize_whisper(audio, language="english") # CHANGE TO BELOW
         elif self.model.lower() == "pocketsphinx":
@@ -80,13 +88,29 @@ class Recorder():
             except Exception as e:
                 print("Exception occured: ", e)
 
+        # now use the text to execute a command
         if text_recognized and text_recognized != "":
-            #self.ui.listWidget.addItem(text_recognized)
             if self.model.lower() == "vosk":
                 parsed = self.parse_vosk_text(text_recognized)
+                #if self.passive_on == True:
+                #    print(parsed)
+                #    if self.listening_phrase in parsed:
+                #        a.speak("Yes?")
+                #        self.passive_on = False
+                #else:
+                #    self.callbackFunc(parsed)
+                #    self.passive_on = True
                 self.callbackFunc(parsed)
             else:
                 parsed = self.parse_whisper_text(text_recognized)
+                #if self.passive_on == True:
+                #    print(parsed)
+                #    if self.listening_phrase in parsed:
+                #        a.speak("Yes?")
+                #        self.passive_on = False
+                #else:
+                #    self.callbackFunc(parsed)
+                #    self.passive_on = True
                 self.callbackFunc(parsed)
 
     # formats audio returned from recognize_whisper to remove punctuation, capitalization, etc.
@@ -98,4 +122,7 @@ class Recorder():
     def parse_vosk_text(self, text):
         text = json.loads(text)['text']
         return text
+
+    def start_passive(self):
+        self.end_recording = self.stream
 

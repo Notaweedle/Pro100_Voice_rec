@@ -29,7 +29,7 @@ class Ui_Widget(object):
         Widget.resize(700, 750)
         Widget.setContextMenuPolicy(Qt.ContextMenuPolicy.DefaultContextMenu)
         icon = QIcon()
-        icon.addFile(u"../../../../../Downloads/1345442634985898067.webp", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        icon.addFile(u"assets/RatBalling.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
         Widget.setWindowIcon(icon)
         Widget.setWindowOpacity(1.000000000000000)
         Widget.setAutoFillBackground(False)
@@ -750,7 +750,7 @@ class Ui_Widget(object):
     # setupUi
 
     def retranslateUi(self, Widget):
-        Widget.setWindowTitle(QCoreApplication.translate("Widget", u"Speech Recognition TEST GUI", None))
+        Widget.setWindowTitle(QCoreApplication.translate("Widget", u"Speech Recognition", None))
         self.label_2.setText(QCoreApplication.translate("Widget", u"Detected Speech History", None))
         self.removeSpeechHistoryItemBtn.setText(QCoreApplication.translate("Widget", u"Delete Selected Item", None))
         self.clearSpeechHistoryBtn.setText(QCoreApplication.translate("Widget", u"Clear History", None))
