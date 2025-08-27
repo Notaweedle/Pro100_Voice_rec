@@ -1,20 +1,11 @@
 import ctypes, os, warnings, sys, subprocess
 
-'''
-if os.getenv('DEVICE_TYPE') == 'win32':
-    import screen_brightness_control as sbc, os, subprocess
-else:
-    pass
-
-from dotenv import load_dotenv
-load_dotenv(dotenv_path=r'.env')
-user_device = os.getenv('DEVICE_TYPE')
-'''
-
 user_device = sys.platform
 
 if user_device == 'win32':
-    import screen_brightness_control as sbc
+    import screen_brightness_control as sbc, os, subprocess
+else:
+    pass
 
 # Screen brightness controls
 
@@ -197,7 +188,7 @@ def lock_screen():
 def restart():
     if user_device == 'win32':
         try:
-            os.system('shutdown /r /t 1')
+            os.system('shutdown /r /t 4')
             return(True, "") 
         except Exception as e:
             return(False, f"Failed to restart : {e}") 
@@ -213,7 +204,7 @@ def restart():
 def shutdown():
     if user_device == 'win32':
         try:
-            os.system('shutdown /s /t 2')
+            os.system('shutdown /s /t 4')
             return(True, "") 
         except Exception as e:
             return(False, f"Failed to shutdown: {e}") 
