@@ -9,7 +9,7 @@ if user_device == 'win32':
 
 elif user_device == 'linux':
 
-    import pyvolume.pyvolume as pyinner
+    import pyvolume as pyinner
 
 
 # These are for the speakers not the input, so output!!
