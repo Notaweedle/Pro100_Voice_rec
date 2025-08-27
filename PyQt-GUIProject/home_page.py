@@ -8,8 +8,8 @@ class HomePageHandler():
         self.removeSpeechHistoryItemBtn = parentWindow.ui.removeSpeechHistoryItemBtn
         self.clearSpeechHistoryBtn = parentWindow.ui.clearSpeechHistoryBtn
 
-        # create recorder and passive recorder
-        parentWindow.Recorder = Recorder(parentWindow, self.recording_callback)
+        # create recorder
+        parentWindow.Recorder = Recorder(self.recording_callback, parentWindow.ui.startRecordingBtn, parentWindow.ui.stopRecordingBtn)
         threading.Thread(target=parentWindow.Recorder.startPassive, daemon=True).start()
         
         # setup recording buttons

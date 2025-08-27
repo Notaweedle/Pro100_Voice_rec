@@ -1,4 +1,4 @@
-import ctypes, os, warnings, sys, subprocess
+import ctypes, os, warnings, sys
 
 user_device = sys.platform
 

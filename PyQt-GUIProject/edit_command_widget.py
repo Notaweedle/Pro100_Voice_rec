@@ -17,24 +17,12 @@ class EditCommandWidget(QtWidgets.QWidget):
         self.CommandHandler = CommandHandler
 
         # connect gui slots
-        self.ui.chooseTargetBtn.clicked.connect(self.onChooseFileTarget)
         self.ui.cancelBtn.clicked.connect(self.onCancel)
         self.ui.deleteBtn.clicked.connect(self.onDelete)
         self.ui.saveBtn.clicked.connect(self.onSave)
 
         # whatever else i need to do below here
         self.loadValues()
-
-    def onChooseFileTarget(self):
-        self.FileDialog = QtWidgets.QFileDialog()
-        self.FileDialog.setFileMode(QtWidgets.QFileDialog.FileMode.ExistingFile)
-        self.FileDialog.setModal(True)
-        self.FileDialog.finished.connect(self.changeTargetPath)
-        self.FileDialog.open()
-
-    def changeTargetPath(self, path):
-        path = self.FileDialog.selectedFiles()
-        self.ui.targetEdit.setText(path[0])
 
     def loadValues(self):
         # sets basic values
@@ -59,7 +47,7 @@ class EditCommandWidget(QtWidgets.QWidget):
         # - Program
         # - Browser
         # - Script
-        # insert non-user category such as "Utility" into combo box and set to it (for default commands)
+        # insert non-user category such as "Utility" into combo box and set to it
         if self.ui.typeCombo.findText(self.commandItems['type']) == -1 and self.commandItems['category'] == "Default":
                 self.ui.typeCombo.insertItem(0, self.commandItems['type'])
         self.ui.typeCombo.setCurrentText(self.commandItems['type'])

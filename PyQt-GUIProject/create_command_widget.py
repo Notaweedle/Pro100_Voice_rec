@@ -12,7 +12,6 @@ class CreateCommandWidget(QtWidgets.QWidget):
         self.ui.setupUi(self)
 
         # hook up buttons
-        self.ui.chooseTargetBtn.clicked.connect(self.onChooseFileTarget)
         self.ui.createBtn.clicked.connect(returnWindow.onSaveNewCommand)
         self.ui.cancelBtn.clicked.connect(self.onCancel)
 
@@ -20,17 +19,6 @@ class CreateCommandWidget(QtWidgets.QWidget):
         self.ui.nameEdit.textChanged.connect(self.updateCreateBtn)
         self.ui.speechEdit.textChanged.connect(self.updateCreateBtn)
         self.ui.categoryEdit.textChanged.connect(self.updateCreateBtn)
-
-    def onChooseFileTarget(self):
-        self.FileDialog = QtWidgets.QFileDialog()
-        self.FileDialog.setFileMode(QtWidgets.QFileDialog.FileMode.ExistingFile)
-        self.FileDialog.setModal(True)
-        self.FileDialog.finished.connect(self.changeTargetPath)
-        self.FileDialog.open()
-
-    def changeTargetPath(self, path):
-        path = self.FileDialog.selectedFiles()
-        self.ui.targetEdit.setText(path[0])
 
     def checkValues(self):
         self.updateValues()
