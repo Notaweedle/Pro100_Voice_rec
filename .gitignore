@@ -211,3 +211,6 @@ __marimo__/
 /model/
 model/
 PyQt-GUIProject/model
+
+# pyproject toml thing has paths specific to ur system for qt
+.toml.user
