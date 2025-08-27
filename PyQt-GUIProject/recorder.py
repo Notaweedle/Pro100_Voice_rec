@@ -19,7 +19,6 @@ class Recorder():
     #recording functionz
     def startRecording(self):
         self.passive_on = False
-
         if not self.recording:
             # start recording here
             self.end_recording = self.stream
