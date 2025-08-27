@@ -1,9 +1,7 @@
 # external libraries
 import sys
-from PySide6.QtWidgets import QApplication, QWidget, QTableWidgetItem, QSystemTrayIcon, QMenu
+from PySide6.QtWidgets import QApplication, QWidget, QTableWidgetItem
 from PySide6.QtCore import Qt
-from PySide6.QtGui import QIcon, QAction
-
 
 # auto generated stuff
 from ui_form import Ui_Widget
@@ -164,45 +162,10 @@ class Widget(QWidget):
         row = table.row(currentItem)
         table.removeRow(row)
 
-def closeEvent(event):
-        event.ignore()
-        widget.hide()
-        tray.showMessage(
-            "Rat",
-            "Application minimized to tray",
-            QSystemTrayIcon.Information,
-            2000
-        )
 
-def on_tray_activated(click):
-    # Different types of clicks are possible
-    if click == QSystemTrayIcon.Trigger:  # single left click
-        widget.showNormal()   # restore if minimized
-        widget.activateWindow()  # bring to front
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
     widget = Widget()
-
-    widget.setWindowIcon(QIcon(r".\PyQt-GUIProject\Assets\RatBalling.png"))
-    tray = QSystemTrayIcon(QIcon(r".\PyQt-GUIProject\Assets\RatBalling.png"), parent=app)
-
-
-    tray_menu = QMenu()
-    show_action = QAction("Show")
-    quit_action = QAction("Quit")
-    tray_menu.addAction(show_action)
-    tray_menu.addAction(quit_action)
-    tray.setContextMenu(tray_menu)
-    tray.setVisible(True)
-
-    tray.activated.connect(on_tray_activated)
-
-    show_action.triggered.connect(widget.show)
-    quit_action.triggered.connect(app.quit)
-
-
-    widget.closeEvent = closeEvent
-
     widget.show()
     sys.exit(app.exec())
