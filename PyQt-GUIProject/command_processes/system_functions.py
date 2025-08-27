@@ -1,20 +1,11 @@
 import ctypes, os, warnings, sys
 
-'''
-if os.getenv('DEVICE_TYPE') == 'win32':
-    import screen_brightness_control as sbc, os, subprocess
-else:
-    pass
-
-from dotenv import load_dotenv
-load_dotenv(dotenv_path=r'.env')
-user_device = os.getenv('DEVICE_TYPE')
-'''
-
 user_device = sys.platform
 
 if user_device == 'win32':
-    import screen_brightness_control as sbc
+    import screen_brightness_control as sbc, os, subprocess
+else:
+    pass
 
 # Screen brightness controls
 
