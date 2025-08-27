@@ -188,7 +188,7 @@ def lock_screen():
 def restart():
     if user_device == 'win32':
         try:
-            os.system('shutdown /r /t 1')
+            os.system('shutdown /r /t 4')
             return(True, "") 
         except Exception as e:
             return(False, f"Failed to restart : {e}") 
@@ -204,7 +204,7 @@ def restart():
 def shutdown():
     if user_device == 'win32':
         try:
-            os.system('shutdown /s /t 2')
+            os.system('shutdown /s /t 4')
             return(True, "") 
         except Exception as e:
             return(False, f"Failed to shutdown: {e}") 

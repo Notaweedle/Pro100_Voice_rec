@@ -20,8 +20,8 @@ class CommandHandler():
         self.CommandExecutor = CommandExecutor()
         self.commands_dict = []
         self.command_speech_phrases = []
-        self.data_dir = os.getcwd() + "\\data"
-        self.commands_file = self.data_dir + "\\commands.json"
+        self.data_dir = os.getcwd() + r"\PyQt-GUIProject\data"
+        self.commands_file = self.data_dir + "\commands.json"
 
         # load commands from file and then load those into table
         self.load_commands()
