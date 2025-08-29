@@ -32,16 +32,16 @@ class CommandHandler():
     # but when the settings are being saved after startup
     # the new directory should be used to save instead
     def load_data_dir(self, save_dir):
-        self.data_dir = save_dir
-        self.commands_file = self.data_dir + "\\commands.json"
+        self.data_dir = save_dir + "/data"
+        self.commands_file = self.data_dir + "/commands.json"
         # load commands from file to this class, then from this class to table
         self.load_commands()
         self.parentWindow.loadCustomCommandsTable(self.parentWindow.ui.customCommandsTable, self.commands_dict)
 
     def change_data_dir(self, new_dir):
-        self.data_dir = new_dir
-        self.commands_file = self.data_dir + "\\commands.json"
-        print(self.commands_file)
+        self.data_dir = new_dir + "/data"
+        self.commands_file = self.data_dir + "/commands.json"
+        #print(self.commands_file)
         # save current table to new dir
         self.save_commands(self.customCommandsTable)
 

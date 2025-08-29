@@ -2,8 +2,10 @@
 # so that the code is more readable and organized
 from PySide6 import QtWidgets
 from settings_handler import SettingsHandler
-from confirm_dialog import ConfirmDialog
+from dialogs.confirm_dialog import ConfirmDialog
+from dialogs.calibration_widget import CalibrationWidget
 import pyaudio, os
+import speech_recognition as sr
 
 class SettingsPageHandler():
 
@@ -36,6 +38,8 @@ class SettingsPageHandler():
         self.parentWindow.ui.chooseSaveDirBtn.clicked.connect(self.onChooseSaveDir)
         # save settings button
         self.parentWindow.ui.saveSettingsBtn.clicked.connect(self.onSaveSettings)
+        # calibration window button
+        self.parentWindow.ui.openCalibrationBtn.clicked.connect(self.showCalibration)
 
         # OTHER POSSIBILITIES
         # reset to default button for all settings (or specific?)
@@ -122,7 +126,8 @@ class SettingsPageHandler():
             self.parentWindow.CommandHandler.change_data_dir(self.save_directory)
 
     def getInputDevices(self):
-        working_mics = self.parentWindow.Recorder.mic.list_working_microphones()
+        mic = sr.Microphone()
+        working_mics = mic.list_working_microphones()
         inputDeviceBox = self.parentWindow.ui.inputDeviceBox
         for key in working_mics:
             inputDeviceBox.insertItem(inputDeviceBox.count()+1, working_mics[key], key)
@@ -235,3 +240,8 @@ class SettingsPageHandler():
         if len(selected_files) > 0:
             self.save_directory = selected_files[0]
             self.parentWindow.ui.saveDirEdit.setText(self.save_directory)
+
+    # OPENING A NEW WINDOW FOR CALIBRATION
+    def showCalibration(self):
+        self.calibration = CalibrationWidget()
+        self.calibration.show()

@@ -15,7 +15,7 @@ class Recorder():
         # this one necessary tho for getting available microphones
         self.mic = sr.Microphone()
         #self.stream = self.r.listen_in_background(self.mic, callback=self.test_callback)
-        #self.passive_on = True
+        self.passive_on = True
 
         self.callbackFunc = callbackFunc
         self.startRecordingBtn = parentWindow.ui.startRecordingBtn
@@ -102,7 +102,7 @@ class Recorder():
                 #    self.passive_on = True
                 self.callbackFunc(parsed)
             else:
-                parsed = self.parse_whisper_text(text_recognized)
+                #parsed = self.parse_whisper_text(text_recognized)
                 #if self.passive_on == True:
                 #    print(parsed)
                 #    if self.listening_phrase in parsed:
@@ -124,5 +124,6 @@ class Recorder():
         return text
 
     def start_passive(self):
-        self.end_recording = self.stream
+        self.r.listen_in_background(self.mic, callback=self.test_callback)
+        #self.end_recording = self.stream
 
