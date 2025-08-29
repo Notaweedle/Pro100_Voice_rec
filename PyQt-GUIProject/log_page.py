@@ -23,7 +23,8 @@ class LogPageHandler():
         table.setItem(row, column, item)
 
     def loadLogTable(self, log_json):
-        pass
+        for row_dict in log_json:
+            self.createLogRow(row_dict)
 
     def createLogRow(self, commandInfo):
         table = self.table

@@ -122,8 +122,10 @@ class SettingsPageHandler():
         # needs to be given to command_handler
         if is_startup:
             self.parentWindow.CommandHandler.load_data_dir(self.save_directory)
+            self.parentWindow.LogPageHandler.LogHandler.load_data_dir(self.save_directory)
         else:
             self.parentWindow.CommandHandler.change_data_dir(self.save_directory)
+            self.parentWindow.LogPageHandler.LogHandler.change_data_dir(self.save_directory)
 
     def getInputDevices(self):
         mic = sr.Microphone()

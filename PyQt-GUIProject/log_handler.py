@@ -5,9 +5,6 @@ class LogHandler():
         self.parentWindow = parentWindow
         self.logPage = logPage
 
-    # the biggest change is only loading the commands on startup
-    # but when the settings are being saved after startup
-    # the new directory should be used to save instead
     def load_data_dir(self, save_dir):
         self.data_dir = save_dir + "/data"
         self.log_file = self.data_dir + "/log.json"
@@ -25,7 +22,7 @@ class LogHandler():
 
     def save_log(self):
         log_list = []
-        table = self.LogPage.table
+        table = self.logPage.table
 
         rowCount = table.rowCount()
         for row in range(rowCount):
@@ -39,6 +36,7 @@ class LogHandler():
             row_dict['category'] = table.item(row,6).text()
             row_dict['type'] = table.item(row,7).text()
             row_dict['target'] = table.item(row,8).text()
+            log_list.append(row_dict)
 
         if os.path.exists(self.log_file):
             with open(self.log_file, "w") as f:
