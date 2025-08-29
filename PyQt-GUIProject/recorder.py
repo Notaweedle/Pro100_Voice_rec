@@ -54,6 +54,7 @@ class Recorder():
             #self.passive_on = False
             # start recording here
             #self.end_recording = self.stream
+            self.end_recording = self.r.listen_in_background(self.mic, callback=self.test_callback)
             # adjust boolean values
             self.startRecordingBtn.setEnabled(False)
             self.stopRecordingBtn.setEnabled(True)
