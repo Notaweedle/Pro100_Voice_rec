@@ -187,6 +187,8 @@ if __name__ == "__main__":
     widget = Widget()
 
     widget.setWindowIcon(QIcon(r".\PyQt-GUIProject\Assets\RatBalling.png"))
+    app.setWindowIcon(QIcon(r".\PyQt-GUIProject\Assets\RatBalling.png"))
+
     tray = QSystemTrayIcon(QIcon(r".\PyQt-GUIProject\Assets\RatBalling.png"), parent=app)
     app.setStyleSheet(stylesheetsetter.set_theme())
 
@@ -198,6 +200,8 @@ if __name__ == "__main__":
     font.setHintingPreference(QFont.PreferNoHinting)
 
     widget.setFont(font)
+    app.setFont(font)
+    
     for child in widget.findChildren(QWidget):
         child.setFont(font)
 
