@@ -18,7 +18,7 @@
   </property>
   <property name="windowIcon">
    <iconset>
-    <normaloff>../../../../../PyQt-GUIProject/Assets/RatBalling.png</normaloff>../../../../../PyQt-GUIProject/Assets/RatBalling.png</iconset>
+    <normaloff>assets/RatBalling.png</normaloff>assets/RatBalling.png</iconset>
   </property>
   <property name="windowOpacity">
    <double>1.000000000000000</double>

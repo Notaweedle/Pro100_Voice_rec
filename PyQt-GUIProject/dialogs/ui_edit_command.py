@@ -43,7 +43,7 @@ class Ui_EditCommandWidget(object):
         self.verticalLayout_2.setObjectName(u"verticalLayout_2")
         self.label_2 = QLabel(EditCommandWidget)
         self.label_2.setObjectName(u"label_2")
-        self.label_2.setAlignment(Qt.AlignmentFlag.AlignCenter)
+        self.label_2.setAlignment(Qt.AlignmentFlag.AlignLeading|Qt.AlignmentFlag.AlignLeft|Qt.AlignmentFlag.AlignVCenter)
 
         self.verticalLayout_2.addWidget(self.label_2)
 
@@ -68,7 +68,7 @@ class Ui_EditCommandWidget(object):
 
         self.label_5 = QLabel(EditCommandWidget)
         self.label_5.setObjectName(u"label_5")
-        self.label_5.setAlignment(Qt.AlignmentFlag.AlignCenter)
+        self.label_5.setAlignment(Qt.AlignmentFlag.AlignLeading|Qt.AlignmentFlag.AlignLeft|Qt.AlignmentFlag.AlignVCenter)
 
         self.verticalLayout_7.addWidget(self.label_5)
 
@@ -89,7 +89,7 @@ class Ui_EditCommandWidget(object):
 
         self.label_4 = QLabel(EditCommandWidget)
         self.label_4.setObjectName(u"label_4")
-        self.label_4.setAlignment(Qt.AlignmentFlag.AlignCenter)
+        self.label_4.setAlignment(Qt.AlignmentFlag.AlignLeading|Qt.AlignmentFlag.AlignLeft|Qt.AlignmentFlag.AlignVCenter)
 
         self.verticalLayout_6.addWidget(self.label_4)
 
@@ -107,7 +107,7 @@ class Ui_EditCommandWidget(object):
         self.verticalLayout_4.setObjectName(u"verticalLayout_4")
         self.label = QLabel(EditCommandWidget)
         self.label.setObjectName(u"label")
-        self.label.setAlignment(Qt.AlignmentFlag.AlignCenter)
+        self.label.setAlignment(Qt.AlignmentFlag.AlignLeading|Qt.AlignmentFlag.AlignLeft|Qt.AlignmentFlag.AlignVCenter)
 
         self.verticalLayout_4.addWidget(self.label)
 
@@ -172,7 +172,7 @@ class Ui_EditCommandWidget(object):
         self.verticalLayout_8.setObjectName(u"verticalLayout_8")
         self.label_6 = QLabel(EditCommandWidget)
         self.label_6.setObjectName(u"label_6")
-        self.label_6.setAlignment(Qt.AlignmentFlag.AlignCenter)
+        self.label_6.setAlignment(Qt.AlignmentFlag.AlignLeading|Qt.AlignmentFlag.AlignLeft|Qt.AlignmentFlag.AlignVCenter)
 
         self.verticalLayout_8.addWidget(self.label_6)
 
@@ -226,13 +226,13 @@ class Ui_EditCommandWidget(object):
     def retranslateUi(self, EditCommandWidget):
         EditCommandWidget.setWindowTitle(QCoreApplication.translate("EditCommandWidget", u"Edit Command", None))
         self.label_2.setText(QCoreApplication.translate("EditCommandWidget", u"Category", None))
-        self.categoryEdit.setPlaceholderText(QCoreApplication.translate("EditCommandWidget", u"Command Category", None))
+        self.categoryEdit.setPlaceholderText(QCoreApplication.translate("EditCommandWidget", u"Enter Command Category", None))
         self.label_5.setText(QCoreApplication.translate("EditCommandWidget", u"Command Speech", None))
         self.speechEdit.setInputMask("")
-        self.speechEdit.setPlaceholderText(QCoreApplication.translate("EditCommandWidget", u"Command Speech", None))
+        self.speechEdit.setPlaceholderText(QCoreApplication.translate("EditCommandWidget", u"Enter Command Speech", None))
         self.label_4.setText(QCoreApplication.translate("EditCommandWidget", u"Command Name", None))
         self.nameEdit.setInputMask("")
-        self.nameEdit.setPlaceholderText(QCoreApplication.translate("EditCommandWidget", u"Command Name", None))
+        self.nameEdit.setPlaceholderText(QCoreApplication.translate("EditCommandWidget", u"Enter Command Name", None))
         self.label.setText(QCoreApplication.translate("EditCommandWidget", u"Type", None))
         self.typeCombo.setItemText(0, QCoreApplication.translate("EditCommandWidget", u"Program", None))
         self.typeCombo.setItemText(1, QCoreApplication.translate("EditCommandWidget", u"Browser", None))
@@ -243,7 +243,7 @@ class Ui_EditCommandWidget(object):
         self.enabledCheck.setText("")
         self.label_6.setText(QCoreApplication.translate("EditCommandWidget", u"Target", None))
         self.targetEdit.setText("")
-        self.targetEdit.setPlaceholderText(QCoreApplication.translate("EditCommandWidget", u"Website/Program", None))
+        self.targetEdit.setPlaceholderText(QCoreApplication.translate("EditCommandWidget", u"Enter Website/Program", None))
         self.cancelBtn.setText(QCoreApplication.translate("EditCommandWidget", u"Cancel", None))
         self.deleteBtn.setText(QCoreApplication.translate("EditCommandWidget", u"Delete", None))
         self.saveBtn.setText(QCoreApplication.translate("EditCommandWidget", u"Save", None))

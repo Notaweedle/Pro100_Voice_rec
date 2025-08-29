@@ -1,22 +1,19 @@
 # external libraries
-import sys
+import sys, os
 from PySide6.QtWidgets import QApplication, QWidget, QTableWidgetItem, QSystemTrayIcon, QMenu
 from PySide6.QtCore import Qt
 from PySide6.QtGui import QIcon, QAction, QFontDatabase, QFont
 import stylesheetsetter
 
-
-# auto generated stuff
+# dialogs
 from ui_form import Ui_Widget
-from calibration_widget import CalibrationWidget
-from edit_command_widget import EditCommandWidget
-from create_command_widget import CreateCommandWidget
-
-# our modules
-from recorder import Recorder
+from dialogs.edit_command_widget import EditCommandWidget
+from dialogs.create_command_widget import CreateCommandWidget
+# other
 from command_handler import CommandHandler
-
+# page modules
 from home_page import HomePageHandler
+from log_page import LogPageHandler
 from settings_page import SettingsPageHandler
 
 class Widget(QWidget):
@@ -27,6 +24,9 @@ class Widget(QWidget):
 
         # home page setup
         self.HomeHandler = HomePageHandler(self)
+
+        #logging page
+        self.LogHandler = LogPageHandler(self)
 
         # handles the loading and saving of all commands
         self.CommandHandler = CommandHandler(self)
@@ -41,9 +41,9 @@ class Widget(QWidget):
         self.ui.customCommandsTable.itemClicked.connect(self.onSelectCustomCommand)
         self.ui.createCustomRowBtn.clicked.connect(self.onCreateCommand)
         self.ui.editCustomRowBtn.clicked.connect(self.onEditCustomRow)
+        # all of this should be moved into its own page handler
 
         # settings page setup
-        self.ui.openCalibrationBtn.clicked.connect(self.showCalibration) # needs to be moved into settings handler
         self.SettingsHandler = SettingsPageHandler(self)
 
     # UNIVERSAL TABLE CELL CREATOR
@@ -114,72 +114,22 @@ class Widget(QWidget):
         # and hten saved to file using command_handler
         self.CommandHandler.save_commands(self.ui.customCommandsTable)
 
-    # OPENING A NEW WINDOW FOR CALIBRATION
-    def showCalibration(self):
-        self.calibration = CalibrationWidget()
-        self.calibration.show()
 
-    # EXECUTED FOR TESTING PURPOSES ON LAUNCH
-    # SETS UP THE TABLE HISTORY WITH MOCK DATA
-    def setupHistoryTable(self, table):
-        table.setColumnCount(5)
-        table.setRowCount(0)
-        # add table headers
-        table.setHorizontalHeaderLabels(["Time", "Date", "Command", "Speech", "Type"])
-        #test commands
-        testHistory = [
-            ["3:30 PM", "8/18/2025", "Fake Command", "open burger", "Custom"],
-            ["3:25 PM", "8/18/2025", "Volume Up", "volume up by 5", "Default"],
-            ["3:23 PM", "8/18/2025", "Browser", "open browser", "Default"],
-            ["9:00 PM", "8/17/2025", "Volume Down", "volume down by 5", "Default"]
-        ]
-        for i, (time, date, command, speech, type) in enumerate(testHistory):
-            rowIndex = table.rowCount()
-            table.setRowCount(rowIndex+1)
-            # create base widget item for each and put on table
-            self.createTableWidgetItem(table, time, rowIndex, 0)
-            self.createTableWidgetItem(table, date, rowIndex, 1)
-            self.createTableWidgetItem(table, command, rowIndex, 2)
-            self.createTableWidgetItem(table, speech, rowIndex, 3)
-            self.createTableWidgetItem(table, type, rowIndex, 4)
-
-    def onAddItemToHistory(self):
-        # get all inputs
-        time = self.ui.timeEdit.text()
-        date = self.ui.dateEdit.text()
-        command = self.ui.commandEdit.text()
-        speech = self.ui.speechEdit.text()
-        type = self.ui.typeEdit.text()
-        # clear the inputs
-        self.ui.timeEdit.clear()
-        self.ui.dateEdit.clear()
-        self.ui.commandEdit.clear()
-        self.ui.speechEdit.clear()
-        self.ui.typeEdit.clear()
-        # add to table
-        self.addItemToCommandHistoryTable(self.ui.executedCommandTable, time, date, command, speech, type)
-
-    def onRemoveHistoryRow(self):
-        table = self.ui.executedCommandTable
-        currentItem = table.currentItem()
-        row = table.row(currentItem)
-        table.removeRow(row)
-
+# ======
 def closeEvent(event):
-        event.ignore()
-        widget.hide()
-        tray.showMessage(
-            "Rat",
-            "Application minimized to tray",
-            QSystemTrayIcon.Information,
-            2000
-        )
+    event.ignore()
+    widget.hide()
+    tray.showMessage(
+        "Rat",
+        "Application minimized to tray",
+        QSystemTrayIcon.Information,
+        2000
+    )
 
 def on_tray_activated(click):
-    # Different types of clicks are possible
-    if click == QSystemTrayIcon.Trigger:  # single left click
-        widget.showNormal()   # restore if minimized
-        widget.activateWindow()  # bring to front
+    if click == QSystemTrayIcon.Trigger:
+        widget.showNormal()
+        widget.activateWindow()
 
 if __name__ == "__main__":
 
@@ -187,6 +137,8 @@ if __name__ == "__main__":
     widget = Widget()
 
     widget.setWindowIcon(QIcon(r".\PyQt-GUIProject\Assets\RatBalling.png"))
+    app.setWindowIcon(QIcon(r".\PyQt-GUIProject\Assets\RatBalling.png"))
+
     tray = QSystemTrayIcon(QIcon(r".\PyQt-GUIProject\Assets\RatBalling.png"), parent=app)
     app.setStyleSheet(stylesheetsetter.set_theme())
 
@@ -198,6 +150,8 @@ if __name__ == "__main__":
     font.setHintingPreference(QFont.PreferNoHinting)
 
     widget.setFont(font)
+    app.setFont(font)
+    
     for child in widget.findChildren(QWidget):
         child.setFont(font)
 
@@ -214,10 +168,8 @@ if __name__ == "__main__":
     tray.setVisible(True)
 
     tray.activated.connect(on_tray_activated)
-
     show_action.triggered.connect(widget.show)
     quit_action.triggered.connect(app.quit)
-
 
     widget.closeEvent = closeEvent
 
