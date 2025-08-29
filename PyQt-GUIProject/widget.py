@@ -1,23 +1,20 @@
 # external libraries
-import sys
+import sys, os
 from PySide6.QtWidgets import QApplication, QWidget, QTableWidgetItem, QSystemTrayIcon, QMenu
 from PySide6.QtCore import Qt
-from PySide6.QtGui import QIcon, QAction, QFontDatabase, QFont
-import stylesheetsetter
+from PySide6.QtGui import QIcon, QAction, QFont,QFontDatabase
 
-
-# auto generated stuff
+# dialogs
 from ui_form import Ui_Widget
-from calibration_widget import CalibrationWidget
-from edit_command_widget import EditCommandWidget
-from create_command_widget import CreateCommandWidget
-
-# our modules
-from recorder import Recorder
+from dialogs.edit_command_widget import EditCommandWidget
+from dialogs.create_command_widget import CreateCommandWidget
+# other
 from command_handler import CommandHandler
-
+# page modules
 from home_page import HomePageHandler
+from log_page import LogPageHandler
 from settings_page import SettingsPageHandler
+import stylesheetsetter
 
 class Widget(QWidget):
     def __init__(self, parent=None):
@@ -26,25 +23,23 @@ class Widget(QWidget):
         self.ui.setupUi(self)
 
         # home page setup
-        self.HomeHandler = HomePageHandler(self)
+        self.HomePageHandler = HomePageHandler(self)
+
+        #logging page
+        self.LogPageHandler = LogPageHandler(self)
 
         # handles the loading and saving of all commands
         self.CommandHandler = CommandHandler(self)
-
-        # command history table setup
-        self.setupHistoryTable(self.ui.executedCommandTable)
-        #self.ui.addItemHistoryBtn.clicked.connect(self.onAddItemToHistory)
-        self.ui.deleteRowHistoryBtn.clicked.connect(self.onRemoveHistoryRow)
 
         # custom command table setup
         #self.setupCustomCommandsTable(self.ui.customCommandsTable) #no longer necessary, data is loaded on start wth command handler
         self.ui.customCommandsTable.itemClicked.connect(self.onSelectCustomCommand)
         self.ui.createCustomRowBtn.clicked.connect(self.onCreateCommand)
         self.ui.editCustomRowBtn.clicked.connect(self.onEditCustomRow)
+        # all of this should be moved into its own page handler
 
         # settings page setup
-        self.ui.openCalibrationBtn.clicked.connect(self.showCalibration) # needs to be moved into settings handler
-        self.SettingsHandler = SettingsPageHandler(self)
+        self.SettingsPageHandler = SettingsPageHandler(self)
 
     # UNIVERSAL TABLE CELL CREATOR
     # since they all need to be centered (and maybe more to add)
@@ -114,98 +109,47 @@ class Widget(QWidget):
         # and hten saved to file using command_handler
         self.CommandHandler.save_commands(self.ui.customCommandsTable)
 
-    # OPENING A NEW WINDOW FOR CALIBRATION
-    def showCalibration(self):
-        self.calibration = CalibrationWidget()
-        self.calibration.show()
 
-    # EXECUTED FOR TESTING PURPOSES ON LAUNCH
-    # SETS UP THE TABLE HISTORY WITH MOCK DATA
-    def setupHistoryTable(self, table):
-        table.setColumnCount(5)
-        table.setRowCount(0)
-        # add table headers
-        table.setHorizontalHeaderLabels(["Time", "Date", "Command", "Speech", "Type"])
-        #test commands
-        testHistory = [
-            ["3:30 PM", "8/18/2025", "Fake Command", "open burger", "Custom"],
-            ["3:25 PM", "8/18/2025", "Volume Up", "volume up by 5", "Default"],
-            ["3:23 PM", "8/18/2025", "Browser", "open browser", "Default"],
-            ["9:00 PM", "8/17/2025", "Volume Down", "volume down by 5", "Default"]
-        ]
-        for i, (time, date, command, speech, type) in enumerate(testHistory):
-            rowIndex = table.rowCount()
-            table.setRowCount(rowIndex+1)
-            # create base widget item for each and put on table
-            self.createTableWidgetItem(table, time, rowIndex, 0)
-            self.createTableWidgetItem(table, date, rowIndex, 1)
-            self.createTableWidgetItem(table, command, rowIndex, 2)
-            self.createTableWidgetItem(table, speech, rowIndex, 3)
-            self.createTableWidgetItem(table, type, rowIndex, 4)
-
-    def onAddItemToHistory(self):
-        # get all inputs
-        time = self.ui.timeEdit.text()
-        date = self.ui.dateEdit.text()
-        command = self.ui.commandEdit.text()
-        speech = self.ui.speechEdit.text()
-        type = self.ui.typeEdit.text()
-        # clear the inputs
-        self.ui.timeEdit.clear()
-        self.ui.dateEdit.clear()
-        self.ui.commandEdit.clear()
-        self.ui.speechEdit.clear()
-        self.ui.typeEdit.clear()
-        # add to table
-        self.addItemToCommandHistoryTable(self.ui.executedCommandTable, time, date, command, speech, type)
-
-    def onRemoveHistoryRow(self):
-        table = self.ui.executedCommandTable
-        currentItem = table.currentItem()
-        row = table.row(currentItem)
-        table.removeRow(row)
-
+# ======
 def closeEvent(event):
-        event.ignore()
-        widget.hide()
-        tray.showMessage(
-            "Rat",
-            "Application minimized to tray",
-            QSystemTrayIcon.Information,
-            2000
-        )
+    event.ignore()
+    widget.hide()
+    tray.showMessage(
+        "Rat",
+        "Application minimized to tray",
+        QSystemTrayIcon.Information,
+        2000
+    )
 
 def on_tray_activated(click):
-    # Different types of clicks are possible
-    if click == QSystemTrayIcon.Trigger:  # single left click
-        widget.showNormal()   # restore if minimized
-        widget.activateWindow()  # bring to front
+    if click == QSystemTrayIcon.Trigger:
+        widget.showNormal()
+        widget.activateWindow()
 
 if __name__ == "__main__":
-
     app = QApplication(sys.argv)
     widget = Widget()
 
-    widget.setWindowIcon(QIcon(r".\PyQt-GUIProject\Assets\RatBalling.png"))
-    app.setWindowIcon(QIcon(r".\PyQt-GUIProject\Assets\RatBalling.png"))
-
-    tray = QSystemTrayIcon(QIcon(r".\PyQt-GUIProject\Assets\RatBalling.png"), parent=app)
+    if "Users\\waypa\\" in os.getcwd():
+        icon_path = r".\assets\RatBalling.png"
+    else:
+        icon_path = r".\PyQt-GUIProject\Assets\RatBalling.png"
+    widget.ui.tabWidget.setCurrentIndex(0)
+    widget.setWindowIcon(QIcon(icon_path))
+    tray = QSystemTrayIcon(QIcon(icon_path), parent=app)
     app.setStyleSheet(stylesheetsetter.set_theme())
 
-   
     font_id = QFontDatabase.addApplicationFont(r"PyQt-GUIProject\Fonts\SF-Compact-Rounded-Medium.otf")
     family = QFontDatabase.applicationFontFamilies(font_id)
-    font = QFont(family, 11, 300,False)
+    font = QFont(family, 11, 300, False)
     font.setStyleStrategy(QFont.PreferAntialias)
     font.setHintingPreference(QFont.PreferNoHinting)
 
     widget.setFont(font)
     app.setFont(font)
-    
+
     for child in widget.findChildren(QWidget):
         child.setFont(font)
-
-    
 
 
 
@@ -218,10 +162,8 @@ if __name__ == "__main__":
     tray.setVisible(True)
 
     tray.activated.connect(on_tray_activated)
-
     show_action.triggered.connect(widget.show)
     quit_action.triggered.connect(app.quit)
-
 
     widget.closeEvent = closeEvent
 

@@ -1,0 +1,65 @@
+import os, json
+
+class LogHandler():
+    def __init__(self, logPage, parentWindow):
+        self.parentWindow = parentWindow
+        self.logPage = logPage
+
+    def load_data_dir(self, save_dir):
+        self.data_dir = save_dir + "/data"
+        self.log_file = self.data_dir + "/log.json"
+        # load log from file to table (if there is any)
+        log_json = self.load_log()
+        if log_json:
+            self.logPage.loadLogTable(log_json)
+
+    def change_data_dir(self, new_dir):
+        self.data_dir = new_dir + "/data"
+        self.log_file = self.data_dir + "/log.json"
+        #print(self.commands_file)
+        # save current table to new log path
+        self.save_log()
+
+    def save_log(self):
+        log_list = []
+        table = self.logPage.table
+
+        rowCount = table.rowCount()
+        for row in range(rowCount):
+            row_dict = {}
+            row_dict['time'] = table.item(row,0).text()
+            row_dict['date'] = table.item(row,1).text()
+            row_dict['name'] = table.item(row,2).text()
+            row_dict['speech'] = table.item(row,3).text()
+            row_dict['success'] = table.item(row,4).text()
+            row_dict['error_reason'] = table.item(row,5).text()
+            row_dict['category'] = table.item(row,6).text()
+            row_dict['type'] = table.item(row,7).text()
+            row_dict['target'] = table.item(row,8).text()
+            log_list.append(row_dict)
+
+        if os.path.exists(self.log_file):
+            with open(self.log_file, "w") as f:
+                json.dump(log_list, f, indent=4)
+                f.close()
+
+    def load_log(self):
+        if os.path.exists(self.log_file):
+            try:
+                with open(self.log_file, 'r') as f:
+                    log_json = json.load(f)
+                    f.close()
+                return log_json
+            except json.JSONDecodeError as e:
+                print("Json could not be decoded", e) # have a proper error message window pop up in this case
+            except Exception as e:
+                print("unknown error!!!!", e) # just catching in case theres other possible errors else i missed
+        else:
+            # create missing folder (if it doesn't exist)
+            if not os.path.exists(self.data_dir):
+                os.makedirs(self.data_dir)
+            # and create json file with empty array
+            with open(self.log_file, "w") as f:
+                f.write('[]')
+                f.close()
+
