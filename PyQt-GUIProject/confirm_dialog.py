@@ -2,7 +2,7 @@
 from PySide6 import QtCore
 from PySide6 import QtWidgets
 
-from dialogs.ui_confirm_dialog import Ui_ConfirmDialog
+from ui_confirm_dialog import Ui_ConfirmDialog
 
 class ConfirmDialog(QtWidgets.QDialog):
     def __init__(self, title, mainText, cancelText="Cancel", confirmText="Confirm", parent=None):

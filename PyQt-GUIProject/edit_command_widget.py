@@ -2,8 +2,8 @@
 from PySide6 import QtCore
 from PySide6 import QtWidgets
 
-from dialogs.ui_edit_command import Ui_EditCommandWidget
-from dialogs.confirm_dialog import ConfirmDialog
+from ui_edit_command import Ui_EditCommandWidget
+from confirm_dialog import ConfirmDialog
 
 class EditCommandWidget(QtWidgets.QWidget):
     def __init__(self, commandItems, table, CommandHandler, parent=None):

@@ -3,7 +3,9 @@ import ctypes, os, warnings, sys
 user_device = sys.platform
 
 if user_device == 'win32':
-    import screen_brightness_control as sbc
+    import screen_brightness_control as sbc, os, subprocess
+else:
+    pass
 
 # Screen brightness controls
 

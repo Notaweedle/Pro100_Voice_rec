@@ -20,30 +20,12 @@ class CommandHandler():
         self.CommandExecutor = CommandExecutor()
         self.commands_dict = []
         self.command_speech_phrases = []
-        self.parentWindow = parentWindow
+        self.data_dir = os.getcwd() + r".\PyQt-GUIProject\data"
+        self.commands_file = self.data_dir + r".\commands.json"
 
-        # these were original defaults used before settings allowed customization
-        #self.data_dir = os.getcwd() + "\\data"
-        #self.commands_file = self.data_dir + "\\commands.json"
-
-        self.customCommandsTable = parentWindow.ui.customCommandsTable
-
-    # the biggest change is only loading the commands on startup
-    # but when the settings are being saved after startup
-    # the new directory should be used to save instead
-    def load_data_dir(self, save_dir):
-        self.data_dir = save_dir + "/data"
-        self.commands_file = self.data_dir + "/commands.json"
-        # load commands from file to this class, then from this class to table
+        # load commands from file and then load those into table
         self.load_commands()
-        self.parentWindow.loadCustomCommandsTable(self.parentWindow.ui.customCommandsTable, self.commands_dict)
-
-    def change_data_dir(self, new_dir):
-        self.data_dir = new_dir + "/data"
-        self.commands_file = self.data_dir + "/commands.json"
-        #print(self.commands_file)
-        # save current table to new dir
-        self.save_commands(self.customCommandsTable)
+        parentWindow.loadCustomCommandsTable(parentWindow.ui.customCommandsTable, self.commands_dict)
 
     def check_speech(self, speech):
         # current idea to work on:
