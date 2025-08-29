@@ -2,8 +2,8 @@
 from PySide6 import QtCore
 from PySide6 import QtWidgets
 
-from ui_create_command import Ui_CreateCommandWidget
-from confirm_dialog import ConfirmDialog
+from dialogs.ui_create_command import Ui_CreateCommandWidget
+from dialogs.confirm_dialog import ConfirmDialog
 
 class CreateCommandWidget(QtWidgets.QWidget):
     def __init__(self, returnWindow, parent=None):
