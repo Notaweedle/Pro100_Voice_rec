@@ -53,7 +53,7 @@ class Recorder():
         if not self.recording:
             #self.passive_on = False
             # start recording here
-            self.end_recording = self.stream
+            #self.end_recording = self.stream
             # adjust boolean values
             self.startRecordingBtn.setEnabled(False)
             self.stopRecordingBtn.setEnabled(True)

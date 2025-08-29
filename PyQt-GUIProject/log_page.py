@@ -22,6 +22,9 @@ class LogPageHandler():
         item.setTextAlignment(Qt.AlignCenter)
         table.setItem(row, column, item)
 
+    def loadLogTable(self, log_json):
+        pass
+
     def createLogRow(self, commandInfo):
         table = self.table
         rowIndex = table.rowCount()
