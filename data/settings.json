@@ -3,13 +3,13 @@
     "name": "Default",
     "index": null
   },
-  "input_volume": 27,
+  "input_volume": 50,
   "output_device": {
     "name": "Default",
     "index": null
   },
   "output_volume": 50,
-  "text_to_speech": true,
+  "text_to_speech": false,
   "pause_threshold": 0.8,
   "speech_model": "PocketSphinx",
   "save_directory": "C:/Users/waypa/OneDrive/Documents/GitHub/Pro100_Voice_rec/PyQt-GUIProject"

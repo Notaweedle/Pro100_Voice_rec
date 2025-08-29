@@ -1,19 +1,16 @@
+
 import speech_recognition as sr
 import re, time, json
 import threading
 from command_processes import audio as a
+from difflib import SequenceMatcher
+activation_keywords = ["hey rat",'yo rat', 'rat', 'hello rat']
 
 class Recorder():
-    def __init__(self, parentWindow, callbackFunc):
+    def __init__(self, callbackFunc, startRecordingBtn, stopRecordingBtn, parent=None):
         # used for recording and processing
         self.recording = False
         self.r = sr.Recognizer()
-        self.parentWindow = parentWindow
-
-        # defaults, unnecessary now
-        #self.input_device = "Default"
-        #self.model = "whisper"
-        # this one necessary tho for getting available microphones
         self.mic = sr.Microphone()
 
         # passive listening stuff
@@ -63,32 +60,28 @@ class Recorder():
 
     #recording functionz
     def startRecording(self):
+        self.passive_on = False
         if not self.recording:
-            #self.passive_on = False
             # start recording here
             #self.end_recording = self.stream
             #self.end_recording = self.r.listen_in_background(self.mic, callback=self.rec_callback)
             # adjust boolean values
-            self.startRecordingBtn.setEnabled(False)
-            self.stopRecordingBtn.setEnabled(True)
-            self.parentWindow.ui.saveSettingsBtn.setEnabled(False)
-            self.parentWindow.ui.resetDefaultSettingsBtn.setEnabled(False)
+            self.startRecordingBtn.setEnabled(False) # CHANGE
+            self.stopRecordingBtn.setEnabled(True) # CHANGE
             self.recording = True
 
     def stopRecording(self):
         if self.recording:
-            #self.passive_on = True
             # stop the recording here
             if self.end_recording is not None:
                 self.end_recording(False)
                 #time.sleep(4)
                 #self.stream = self.r.listen_in_background(self.mic, callback=self.rec_callback)
             # adjust boolean values
-            self.startRecordingBtn.setEnabled(True)
-            self.stopRecordingBtn.setEnabled(False)
-            self.parentWindow.ui.saveSettingsBtn.setEnabled(True)
-            self.parentWindow.ui.resetDefaultSettingsBtn.setEnabled(True)
+            self.startRecordingBtn.setEnabled(True) # CHANGE
+            self.stopRecordingBtn.setEnabled(False) # CHANGE
             self.recording = False
+            self.passive_on = True
 
     def rec_callback(self, recognizer, audio):
         # first, recognize the text
@@ -102,7 +95,6 @@ class Recorder():
             except Exception as e:
                 print("Exception occured: ", e)
 
-        # now use the text to execute a command
         if text_recognized and text_recognized != "":
             if self.model.lower() == "vosk":
                 parsed = self.parse_vosk_text(text_recognized)
@@ -124,12 +116,20 @@ class Recorder():
         text = re.sub(r"[^A-Za-z0-9 ]", "", text)
         return text
 
-    def parse_vosk_text(self, text):
-        text = json.loads(text)['text']
-        return text
+    def changeMic(self):
+        #self.mic = sr.Microphone(device_index=1)
+        pass
+# ________________________________________________________________________________________
 
     def start_passive(self, stop_event):
         self.stream = self.r.listen_in_background(self.mic, callback=self.rec_callback)
         while self.stream:
             self.end_recording = self.stream
 
+
+def is_activation_match(text, keywords, threshold=0.8):
+    for keyword in keywords:
+        ratio = SequenceMatcher(None, text.lower(), keyword).ratio()
+        if ratio >= threshold:
+            return True
+    return False

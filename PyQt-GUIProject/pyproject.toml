@@ -2,4 +2,4 @@
 name = "PySide Widgets Project"
 
 [tool.pyside6-project]
-files = ["command_handler.py", "command_processes/audio.py", "command_processes/system_functions.py", "commands.py", "dialogs/calibration.ui", "dialogs/calibration_widget.py", "dialogs/confirm_dialog.py", "dialogs/confirm_dialog.ui", "dialogs/create_command.ui", "dialogs/create_command_widget.py", "dialogs/edit_command.ui", "dialogs/edit_command_widget.py", "dialogs/ui_calibration.py", "dialogs/ui_confirm_dialog.py", "dialogs/ui_create_command.py", "dialogs/ui_edit_command.py", "form.ui", "home_page.py", "log_handler.py", "log_page.py", "recorder.py", "settings_handler.py", "settings_page.py", "widget.py"]
+files = ["calibration.ui", "calibration_widget.py", "command_handler.py", "command_processes/audio.py", "command_processes/system_functions.py", "commands.py", "confirm_dialog.py", "confirm_dialog.ui", "create_command.ui", "create_command_widget.py", "edit_command.ui", "edit_command_widget.py", "fonts.qrc", "form.ui", "home_page.py", "recorder.py", "settings_page.py", "widget.py"]
