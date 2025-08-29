@@ -2,8 +2,8 @@
 from PySide6 import QtCore
 from PySide6 import QtWidgets
 
-from ui_create_command import Ui_CreateCommandWidget
-from confirm_dialog import ConfirmDialog
+from dialogs.ui_create_command import Ui_CreateCommandWidget
+from dialogs.confirm_dialog import ConfirmDialog
 
 class CreateCommandWidget(QtWidgets.QWidget):
     def __init__(self, returnWindow, parent=None):
@@ -12,6 +12,7 @@ class CreateCommandWidget(QtWidgets.QWidget):
         self.ui.setupUi(self)
 
         # hook up buttons
+        self.ui.chooseTargetBtn.clicked.connect(self.onChooseFileTarget)
         self.ui.createBtn.clicked.connect(returnWindow.onSaveNewCommand)
         self.ui.cancelBtn.clicked.connect(self.onCancel)
 
@@ -19,6 +20,17 @@ class CreateCommandWidget(QtWidgets.QWidget):
         self.ui.nameEdit.textChanged.connect(self.updateCreateBtn)
         self.ui.speechEdit.textChanged.connect(self.updateCreateBtn)
         self.ui.categoryEdit.textChanged.connect(self.updateCreateBtn)
+
+    def onChooseFileTarget(self):
+        self.FileDialog = QtWidgets.QFileDialog()
+        self.FileDialog.setFileMode(QtWidgets.QFileDialog.FileMode.ExistingFile)
+        self.FileDialog.setModal(True)
+        self.FileDialog.finished.connect(self.changeTargetPath)
+        self.FileDialog.open()
+
+    def changeTargetPath(self, path):
+        path = self.FileDialog.selectedFiles()
+        self.ui.targetEdit.setText(path[0])
 
     def checkValues(self):
         self.updateValues()

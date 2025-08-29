@@ -20,23 +20,36 @@ class CommandHandler():
         self.CommandExecutor = CommandExecutor()
         self.commands_dict = []
         self.command_speech_phrases = []
-        self.data_dir = os.getcwd() + r".\PyQt-GUIProject\data"
-        self.commands_file = self.data_dir + r".\commands.json"
+        self.parentWindow = parentWindow
 
-        # load commands from file and then load those into table
+        # these were original defaults used before settings allowed customization
+        #self.data_dir = os.getcwd() + "\\data"
+        #self.commands_file = self.data_dir + "\\commands.json"
+
+        self.customCommandsTable = parentWindow.ui.customCommandsTable
+
+    # the biggest change is only loading the commands on startup
+    # but when the settings are being saved after startup
+    # the new directory should be used to save instead
+    def load_data_dir(self, save_dir):
+        self.data_dir = save_dir + "/data"
+        self.commands_file = self.data_dir + "/commands.json"
+        # load commands from file to this class, then from this class to table
         self.load_commands()
-        parentWindow.loadCustomCommandsTable(parentWindow.ui.customCommandsTable, self.commands_dict)
+        self.parentWindow.loadCustomCommandsTable(self.parentWindow.ui.customCommandsTable, self.commands_dict)
+
+    def change_data_dir(self, new_dir):
+        self.data_dir = new_dir + "/data"
+        self.commands_file = self.data_dir + "/commands.json"
+        #print(self.commands_file)
+        # save current table to new dir
+        self.save_commands(self.customCommandsTable)
 
     def check_speech(self, speech):
-        # current idea to work on:
-        # check_speech(speech) decides if speech matches a command
-        # if so, it passes the command name to the other module
-        # execute_command(command_info) decides type is Program -> custom_program_command(target) opens target program from specified command
-
         speech_list = speech.split(" ")
         for phrase in self.command_speech_phrases:
             phrase_word_list = phrase.split(" ")
-            # check if a phrase occurs consecutively in speech_list
+            # check if a phrase occurs consecutively in speech_list (by each word)
             if self.check_consecutive_words(phrase_word_list, speech_list):
                 # then need to find command so it can be executed
                 for command in self.commands_dict:
@@ -73,7 +86,6 @@ class CommandHandler():
                     return True
         return False
 
-
     def load_commands(self):
         if os.path.exists(self.commands_file):
             try:
@@ -90,9 +102,11 @@ class CommandHandler():
             if not os.path.exists(self.data_dir):
                 os.makedirs(self.data_dir)
             # and create json file with empty array
+            default_commands = self.create_default_command_list()
             with open(self.commands_file, "w") as f:
-                f.write("[]")
+                json.dump(default_commands, f, indent=2)
                 f.close()
+            self.parse_commands_data(default_commands)
 
     def parse_commands_data(self, commands_json):
         # update full dict
@@ -130,3 +144,8 @@ class CommandHandler():
 
         # this keeps the handler phrases in sync with the file
         self.parse_commands_data(commands_dict)
+
+    def create_default_command_list(self):
+        default_commands = []
+        #oughhhh
+        return default_commands
