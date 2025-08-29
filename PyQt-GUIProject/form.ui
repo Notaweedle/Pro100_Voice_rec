@@ -14,7 +14,7 @@
    <enum>Qt::ContextMenuPolicy::DefaultContextMenu</enum>
   </property>
   <property name="windowTitle">
-   <string>Speech Recognition TEST GUI</string>
+   <string>Rat Rant</string>
   </property>
   <property name="windowIcon">
    <iconset>
@@ -26,9 +26,15 @@
   <property name="autoFillBackground">
    <bool>false</bool>
   </property>
+  <property name="styleSheet">
+   <string notr="true"/>
+  </property>
   <layout class="QVBoxLayout" name="verticalLayout_11">
    <item>
     <widget class="QTabWidget" name="tabWidget">
+     <property name="styleSheet">
+      <string notr="true"/>
+     </property>
      <property name="tabPosition">
       <enum>QTabWidget::TabPosition::North</enum>
      </property>
@@ -36,7 +42,7 @@
       <enum>QTabWidget::TabShape::Rounded</enum>
      </property>
      <property name="currentIndex">
-      <number>0</number>
+      <number>3</number>
      </property>
      <property name="usesScrollButtons">
       <bool>false</bool>
@@ -147,6 +153,9 @@
              <height>40</height>
             </size>
            </property>
+           <property name="styleSheet">
+            <string notr="true"/>
+           </property>
            <property name="text">
             <string>Start Recording</string>
            </property>
@@ -176,24 +185,30 @@
        <item>
         <widget class="QLabel" name="label_13">
          <property name="text">
-          <string>for easily testing commands without recording</string>
+          <string/>
          </property>
         </widget>
        </item>
        <item>
         <widget class="QLineEdit" name="mockSpeechEdit">
          <property name="text">
-          <string>uhhh open browser please</string>
+          <string/>
          </property>
          <property name="placeholderText">
-          <string>Speech Text</string>
+          <string>Enter a command here</string>
          </property>
         </widget>
        </item>
        <item>
         <widget class="QPushButton" name="executeMockSpeechBtn">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
          <property name="text">
-          <string>execute command</string>
+          <string>execute</string>
          </property>
         </widget>
        </item>
@@ -218,6 +233,12 @@
             <font>
              <bold>false</bold>
             </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true"/>
+           </property>
+           <property name="lineWidth">
+            <number>1</number>
            </property>
            <property name="verticalScrollBarPolicy">
             <enum>Qt::ScrollBarPolicy::ScrollBarAsNeeded</enum>
@@ -249,8 +270,14 @@
            <property name="horizontalScrollMode">
             <enum>QAbstractItemView::ScrollMode::ScrollPerPixel</enum>
            </property>
+           <property name="showGrid">
+            <bool>true</bool>
+           </property>
            <property name="gridStyle">
             <enum>Qt::PenStyle::SolidLine</enum>
+           </property>
+           <property name="wordWrap">
+            <bool>false</bool>
            </property>
            <property name="rowCount">
             <number>0</number>
@@ -258,6 +285,18 @@
            <property name="columnCount">
             <number>5</number>
            </property>
+           <attribute name="horizontalHeaderMinimumSectionSize">
+            <number>20</number>
+           </attribute>
+           <attribute name="horizontalHeaderDefaultSectionSize">
+            <number>133</number>
+           </attribute>
+           <attribute name="horizontalHeaderHighlightSections">
+            <bool>false</bool>
+           </attribute>
+           <attribute name="horizontalHeaderShowSortIndicator" stdset="0">
+            <bool>false</bool>
+           </attribute>
            <attribute name="verticalHeaderVisible">
             <bool>true</bool>
            </attribute>
@@ -267,181 +306,6 @@
            <column/>
            <column/>
           </widget>
-         </item>
-         <item row="3" column="0">
-          <layout class="QVBoxLayout" name="verticalLayout_13">
-           <item>
-            <spacer name="verticalSpacer">
-             <property name="orientation">
-              <enum>Qt::Orientation::Vertical</enum>
-             </property>
-             <property name="sizeType">
-              <enum>QSizePolicy::Policy::Expanding</enum>
-             </property>
-             <property name="sizeHint" stdset="0">
-              <size>
-               <width>0</width>
-               <height>40</height>
-              </size>
-             </property>
-            </spacer>
-           </item>
-           <item>
-            <widget class="QLabel" name="label_12">
-             <property name="text">
-              <string>This will be removed!!!!!!!</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QLineEdit" name="timeEdit">
-             <property name="minimumSize">
-              <size>
-               <width>50</width>
-               <height>0</height>
-              </size>
-             </property>
-             <property name="maximumSize">
-              <size>
-               <width>200</width>
-               <height>16777215</height>
-              </size>
-             </property>
-             <property name="alignment">
-              <set>Qt::AlignmentFlag::AlignCenter</set>
-             </property>
-             <property name="placeholderText">
-              <string>Time</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QLineEdit" name="dateEdit">
-             <property name="minimumSize">
-              <size>
-               <width>50</width>
-               <height>0</height>
-              </size>
-             </property>
-             <property name="maximumSize">
-              <size>
-               <width>200</width>
-               <height>16777215</height>
-              </size>
-             </property>
-             <property name="alignment">
-              <set>Qt::AlignmentFlag::AlignCenter</set>
-             </property>
-             <property name="placeholderText">
-              <string>Date</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QLineEdit" name="commandEdit">
-             <property name="minimumSize">
-              <size>
-               <width>50</width>
-               <height>0</height>
-              </size>
-             </property>
-             <property name="maximumSize">
-              <size>
-               <width>200</width>
-               <height>16777215</height>
-              </size>
-             </property>
-             <property name="alignment">
-              <set>Qt::AlignmentFlag::AlignCenter</set>
-             </property>
-             <property name="placeholderText">
-              <string>Command</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QLineEdit" name="speechEdit">
-             <property name="minimumSize">
-              <size>
-               <width>50</width>
-               <height>0</height>
-              </size>
-             </property>
-             <property name="maximumSize">
-              <size>
-               <width>200</width>
-               <height>16777215</height>
-              </size>
-             </property>
-             <property name="alignment">
-              <set>Qt::AlignmentFlag::AlignCenter</set>
-             </property>
-             <property name="placeholderText">
-              <string>Speech</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QLineEdit" name="typeEdit">
-             <property name="sizePolicy">
-              <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
-               <horstretch>0</horstretch>
-               <verstretch>0</verstretch>
-              </sizepolicy>
-             </property>
-             <property name="minimumSize">
-              <size>
-               <width>50</width>
-               <height>0</height>
-              </size>
-             </property>
-             <property name="maximumSize">
-              <size>
-               <width>200</width>
-               <height>16777215</height>
-              </size>
-             </property>
-             <property name="inputMask">
-              <string/>
-             </property>
-             <property name="text">
-              <string/>
-             </property>
-             <property name="alignment">
-              <set>Qt::AlignmentFlag::AlignCenter</set>
-             </property>
-             <property name="placeholderText">
-              <string>Type</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QPushButton" name="addItemHistoryBtn">
-             <property name="maximumSize">
-              <size>
-               <width>200</width>
-               <height>16777215</height>
-              </size>
-             </property>
-             <property name="text">
-              <string>Add Item</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <spacer name="verticalSpacer_2">
-             <property name="orientation">
-              <enum>Qt::Orientation::Vertical</enum>
-             </property>
-             <property name="sizeHint" stdset="0">
-              <size>
-               <width>0</width>
-               <height>40</height>
-              </size>
-             </property>
-            </spacer>
-           </item>
-          </layout>
          </item>
          <item row="5" column="0" colspan="2">
           <widget class="QPushButton" name="sortOptionsHistoryBtn">
@@ -481,7 +345,7 @@
             </font>
            </property>
            <property name="text">
-            <string>Executed Command History</string>
+            <string>Command History</string>
            </property>
            <property name="alignment">
             <set>Qt::AlignmentFlag::AlignCenter</set>
@@ -494,7 +358,7 @@
      </widget>
      <widget class="QWidget" name="customCommandsTab">
       <attribute name="title">
-       <string>Custom Commands</string>
+       <string>Commands</string>
       </attribute>
       <layout class="QVBoxLayout" name="verticalLayout_6">
        <item>
@@ -545,12 +409,18 @@
            <property name="gridStyle">
             <enum>Qt::PenStyle::SolidLine</enum>
            </property>
+           <property name="wordWrap">
+            <bool>false</bool>
+           </property>
            <property name="rowCount">
             <number>0</number>
            </property>
            <property name="columnCount">
             <number>5</number>
            </property>
+           <attribute name="horizontalHeaderDefaultSectionSize">
+            <number>110</number>
+           </attribute>
            <attribute name="verticalHeaderVisible">
             <bool>true</bool>
            </attribute>
@@ -586,7 +456,7 @@
             </font>
            </property>
            <property name="text">
-            <string>Custom Commands</string>
+            <string>Commands</string>
            </property>
            <property name="alignment">
             <set>Qt::AlignmentFlag::AlignCenter</set>
@@ -701,6 +571,11 @@
              <verstretch>0</verstretch>
             </sizepolicy>
            </property>
+           <property name="styleSheet">
+            <string notr="true">QLabel{
+color: rgb(82, 82, 82);
+}</string>
+           </property>
            <property name="text">
             <string>Reads executed commands aloud</string>
            </property>
@@ -799,6 +674,9 @@
              <property name="enabled">
               <bool>false</bool>
              </property>
+             <property name="toolTip">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:8pt; font-style:italic;&quot;&gt;Click top right to Increase.&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:8pt; font-style:italic;&quot;&gt;Click the bottom right to decrease.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             </property>
             </widget>
            </item>
           </layout>
@@ -863,6 +741,9 @@
          </item>
          <item>
           <widget class="QComboBox" name="inputDeviceBox">
+           <property name="currentText">
+            <string>Test Input 1</string>
+           </property>
            <item>
             <property name="text">
              <string>Test Input 1</string>
@@ -977,6 +858,12 @@
            </item>
            <item>
             <widget class="QDoubleSpinBox" name="inputVolSpinBox">
+             <property name="toolTip">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:8pt; font-style:italic;&quot;&gt;Click top right to Increase. &lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:8pt; font-style:italic;&quot;&gt;Click the bottom right to decrease.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             </property>
+             <property name="frame">
+              <bool>true</bool>
+             </property>
              <property name="decimals">
               <number>0</number>
              </property>
@@ -1249,6 +1136,9 @@
            </item>
            <item>
             <widget class="QDoubleSpinBox" name="outputVolSpinBox">
+             <property name="toolTip">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:8pt; font-style:italic;&quot;&gt;Click top right to Increase. &lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:8pt; font-style:italic;&quot;&gt;Click the bottom right to decrease.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             </property>
              <property name="decimals">
               <number>0</number>
              </property>
@@ -1367,14 +1257,17 @@
            </item>
            <item>
             <widget class="QDoubleSpinBox" name="pauseThreshSpinBox">
+             <property name="toolTip">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:8pt; font-style:italic;&quot;&gt;Click top right to Increase.&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:8pt; font-style:italic;&quot;&gt;Click the bottom right to decrease.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             </property>
              <property name="minimum">
-              <double>0.500000000000000</double>
+              <double>0.000000000000000</double>
              </property>
              <property name="maximum">
               <double>10.000000000000000</double>
              </property>
              <property name="value">
-              <double>0.800000000000000</double>
+              <double>1.000000000000000</double>
              </property>
             </widget>
            </item>

@@ -2,7 +2,8 @@
 import sys
 from PySide6.QtWidgets import QApplication, QWidget, QTableWidgetItem, QSystemTrayIcon, QMenu
 from PySide6.QtCore import Qt
-from PySide6.QtGui import QIcon, QAction
+from PySide6.QtGui import QIcon, QAction, QFontDatabase, QFont
+import stylesheetsetter
 
 
 # auto generated stuff
@@ -32,7 +33,7 @@ class Widget(QWidget):
 
         # command history table setup
         self.setupHistoryTable(self.ui.executedCommandTable)
-        self.ui.addItemHistoryBtn.clicked.connect(self.onAddItemToHistory)
+        #self.ui.addItemHistoryBtn.clicked.connect(self.onAddItemToHistory)
         self.ui.deleteRowHistoryBtn.clicked.connect(self.onRemoveHistoryRow)
 
         # custom command table setup
@@ -181,11 +182,27 @@ def on_tray_activated(click):
         widget.activateWindow()  # bring to front
 
 if __name__ == "__main__":
+
     app = QApplication(sys.argv)
     widget = Widget()
 
     widget.setWindowIcon(QIcon(r".\PyQt-GUIProject\Assets\RatBalling.png"))
     tray = QSystemTrayIcon(QIcon(r".\PyQt-GUIProject\Assets\RatBalling.png"), parent=app)
+    app.setStyleSheet(stylesheetsetter.set_theme())
+
+   
+    font_id = QFontDatabase.addApplicationFont(r"PyQt-GUIProject\Fonts\SF-Compact-Rounded-Medium.otf")
+    family = QFontDatabase.applicationFontFamilies(font_id)
+    font = QFont(family, 11, 300,False)
+    font.setStyleStrategy(QFont.PreferAntialias)
+    font.setHintingPreference(QFont.PreferNoHinting)
+
+    widget.setFont(font)
+    for child in widget.findChildren(QWidget):
+        child.setFont(font)
+
+    
+
 
 
     tray_menu = QMenu()

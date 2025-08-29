@@ -29,14 +29,16 @@ class Ui_Widget(object):
         Widget.resize(700, 562)
         Widget.setContextMenuPolicy(Qt.ContextMenuPolicy.DefaultContextMenu)
         icon = QIcon()
-        icon.addFile(u"../../../../../Downloads/1345442634985898067.webp", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        icon.addFile(u"../../../../../PyQt-GUIProject/Assets/RatBalling.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
         Widget.setWindowIcon(icon)
         Widget.setWindowOpacity(1.000000000000000)
         Widget.setAutoFillBackground(False)
+        Widget.setStyleSheet(u"")
         self.verticalLayout_11 = QVBoxLayout(Widget)
         self.verticalLayout_11.setObjectName(u"verticalLayout_11")
         self.tabWidget = QTabWidget(Widget)
         self.tabWidget.setObjectName(u"tabWidget")
+        self.tabWidget.setStyleSheet(u"")
         self.tabWidget.setTabPosition(QTabWidget.TabPosition.North)
         self.tabWidget.setTabShape(QTabWidget.TabShape.Rounded)
         self.tabWidget.setUsesScrollButtons(False)
@@ -101,6 +103,7 @@ class Ui_Widget(object):
         self.startRecordingBtn = QPushButton(self.homeTab)
         self.startRecordingBtn.setObjectName(u"startRecordingBtn")
         self.startRecordingBtn.setMinimumSize(QSize(0, 40))
+        self.startRecordingBtn.setStyleSheet(u"")
 
         self.recordingButtonLayout.addWidget(self.startRecordingBtn)
 
@@ -127,6 +130,11 @@ class Ui_Widget(object):
 
         self.executeMockSpeechBtn = QPushButton(self.homeTab)
         self.executeMockSpeechBtn.setObjectName(u"executeMockSpeechBtn")
+        sizePolicy = QSizePolicy(QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Minimum)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.executeMockSpeechBtn.sizePolicy().hasHeightForWidth())
+        self.executeMockSpeechBtn.setSizePolicy(sizePolicy)
 
         self.verticalLayout_2.addWidget(self.executeMockSpeechBtn)
 
@@ -141,14 +149,16 @@ class Ui_Widget(object):
         if (self.executedCommandTable.columnCount() < 5):
             self.executedCommandTable.setColumnCount(5)
         self.executedCommandTable.setObjectName(u"executedCommandTable")
-        sizePolicy = QSizePolicy(QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Expanding)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.executedCommandTable.sizePolicy().hasHeightForWidth())
-        self.executedCommandTable.setSizePolicy(sizePolicy)
+        sizePolicy1 = QSizePolicy(QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Expanding)
+        sizePolicy1.setHorizontalStretch(0)
+        sizePolicy1.setVerticalStretch(0)
+        sizePolicy1.setHeightForWidth(self.executedCommandTable.sizePolicy().hasHeightForWidth())
+        self.executedCommandTable.setSizePolicy(sizePolicy1)
         font1 = QFont()
         font1.setBold(False)
         self.executedCommandTable.setFont(font1)
+        self.executedCommandTable.setStyleSheet(u"")
+        self.executedCommandTable.setLineWidth(1)
         self.executedCommandTable.setVerticalScrollBarPolicy(Qt.ScrollBarPolicy.ScrollBarAsNeeded)
         self.executedCommandTable.setHorizontalScrollBarPolicy(Qt.ScrollBarPolicy.ScrollBarAsNeeded)
         self.executedCommandTable.setSizeAdjustPolicy(QAbstractScrollArea.SizeAdjustPolicy.AdjustIgnored)
@@ -159,81 +169,18 @@ class Ui_Widget(object):
         self.executedCommandTable.setTextElideMode(Qt.TextElideMode.ElideRight)
         self.executedCommandTable.setVerticalScrollMode(QAbstractItemView.ScrollMode.ScrollPerPixel)
         self.executedCommandTable.setHorizontalScrollMode(QAbstractItemView.ScrollMode.ScrollPerPixel)
+        self.executedCommandTable.setShowGrid(True)
         self.executedCommandTable.setGridStyle(Qt.PenStyle.SolidLine)
+        self.executedCommandTable.setWordWrap(False)
         self.executedCommandTable.setRowCount(0)
         self.executedCommandTable.setColumnCount(5)
+        self.executedCommandTable.horizontalHeader().setMinimumSectionSize(20)
+        self.executedCommandTable.horizontalHeader().setDefaultSectionSize(133)
+        self.executedCommandTable.horizontalHeader().setHighlightSections(False)
+        self.executedCommandTable.horizontalHeader().setProperty(u"showSortIndicator", False)
         self.executedCommandTable.verticalHeader().setVisible(True)
 
         self.gridLayout_2.addWidget(self.executedCommandTable, 3, 1, 1, 1)
-
-        self.verticalLayout_13 = QVBoxLayout()
-        self.verticalLayout_13.setObjectName(u"verticalLayout_13")
-        self.verticalSpacer = QSpacerItem(0, 40, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
-
-        self.verticalLayout_13.addItem(self.verticalSpacer)
-
-        self.label_12 = QLabel(self.commandHistoryTab)
-        self.label_12.setObjectName(u"label_12")
-
-        self.verticalLayout_13.addWidget(self.label_12)
-
-        self.timeEdit = QLineEdit(self.commandHistoryTab)
-        self.timeEdit.setObjectName(u"timeEdit")
-        self.timeEdit.setMinimumSize(QSize(50, 0))
-        self.timeEdit.setMaximumSize(QSize(200, 16777215))
-        self.timeEdit.setAlignment(Qt.AlignmentFlag.AlignCenter)
-
-        self.verticalLayout_13.addWidget(self.timeEdit)
-
-        self.dateEdit = QLineEdit(self.commandHistoryTab)
-        self.dateEdit.setObjectName(u"dateEdit")
-        self.dateEdit.setMinimumSize(QSize(50, 0))
-        self.dateEdit.setMaximumSize(QSize(200, 16777215))
-        self.dateEdit.setAlignment(Qt.AlignmentFlag.AlignCenter)
-
-        self.verticalLayout_13.addWidget(self.dateEdit)
-
-        self.commandEdit = QLineEdit(self.commandHistoryTab)
-        self.commandEdit.setObjectName(u"commandEdit")
-        self.commandEdit.setMinimumSize(QSize(50, 0))
-        self.commandEdit.setMaximumSize(QSize(200, 16777215))
-        self.commandEdit.setAlignment(Qt.AlignmentFlag.AlignCenter)
-
-        self.verticalLayout_13.addWidget(self.commandEdit)
-
-        self.speechEdit = QLineEdit(self.commandHistoryTab)
-        self.speechEdit.setObjectName(u"speechEdit")
-        self.speechEdit.setMinimumSize(QSize(50, 0))
-        self.speechEdit.setMaximumSize(QSize(200, 16777215))
-        self.speechEdit.setAlignment(Qt.AlignmentFlag.AlignCenter)
-
-        self.verticalLayout_13.addWidget(self.speechEdit)
-
-        self.typeEdit = QLineEdit(self.commandHistoryTab)
-        self.typeEdit.setObjectName(u"typeEdit")
-        sizePolicy1 = QSizePolicy(QSizePolicy.Policy.MinimumExpanding, QSizePolicy.Policy.Fixed)
-        sizePolicy1.setHorizontalStretch(0)
-        sizePolicy1.setVerticalStretch(0)
-        sizePolicy1.setHeightForWidth(self.typeEdit.sizePolicy().hasHeightForWidth())
-        self.typeEdit.setSizePolicy(sizePolicy1)
-        self.typeEdit.setMinimumSize(QSize(50, 0))
-        self.typeEdit.setMaximumSize(QSize(200, 16777215))
-        self.typeEdit.setAlignment(Qt.AlignmentFlag.AlignCenter)
-
-        self.verticalLayout_13.addWidget(self.typeEdit)
-
-        self.addItemHistoryBtn = QPushButton(self.commandHistoryTab)
-        self.addItemHistoryBtn.setObjectName(u"addItemHistoryBtn")
-        self.addItemHistoryBtn.setMaximumSize(QSize(200, 16777215))
-
-        self.verticalLayout_13.addWidget(self.addItemHistoryBtn)
-
-        self.verticalSpacer_2 = QSpacerItem(0, 40, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
-
-        self.verticalLayout_13.addItem(self.verticalSpacer_2)
-
-
-        self.gridLayout_2.addLayout(self.verticalLayout_13, 3, 0, 1, 1)
 
         self.sortOptionsHistoryBtn = QPushButton(self.commandHistoryTab)
         self.sortOptionsHistoryBtn.setObjectName(u"sortOptionsHistoryBtn")
@@ -269,8 +216,8 @@ class Ui_Widget(object):
         if (self.customCommandsTable.columnCount() < 5):
             self.customCommandsTable.setColumnCount(5)
         self.customCommandsTable.setObjectName(u"customCommandsTable")
-        sizePolicy.setHeightForWidth(self.customCommandsTable.sizePolicy().hasHeightForWidth())
-        self.customCommandsTable.setSizePolicy(sizePolicy)
+        sizePolicy1.setHeightForWidth(self.customCommandsTable.sizePolicy().hasHeightForWidth())
+        self.customCommandsTable.setSizePolicy(sizePolicy1)
         self.customCommandsTable.setFont(font1)
         self.customCommandsTable.setVerticalScrollBarPolicy(Qt.ScrollBarPolicy.ScrollBarAsNeeded)
         self.customCommandsTable.setHorizontalScrollBarPolicy(Qt.ScrollBarPolicy.ScrollBarAsNeeded)
@@ -283,8 +230,10 @@ class Ui_Widget(object):
         self.customCommandsTable.setVerticalScrollMode(QAbstractItemView.ScrollMode.ScrollPerPixel)
         self.customCommandsTable.setHorizontalScrollMode(QAbstractItemView.ScrollMode.ScrollPerPixel)
         self.customCommandsTable.setGridStyle(Qt.PenStyle.SolidLine)
+        self.customCommandsTable.setWordWrap(False)
         self.customCommandsTable.setRowCount(0)
         self.customCommandsTable.setColumnCount(5)
+        self.customCommandsTable.horizontalHeader().setDefaultSectionSize(110)
         self.customCommandsTable.verticalHeader().setVisible(True)
 
         self.gridLayout_4.addWidget(self.customCommandsTable, 3, 1, 1, 1)
@@ -359,6 +308,9 @@ class Ui_Widget(object):
         self.label_4.setObjectName(u"label_4")
         sizePolicy2.setHeightForWidth(self.label_4.sizePolicy().hasHeightForWidth())
         self.label_4.setSizePolicy(sizePolicy2)
+        self.label_4.setStyleSheet(u"QLabel{\n"
+"color: rgb(82, 82, 82);\n"
+"}")
 
         self.verticalLayout_3.addWidget(self.label_4)
 
@@ -480,6 +432,7 @@ class Ui_Widget(object):
 
         self.inputVolSpinBox = QDoubleSpinBox(self.settingsTab)
         self.inputVolSpinBox.setObjectName(u"inputVolSpinBox")
+        self.inputVolSpinBox.setFrame(True)
         self.inputVolSpinBox.setDecimals(0)
         self.inputVolSpinBox.setMaximum(100.000000000000000)
         self.inputVolSpinBox.setValue(50.000000000000000)
@@ -646,9 +599,9 @@ class Ui_Widget(object):
 
         self.pauseThreshSpinBox = QDoubleSpinBox(self.settingsTab)
         self.pauseThreshSpinBox.setObjectName(u"pauseThreshSpinBox")
-        self.pauseThreshSpinBox.setMinimum(0.500000000000000)
+        self.pauseThreshSpinBox.setMinimum(0.000000000000000)
         self.pauseThreshSpinBox.setMaximum(10.000000000000000)
-        self.pauseThreshSpinBox.setValue(0.800000000000000)
+        self.pauseThreshSpinBox.setValue(1.000000000000000)
 
         self.horizontalLayout.addWidget(self.pauseThreshSpinBox)
 
@@ -669,53 +622,51 @@ class Ui_Widget(object):
 
         self.retranslateUi(Widget)
 
-        self.tabWidget.setCurrentIndex(0)
+        self.tabWidget.setCurrentIndex(3)
 
 
         QMetaObject.connectSlotsByName(Widget)
     # setupUi
 
     def retranslateUi(self, Widget):
-        Widget.setWindowTitle(QCoreApplication.translate("Widget", u"Speech Recognition TEST GUI", None))
+        Widget.setWindowTitle(QCoreApplication.translate("Widget", u"Rat Rant", None))
         self.label_2.setText(QCoreApplication.translate("Widget", u"Detected Speech History", None))
         self.removeSpeechHistoryItemBtn.setText(QCoreApplication.translate("Widget", u"Delete Selected Item", None))
         self.clearSpeechHistoryBtn.setText(QCoreApplication.translate("Widget", u"Clear History", None))
         self.startRecordingBtn.setText(QCoreApplication.translate("Widget", u"Start Recording", None))
         self.stopRecordingBtn.setText(QCoreApplication.translate("Widget", u"Stop Recording", None))
-        self.label_13.setText(QCoreApplication.translate("Widget", u"for easily testing commands without recording", None))
-        self.mockSpeechEdit.setText(QCoreApplication.translate("Widget", u"uhhh open browser please", None))
-        self.mockSpeechEdit.setPlaceholderText(QCoreApplication.translate("Widget", u"Speech Text", None))
-        self.executeMockSpeechBtn.setText(QCoreApplication.translate("Widget", u"execute command", None))
+        self.label_13.setText("")
+        self.mockSpeechEdit.setText("")
+        self.mockSpeechEdit.setPlaceholderText(QCoreApplication.translate("Widget", u"Enter a command here", None))
+        self.executeMockSpeechBtn.setText(QCoreApplication.translate("Widget", u"execute", None))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.homeTab), QCoreApplication.translate("Widget", u"Home", None))
-        self.label_12.setText(QCoreApplication.translate("Widget", u"This will be removed!!!!!!!", None))
-        self.timeEdit.setPlaceholderText(QCoreApplication.translate("Widget", u"Time", None))
-        self.dateEdit.setPlaceholderText(QCoreApplication.translate("Widget", u"Date", None))
-        self.commandEdit.setPlaceholderText(QCoreApplication.translate("Widget", u"Command", None))
-        self.speechEdit.setPlaceholderText(QCoreApplication.translate("Widget", u"Speech", None))
-        self.typeEdit.setInputMask("")
-        self.typeEdit.setText("")
-        self.typeEdit.setPlaceholderText(QCoreApplication.translate("Widget", u"Type", None))
-        self.addItemHistoryBtn.setText(QCoreApplication.translate("Widget", u"Add Item", None))
         self.sortOptionsHistoryBtn.setText(QCoreApplication.translate("Widget", u"Sort Options", None))
         self.deleteRowHistoryBtn.setText(QCoreApplication.translate("Widget", u"Delete Row", None))
-        self.label_10.setText(QCoreApplication.translate("Widget", u"Executed Command History", None))
+        self.label_10.setText(QCoreApplication.translate("Widget", u"Command History", None))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.commandHistoryTab), QCoreApplication.translate("Widget", u"Command History", None))
         self.sortOptionsCustomBtn.setText(QCoreApplication.translate("Widget", u"Sort Options", None))
-        self.label_11.setText(QCoreApplication.translate("Widget", u"Custom Commands", None))
+        self.label_11.setText(QCoreApplication.translate("Widget", u"Commands", None))
         self.createCustomRowBtn.setText(QCoreApplication.translate("Widget", u"Create Command", None))
         self.editCustomRowBtn.setText(QCoreApplication.translate("Widget", u"Edit Command", None))
-        self.tabWidget.setTabText(self.tabWidget.indexOf(self.customCommandsTab), QCoreApplication.translate("Widget", u"Custom Commands", None))
+        self.tabWidget.setTabText(self.tabWidget.indexOf(self.customCommandsTab), QCoreApplication.translate("Widget", u"Commands", None))
         self.label_3.setText(QCoreApplication.translate("Widget", u"Text To Speech", None))
         self.label_4.setText(QCoreApplication.translate("Widget", u"Reads executed commands aloud", None))
 #if QT_CONFIG(whatsthis)
         self.label_6.setWhatsThis(QCoreApplication.translate("Widget", u"<html><head/><body><p><br/></p></body></html>", None))
 #endif // QT_CONFIG(whatsthis)
         self.label_6.setText(QCoreApplication.translate("Widget", u"Setting Name", None))
+#if QT_CONFIG(tooltip)
+        self.doubleSpinBox_2.setToolTip(QCoreApplication.translate("Widget", u"<html><head/><body><p align=\"center\"><span style=\" font-size:8pt; font-style:italic;\">Click top right to Increase.</span></p><p align=\"center\"><span style=\" font-size:8pt; font-style:italic;\">Click the bottom right to decrease.</span></p></body></html>", None))
+#endif // QT_CONFIG(tooltip)
         self.label_9.setText(QCoreApplication.translate("Widget", u"Input Device", None))
         self.inputDeviceBox.setItemText(0, QCoreApplication.translate("Widget", u"Test Input 1", None))
         self.inputDeviceBox.setItemText(1, QCoreApplication.translate("Widget", u"Test Input 2", None))
 
+        self.inputDeviceBox.setCurrentText(QCoreApplication.translate("Widget", u"Test Input 1", None))
         self.label.setText(QCoreApplication.translate("Widget", u"Input Volume", None))
+#if QT_CONFIG(tooltip)
+        self.inputVolSpinBox.setToolTip(QCoreApplication.translate("Widget", u"<html><head/><body><p align=\"center\"><span style=\" font-size:8pt; font-style:italic;\">Click top right to Increase. </span></p><p align=\"center\"><span style=\" font-size:8pt; font-style:italic;\">Click the bottom right to decrease.</span></p></body></html>", None))
+#endif // QT_CONFIG(tooltip)
         self.openCalibrationBtn.setText(QCoreApplication.translate("Widget", u"Open Calibration", None))
         self.ttsCheckBox.setText("")
         self.label_8.setText(QCoreApplication.translate("Widget", u"Output Device", None))
@@ -724,12 +675,18 @@ class Ui_Widget(object):
 
         self.label_7.setText(QCoreApplication.translate("Widget", u"Output Volume", None))
 #if QT_CONFIG(tooltip)
+        self.outputVolSpinBox.setToolTip(QCoreApplication.translate("Widget", u"<html><head/><body><p align=\"center\"><span style=\" font-size:8pt; font-style:italic;\">Click top right to Increase. </span></p><p align=\"center\"><span style=\" font-size:8pt; font-style:italic;\">Click the bottom right to decrease.</span></p></body></html>", None))
+#endif // QT_CONFIG(tooltip)
+#if QT_CONFIG(tooltip)
         self.label_5.setToolTip(QCoreApplication.translate("Widget", u"<html><head/><body><p>Minimum length of silence (in seconds) before a phrase ends and begins processing</p></body></html>", None))
 #endif // QT_CONFIG(tooltip)
 #if QT_CONFIG(whatsthis)
         self.label_5.setWhatsThis(QCoreApplication.translate("Widget", u"<html><head/><body><p><br/></p></body></html>", None))
 #endif // QT_CONFIG(whatsthis)
         self.label_5.setText(QCoreApplication.translate("Widget", u"Pause Threshold", None))
+#if QT_CONFIG(tooltip)
+        self.pauseThreshSpinBox.setToolTip(QCoreApplication.translate("Widget", u"<html><head/><body><p align=\"center\"><span style=\" font-size:8pt; font-style:italic;\">Click top right to Increase.</span></p><p align=\"center\"><span style=\" font-size:8pt; font-style:italic;\">Click the bottom right to decrease.</span></p></body></html>", None))
+#endif // QT_CONFIG(tooltip)
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.settingsTab), QCoreApplication.translate("Widget", u"Settings", None))
     # retranslateUi
 
