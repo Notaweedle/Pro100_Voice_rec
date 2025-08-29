@@ -58,7 +58,6 @@ class CommandHandler():
                         result = self.CommandExecutor.execute_command(command)
                         self.log_command(command.copy(), result)
 
-
     def log_command(self, commandToLog, result):
         # prepare info so it can be logged
         commandToLog['success'] = str(result[0])

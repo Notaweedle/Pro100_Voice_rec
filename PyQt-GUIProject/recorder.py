@@ -1,5 +1,6 @@
 import speech_recognition as sr
 import re, time, json
+import threading
 from command_processes import audio as a
 
 class Recorder():
@@ -14,8 +15,13 @@ class Recorder():
         #self.model = "whisper"
         # this one necessary tho for getting available microphones
         self.mic = sr.Microphone()
-        #self.stream = self.r.listen_in_background(self.mic, callback=self.test_callback)
+
+        # passive listening stuff
+        self.listening_phrase = "hey rat"
+        self.stream = None
         self.passive_on = True
+        #self.stop_thread = threading.Event()
+        self.passive_thread = threading.Thread(target=self.start_passive, daemon=True)
 
         self.callbackFunc = callbackFunc
         self.startRecordingBtn = parentWindow.ui.startRecordingBtn
@@ -24,6 +30,9 @@ class Recorder():
         self.startRecordingBtn.setEnabled(False)
 
     def update_settings(self, input_device, input_volume, pause_threshold, model):
+        if self.stream is not None:
+            self.stream(False)
+
         # input device handling
         self.input_device = input_device
         if input_device['name'].lower() == "default":
@@ -48,13 +57,17 @@ class Recorder():
         if not self.recording:
             self.startRecordingBtn.setEnabled(True)
 
+        # start recording
+        self.stream = self.r.listen_in_background(self.mic, callback=self.rec_callback)
+
+
     #recording functionz
     def startRecording(self):
         if not self.recording:
             #self.passive_on = False
             # start recording here
             #self.end_recording = self.stream
-            self.end_recording = self.r.listen_in_background(self.mic, callback=self.test_callback)
+            #self.end_recording = self.r.listen_in_background(self.mic, callback=self.rec_callback)
             # adjust boolean values
             self.startRecordingBtn.setEnabled(False)
             self.stopRecordingBtn.setEnabled(True)
@@ -69,7 +82,7 @@ class Recorder():
             if self.end_recording is not None:
                 self.end_recording(False)
                 #time.sleep(4)
-                #self.stream = self.r.listen_in_background(self.mic, callback=self.test_callback)
+                #self.stream = self.r.listen_in_background(self.mic, callback=self.rec_callback)
             # adjust boolean values
             self.startRecordingBtn.setEnabled(True)
             self.stopRecordingBtn.setEnabled(False)
@@ -77,10 +90,10 @@ class Recorder():
             self.parentWindow.ui.resetDefaultSettingsBtn.setEnabled(True)
             self.recording = False
 
-    def test_callback(self, recognizer, audio):
+    def rec_callback(self, recognizer, audio):
         # first, recognize the text
         if self.model.lower() == "whisper":
-            text_recognized = recognizer.recognize_whisper(audio, language="english") # CHANGE TO BELOW
+            text_recognized = recognizer.recognize_whisper(audio, language="english")
         elif self.model.lower() == "pocketsphinx":
             text_recognized = recognizer.recognize_sphinx(audio)
         elif self.model.lower() == "vosk":
@@ -93,26 +106,17 @@ class Recorder():
         if text_recognized and text_recognized != "":
             if self.model.lower() == "vosk":
                 parsed = self.parse_vosk_text(text_recognized)
-                #if self.passive_on == True:
-                #    print(parsed)
-                #    if self.listening_phrase in parsed:
-                #        a.speak("Yes?")
-                #        self.passive_on = False
-                #else:
-                #    self.callbackFunc(parsed)
-                #    self.passive_on = True
-                self.callbackFunc(parsed)
             else:
-                #parsed = self.parse_whisper_text(text_recognized)
-                #if self.passive_on == True:
-                #    print(parsed)
-                #    if self.listening_phrase in parsed:
-                #        a.speak("Yes?")
-                #        self.passive_on = False
-                #else:
-                #    self.callbackFunc(parsed)
-                #    self.passive_on = True
+                parsed = self.parse_whisper_text(text_recognized)
+
+            if self.passive_on == True:
+                print(parsed)
+                if self.listening_phrase in parsed:
+                    a.speak("Yes?")
+                    self.passive_on = False
+            else:
                 self.callbackFunc(parsed)
+                self.passive_on = True
 
     # formats audio returned from recognize_whisper to remove punctuation, capitalization, etc.
     def parse_whisper_text(self, text):
@@ -124,7 +128,8 @@ class Recorder():
         text = json.loads(text)['text']
         return text
 
-    def start_passive(self):
-        self.r.listen_in_background(self.mic, callback=self.test_callback)
-        #self.end_recording = self.stream
+    def start_passive(self, stop_event):
+        self.stream = self.r.listen_in_background(self.mic, callback=self.rec_callback)
+        while self.stream:
+            self.end_recording = self.stream
 
