@@ -32,6 +32,7 @@ class Ui_Widget(object):
         icon.addFile(u"assets/RatBalling.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
         Widget.setWindowIcon(icon)
         Widget.setWindowOpacity(1.000000000000000)
+        Widget.setLayoutDirection(Qt.LayoutDirection.LeftToRight)
         Widget.setAutoFillBackground(False)
         self.verticalLayout_11 = QVBoxLayout(Widget)
         self.verticalLayout_11.setObjectName(u"verticalLayout_11")
@@ -57,6 +58,7 @@ class Ui_Widget(object):
         self.speechHistory = QListWidget(self.homeTab)
         self.speechHistory.setObjectName(u"speechHistory")
         self.speechHistory.setMinimumSize(QSize(250, 0))
+        self.speechHistory.setLayoutDirection(Qt.LayoutDirection.LeftToRight)
 
         self.verticalLayout.addWidget(self.speechHistory)
 
@@ -135,13 +137,20 @@ class Ui_Widget(object):
         self.commandHistoryTab.setObjectName(u"commandHistoryTab")
         self.verticalLayout_12 = QVBoxLayout(self.commandHistoryTab)
         self.verticalLayout_12.setObjectName(u"verticalLayout_12")
-        self.gridLayout_2 = QGridLayout()
-        self.gridLayout_2.setObjectName(u"gridLayout_2")
+        self.verticalLayout_13 = QVBoxLayout()
+        self.verticalLayout_13.setObjectName(u"verticalLayout_13")
+        self.label_10 = QLabel(self.commandHistoryTab)
+        self.label_10.setObjectName(u"label_10")
+        self.label_10.setFont(font)
+        self.label_10.setAlignment(Qt.AlignmentFlag.AlignCenter)
+
+        self.verticalLayout_13.addWidget(self.label_10)
+
         self.executedCommandTable = QTableWidget(self.commandHistoryTab)
         if (self.executedCommandTable.columnCount() < 5):
             self.executedCommandTable.setColumnCount(5)
         self.executedCommandTable.setObjectName(u"executedCommandTable")
-        sizePolicy = QSizePolicy(QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Expanding)
+        sizePolicy = QSizePolicy(QSizePolicy.Policy.MinimumExpanding, QSizePolicy.Policy.Expanding)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.executedCommandTable.sizePolicy().hasHeightForWidth())
@@ -164,113 +173,47 @@ class Ui_Widget(object):
         self.executedCommandTable.setColumnCount(5)
         self.executedCommandTable.verticalHeader().setVisible(True)
 
-        self.gridLayout_2.addWidget(self.executedCommandTable, 3, 1, 1, 1)
+        self.verticalLayout_13.addWidget(self.executedCommandTable)
 
-        self.verticalLayout_13 = QVBoxLayout()
-        self.verticalLayout_13.setObjectName(u"verticalLayout_13")
-        self.verticalSpacer = QSpacerItem(0, 40, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
+        self.deleteRowHistoryBtn = QPushButton(self.commandHistoryTab)
+        self.deleteRowHistoryBtn.setObjectName(u"deleteRowHistoryBtn")
+        self.deleteRowHistoryBtn.setMinimumSize(QSize(100, 40))
 
-        self.verticalLayout_13.addItem(self.verticalSpacer)
-
-        self.label_12 = QLabel(self.commandHistoryTab)
-        self.label_12.setObjectName(u"label_12")
-
-        self.verticalLayout_13.addWidget(self.label_12)
-
-        self.timeEdit = QLineEdit(self.commandHistoryTab)
-        self.timeEdit.setObjectName(u"timeEdit")
-        self.timeEdit.setMinimumSize(QSize(50, 0))
-        self.timeEdit.setMaximumSize(QSize(200, 16777215))
-        self.timeEdit.setAlignment(Qt.AlignmentFlag.AlignCenter)
-
-        self.verticalLayout_13.addWidget(self.timeEdit)
-
-        self.dateEdit = QLineEdit(self.commandHistoryTab)
-        self.dateEdit.setObjectName(u"dateEdit")
-        self.dateEdit.setMinimumSize(QSize(50, 0))
-        self.dateEdit.setMaximumSize(QSize(200, 16777215))
-        self.dateEdit.setAlignment(Qt.AlignmentFlag.AlignCenter)
-
-        self.verticalLayout_13.addWidget(self.dateEdit)
-
-        self.commandEdit = QLineEdit(self.commandHistoryTab)
-        self.commandEdit.setObjectName(u"commandEdit")
-        self.commandEdit.setMinimumSize(QSize(50, 0))
-        self.commandEdit.setMaximumSize(QSize(200, 16777215))
-        self.commandEdit.setAlignment(Qt.AlignmentFlag.AlignCenter)
-
-        self.verticalLayout_13.addWidget(self.commandEdit)
-
-        self.speechEdit = QLineEdit(self.commandHistoryTab)
-        self.speechEdit.setObjectName(u"speechEdit")
-        self.speechEdit.setMinimumSize(QSize(50, 0))
-        self.speechEdit.setMaximumSize(QSize(200, 16777215))
-        self.speechEdit.setAlignment(Qt.AlignmentFlag.AlignCenter)
-
-        self.verticalLayout_13.addWidget(self.speechEdit)
-
-        self.typeEdit = QLineEdit(self.commandHistoryTab)
-        self.typeEdit.setObjectName(u"typeEdit")
-        sizePolicy1 = QSizePolicy(QSizePolicy.Policy.MinimumExpanding, QSizePolicy.Policy.Fixed)
-        sizePolicy1.setHorizontalStretch(0)
-        sizePolicy1.setVerticalStretch(0)
-        sizePolicy1.setHeightForWidth(self.typeEdit.sizePolicy().hasHeightForWidth())
-        self.typeEdit.setSizePolicy(sizePolicy1)
-        self.typeEdit.setMinimumSize(QSize(50, 0))
-        self.typeEdit.setMaximumSize(QSize(200, 16777215))
-        self.typeEdit.setAlignment(Qt.AlignmentFlag.AlignCenter)
-
-        self.verticalLayout_13.addWidget(self.typeEdit)
-
-        self.addItemHistoryBtn = QPushButton(self.commandHistoryTab)
-        self.addItemHistoryBtn.setObjectName(u"addItemHistoryBtn")
-        self.addItemHistoryBtn.setMaximumSize(QSize(200, 16777215))
-
-        self.verticalLayout_13.addWidget(self.addItemHistoryBtn)
-
-        self.verticalSpacer_2 = QSpacerItem(0, 40, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
-
-        self.verticalLayout_13.addItem(self.verticalSpacer_2)
-
-
-        self.gridLayout_2.addLayout(self.verticalLayout_13, 3, 0, 1, 1)
+        self.verticalLayout_13.addWidget(self.deleteRowHistoryBtn)
 
         self.sortOptionsHistoryBtn = QPushButton(self.commandHistoryTab)
         self.sortOptionsHistoryBtn.setObjectName(u"sortOptionsHistoryBtn")
         self.sortOptionsHistoryBtn.setEnabled(False)
         self.sortOptionsHistoryBtn.setMinimumSize(QSize(100, 40))
 
-        self.gridLayout_2.addWidget(self.sortOptionsHistoryBtn, 5, 0, 1, 2)
-
-        self.deleteRowHistoryBtn = QPushButton(self.commandHistoryTab)
-        self.deleteRowHistoryBtn.setObjectName(u"deleteRowHistoryBtn")
-        self.deleteRowHistoryBtn.setMinimumSize(QSize(100, 40))
-
-        self.gridLayout_2.addWidget(self.deleteRowHistoryBtn, 4, 0, 1, 2)
-
-        self.label_10 = QLabel(self.commandHistoryTab)
-        self.label_10.setObjectName(u"label_10")
-        self.label_10.setFont(font)
-        self.label_10.setAlignment(Qt.AlignmentFlag.AlignCenter)
-
-        self.gridLayout_2.addWidget(self.label_10, 0, 0, 1, 2)
+        self.verticalLayout_13.addWidget(self.sortOptionsHistoryBtn)
 
 
-        self.verticalLayout_12.addLayout(self.gridLayout_2)
+        self.verticalLayout_12.addLayout(self.verticalLayout_13)
 
         self.tabWidget.addTab(self.commandHistoryTab, "")
         self.customCommandsTab = QWidget()
         self.customCommandsTab.setObjectName(u"customCommandsTab")
         self.verticalLayout_6 = QVBoxLayout(self.customCommandsTab)
         self.verticalLayout_6.setObjectName(u"verticalLayout_6")
-        self.gridLayout_4 = QGridLayout()
-        self.gridLayout_4.setObjectName(u"gridLayout_4")
+        self.verticalLayout_14 = QVBoxLayout()
+        self.verticalLayout_14.setObjectName(u"verticalLayout_14")
+        self.label_11 = QLabel(self.customCommandsTab)
+        self.label_11.setObjectName(u"label_11")
+        self.label_11.setFont(font)
+        self.label_11.setAlignment(Qt.AlignmentFlag.AlignCenter)
+
+        self.verticalLayout_14.addWidget(self.label_11)
+
         self.customCommandsTable = QTableWidget(self.customCommandsTab)
         if (self.customCommandsTable.columnCount() < 5):
             self.customCommandsTable.setColumnCount(5)
         self.customCommandsTable.setObjectName(u"customCommandsTable")
-        sizePolicy.setHeightForWidth(self.customCommandsTable.sizePolicy().hasHeightForWidth())
-        self.customCommandsTable.setSizePolicy(sizePolicy)
+        sizePolicy1 = QSizePolicy(QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Expanding)
+        sizePolicy1.setHorizontalStretch(0)
+        sizePolicy1.setVerticalStretch(0)
+        sizePolicy1.setHeightForWidth(self.customCommandsTable.sizePolicy().hasHeightForWidth())
+        self.customCommandsTable.setSizePolicy(sizePolicy1)
         self.customCommandsTable.setFont(font1)
         self.customCommandsTable.setVerticalScrollBarPolicy(Qt.ScrollBarPolicy.ScrollBarAsNeeded)
         self.customCommandsTable.setHorizontalScrollBarPolicy(Qt.ScrollBarPolicy.ScrollBarAsNeeded)
@@ -287,21 +230,7 @@ class Ui_Widget(object):
         self.customCommandsTable.setColumnCount(5)
         self.customCommandsTable.verticalHeader().setVisible(True)
 
-        self.gridLayout_4.addWidget(self.customCommandsTable, 3, 1, 1, 1)
-
-        self.sortOptionsCustomBtn = QPushButton(self.customCommandsTab)
-        self.sortOptionsCustomBtn.setObjectName(u"sortOptionsCustomBtn")
-        self.sortOptionsCustomBtn.setEnabled(False)
-        self.sortOptionsCustomBtn.setMinimumSize(QSize(100, 40))
-
-        self.gridLayout_4.addWidget(self.sortOptionsCustomBtn, 5, 1, 1, 1)
-
-        self.label_11 = QLabel(self.customCommandsTab)
-        self.label_11.setObjectName(u"label_11")
-        self.label_11.setFont(font)
-        self.label_11.setAlignment(Qt.AlignmentFlag.AlignCenter)
-
-        self.gridLayout_4.addWidget(self.label_11, 0, 1, 1, 1)
+        self.verticalLayout_14.addWidget(self.customCommandsTable)
 
         self.horizontalLayout_7 = QHBoxLayout()
         self.horizontalLayout_7.setObjectName(u"horizontalLayout_7")
@@ -319,10 +248,17 @@ class Ui_Widget(object):
         self.horizontalLayout_7.addWidget(self.editCustomRowBtn)
 
 
-        self.gridLayout_4.addLayout(self.horizontalLayout_7, 4, 1, 1, 1)
+        self.verticalLayout_14.addLayout(self.horizontalLayout_7)
+
+        self.sortOptionsCustomBtn = QPushButton(self.customCommandsTab)
+        self.sortOptionsCustomBtn.setObjectName(u"sortOptionsCustomBtn")
+        self.sortOptionsCustomBtn.setEnabled(False)
+        self.sortOptionsCustomBtn.setMinimumSize(QSize(100, 40))
+
+        self.verticalLayout_14.addWidget(self.sortOptionsCustomBtn)
 
 
-        self.verticalLayout_6.addLayout(self.gridLayout_4)
+        self.verticalLayout_6.addLayout(self.verticalLayout_14)
 
         self.tabWidget.addTab(self.customCommandsTab, "")
         self.settingsTab = QWidget()
@@ -743,7 +679,7 @@ class Ui_Widget(object):
 
         self.retranslateUi(Widget)
 
-        self.tabWidget.setCurrentIndex(3)
+        self.tabWidget.setCurrentIndex(2)
 
 
         QMetaObject.connectSlotsByName(Widget)
@@ -761,23 +697,14 @@ class Ui_Widget(object):
         self.mockSpeechEdit.setPlaceholderText(QCoreApplication.translate("Widget", u"Speech Text", None))
         self.executeMockSpeechBtn.setText(QCoreApplication.translate("Widget", u"execute command", None))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.homeTab), QCoreApplication.translate("Widget", u"Home", None))
-        self.label_12.setText(QCoreApplication.translate("Widget", u"This will be removed!!!!!!!", None))
-        self.timeEdit.setPlaceholderText(QCoreApplication.translate("Widget", u"Time", None))
-        self.dateEdit.setPlaceholderText(QCoreApplication.translate("Widget", u"Date", None))
-        self.commandEdit.setPlaceholderText(QCoreApplication.translate("Widget", u"Command", None))
-        self.speechEdit.setPlaceholderText(QCoreApplication.translate("Widget", u"Speech", None))
-        self.typeEdit.setInputMask("")
-        self.typeEdit.setText("")
-        self.typeEdit.setPlaceholderText(QCoreApplication.translate("Widget", u"Type", None))
-        self.addItemHistoryBtn.setText(QCoreApplication.translate("Widget", u"Add Item", None))
-        self.sortOptionsHistoryBtn.setText(QCoreApplication.translate("Widget", u"Sort Options", None))
-        self.deleteRowHistoryBtn.setText(QCoreApplication.translate("Widget", u"Delete Row", None))
         self.label_10.setText(QCoreApplication.translate("Widget", u"Executed Command History", None))
+        self.deleteRowHistoryBtn.setText(QCoreApplication.translate("Widget", u"Delete Row", None))
+        self.sortOptionsHistoryBtn.setText(QCoreApplication.translate("Widget", u"Sort Options", None))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.commandHistoryTab), QCoreApplication.translate("Widget", u"Command History", None))
-        self.sortOptionsCustomBtn.setText(QCoreApplication.translate("Widget", u"Sort Options", None))
         self.label_11.setText(QCoreApplication.translate("Widget", u"Custom Commands", None))
         self.createCustomRowBtn.setText(QCoreApplication.translate("Widget", u"Create Command", None))
         self.editCustomRowBtn.setText(QCoreApplication.translate("Widget", u"Edit Command", None))
+        self.sortOptionsCustomBtn.setText(QCoreApplication.translate("Widget", u"Sort Options", None))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.customCommandsTab), QCoreApplication.translate("Widget", u"Custom Commands", None))
         self.openCalibrationBtn.setText(QCoreApplication.translate("Widget", u"Open Calibration", None))
         self.label_14.setText(QCoreApplication.translate("Widget", u"Speech Recognition Model", None))

@@ -22,10 +22,10 @@ class Widget(QWidget):
         self.ui.setupUi(self)
 
         # home page setup
-        self.HomeHandler = HomePageHandler(self)
+        self.HomePageHandler = HomePageHandler(self)
 
         #logging page
-        self.LogHandler = LogPageHandler(self)
+        self.LogPageHandler = LogPageHandler(self)
 
         # handles the loading and saving of all commands
         self.CommandHandler = CommandHandler(self)
@@ -38,7 +38,7 @@ class Widget(QWidget):
         # all of this should be moved into its own page handler
 
         # settings page setup
-        self.SettingsHandler = SettingsPageHandler(self)
+        self.SettingsPageHandler = SettingsPageHandler(self)
 
     # UNIVERSAL TABLE CELL CREATOR
     # since they all need to be centered (and maybe more to add)
