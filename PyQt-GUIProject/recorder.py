@@ -2,6 +2,8 @@
 import speech_recognition as sr
 import re, time
 from command_processes import audio as a
+from difflib import SequenceMatcher
+activation_keywords = ["hey rat",'yo rat', 'rat', 'hello rat']
 
 class Recorder():
     def __init__(self, callbackFunc, startRecordingBtn, stopRecordingBtn, parent=None):
@@ -51,7 +53,7 @@ class Recorder():
             
             if self.passive_on == True:
                 print(parsed)
-                if 'hey rat' in parsed:
+                if is_activation_match(parsed, activation_keywords):
                     a.speak("Yes?")
                     self.passive_on = False
             else:
@@ -74,4 +76,9 @@ class Recorder():
         self.end_recording = self.stream
 
 
-
+def is_activation_match(text, keywords, threshold=0.8):
+    for keyword in keywords:
+        ratio = SequenceMatcher(None, text.lower(), keyword).ratio()
+        if ratio >= threshold:
+            return True
+    return False
