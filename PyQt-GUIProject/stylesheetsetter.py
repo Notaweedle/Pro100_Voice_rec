@@ -95,6 +95,7 @@ QTableWidget {
     gridline-color: #d1d1d6;        /* grid lines */
     border: 1px solid #ccc;  
 	border-radius: 5px;       /* optional border */
+    text-size: 5px;
 }
 
 QTableWidget::item {
@@ -132,7 +133,8 @@ QTableWidget {
     font-size: 11px;
     gridline-color: #d1d1d6;        /* grid lines */
     border: 1px solid #ccc;
-	 border-radius: 5px;     
+	 border-radius: 5px; 
+     text-size: 5px;    
 }
 
 QTableWidget::item {

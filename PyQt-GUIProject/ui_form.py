@@ -223,6 +223,7 @@ class Ui_Widget(object):
         self.customCommandsTable.setGridStyle(Qt.PenStyle.SolidLine)
         self.customCommandsTable.setRowCount(0)
         self.customCommandsTable.setColumnCount(5)
+        self.customCommandsTable.horizontalHeader().setDefaultSectionSize(110)
         self.customCommandsTable.verticalHeader().setVisible(True)
 
         self.verticalLayout_14.addWidget(self.customCommandsTable)
@@ -674,7 +675,7 @@ class Ui_Widget(object):
 
         self.retranslateUi(Widget)
 
-        self.tabWidget.setCurrentIndex(0)
+        self.tabWidget.setCurrentIndex(2)
 
 
         QMetaObject.connectSlotsByName(Widget)
