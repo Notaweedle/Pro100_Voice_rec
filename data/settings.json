@@ -3,12 +3,12 @@
     "name": "Default",
     "index": null
   },
-  "input_volume": 50,
+  "input_volume": 51,
   "output_device": {
     "name": "Default",
     "index": null
   },
-  "output_volume": 50,
+  "output_volume": 100,
   "text_to_speech": false,
   "pause_threshold": 0.8,
   "speech_model": "whisper",

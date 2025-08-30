@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE QtCreatorProject>
-<!-- Written by QtCreator 17.0.0, 2025-08-29T18:02:27. -->
+<!-- Written by QtCreator 17.0.0, 2025-08-29T18:39:36. -->
 <qtcreator>
  <data>
   <variable>EnvironmentId</variable>
@@ -105,6 +105,8 @@
      <valuemap type="QVariantMap" key="ProjectExplorer.BuildStepList.Step.0">
       <value type="bool" key="ProjectExplorer.BuildStep.Enabled">true</value>
       <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">Python.PysideBuildStep</value>
+      <value type="QString" key="Python.PySideProjectTool">C:\Users\jkwiatkowski\Desktop\Pro100_Voice_rec\PyQt-GUIProject\.qtcreator\Python_3_13_2venv\Scripts\pyside6-project.exe</value>
+      <value type="QString" key="Python.PySideUic">C:\Users\jkwiatkowski\Desktop\Pro100_Voice_rec\PyQt-GUIProject\.qtcreator\Python_3_13_2venv\Scripts\pyside6-uic.exe</value>
      </valuemap>
      <value type="qlonglong" key="ProjectExplorer.BuildStepList.StepsCount">1</value>
      <value type="QString" key="ProjectExplorer.ProjectConfiguration.DefaultDisplayName">Build</value>
@@ -152,7 +154,7 @@
      <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">command_handler.py</value>
      <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">PythonEditor.RunConfiguration.</value>
      <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">C:/Users/jkwiatkowski/Desktop/Pro100_Voice_rec/PyQt-GUIProject/command_handler.py</value>
-     <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">false</value>
+     <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">true</value>
      <value type="QString" key="PythonEditor.RunConfiguation.Script">C:\Users\jkwiatkowski\Desktop\Pro100_Voice_rec\PyQt-GUIProject\command_handler.py</value>
      <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
      <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
@@ -171,7 +173,7 @@
      <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">command_processes\audio.py</value>
      <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">PythonEditor.RunConfiguration.</value>
      <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">C:/Users/jkwiatkowski/Desktop/Pro100_Voice_rec/PyQt-GUIProject/command_processes/audio.py</value>
-     <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">false</value>
+     <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">true</value>
      <value type="QString" key="PythonEditor.RunConfiguation.Script">C:\Users\jkwiatkowski\Desktop\Pro100_Voice_rec\PyQt-GUIProject\command_processes\audio.py</value>
      <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
      <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
@@ -190,7 +192,7 @@
      <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">dialogs\ui_create_command.py</value>
      <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">PythonEditor.RunConfiguration.</value>
      <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">C:/Users/jkwiatkowski/Desktop/Pro100_Voice_rec/PyQt-GUIProject/dialogs/ui_create_command.py</value>
-     <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">false</value>
+     <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">true</value>
      <value type="QString" key="PythonEditor.RunConfiguation.Script">C:\Users\jkwiatkowski\Desktop\Pro100_Voice_rec\PyQt-GUIProject\dialogs\ui_create_command.py</value>
      <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
      <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
@@ -209,7 +211,7 @@
      <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">dialogs\ui_edit_command.py</value>
      <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">PythonEditor.RunConfiguration.</value>
      <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">C:/Users/jkwiatkowski/Desktop/Pro100_Voice_rec/PyQt-GUIProject/dialogs/ui_edit_command.py</value>
-     <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">false</value>
+     <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">true</value>
      <value type="QString" key="PythonEditor.RunConfiguation.Script">C:\Users\jkwiatkowski\Desktop\Pro100_Voice_rec\PyQt-GUIProject\dialogs\ui_edit_command.py</value>
      <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
      <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
@@ -228,7 +230,7 @@
      <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">home_page.py</value>
      <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">PythonEditor.RunConfiguration.</value>
      <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">C:/Users/jkwiatkowski/Desktop/Pro100_Voice_rec/PyQt-GUIProject/home_page.py</value>
-     <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">false</value>
+     <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">true</value>
      <value type="QString" key="PythonEditor.RunConfiguation.Script">C:\Users\jkwiatkowski\Desktop\Pro100_Voice_rec\PyQt-GUIProject\home_page.py</value>
      <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
      <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
@@ -247,7 +249,7 @@
      <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">log_handler.py</value>
      <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">PythonEditor.RunConfiguration.</value>
      <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">C:/Users/jkwiatkowski/Desktop/Pro100_Voice_rec/PyQt-GUIProject/log_handler.py</value>
-     <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">false</value>
+     <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">true</value>
      <value type="QString" key="PythonEditor.RunConfiguation.Script">C:\Users\jkwiatkowski\Desktop\Pro100_Voice_rec\PyQt-GUIProject\log_handler.py</value>
      <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
      <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
@@ -266,7 +268,7 @@
      <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">log_page.py</value>
      <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">PythonEditor.RunConfiguration.</value>
      <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">C:/Users/jkwiatkowski/Desktop/Pro100_Voice_rec/PyQt-GUIProject/log_page.py</value>
-     <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">false</value>
+     <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">true</value>
      <value type="QString" key="PythonEditor.RunConfiguation.Script">C:\Users\jkwiatkowski\Desktop\Pro100_Voice_rec\PyQt-GUIProject\log_page.py</value>
      <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
      <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
@@ -285,7 +287,7 @@
      <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">recorder.py</value>
      <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">PythonEditor.RunConfiguration.</value>
      <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">C:/Users/jkwiatkowski/Desktop/Pro100_Voice_rec/PyQt-GUIProject/recorder.py</value>
-     <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">false</value>
+     <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">true</value>
      <value type="QString" key="PythonEditor.RunConfiguation.Script">C:\Users\jkwiatkowski\Desktop\Pro100_Voice_rec\PyQt-GUIProject\recorder.py</value>
      <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
      <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
@@ -304,7 +306,7 @@
      <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">settings_handler.py</value>
      <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">PythonEditor.RunConfiguration.</value>
      <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">C:/Users/jkwiatkowski/Desktop/Pro100_Voice_rec/PyQt-GUIProject/settings_handler.py</value>
-     <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">false</value>
+     <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">true</value>
      <value type="QString" key="PythonEditor.RunConfiguation.Script">C:\Users\jkwiatkowski\Desktop\Pro100_Voice_rec\PyQt-GUIProject\settings_handler.py</value>
      <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
      <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
@@ -323,7 +325,7 @@
      <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">settings_page.py</value>
      <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">PythonEditor.RunConfiguration.</value>
      <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">C:/Users/jkwiatkowski/Desktop/Pro100_Voice_rec/PyQt-GUIProject/settings_page.py</value>
-     <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">false</value>
+     <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">true</value>
      <value type="QString" key="PythonEditor.RunConfiguation.Script">C:\Users\jkwiatkowski\Desktop\Pro100_Voice_rec\PyQt-GUIProject\settings_page.py</value>
      <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
      <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
@@ -342,7 +344,7 @@
      <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">widget.py</value>
      <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">PythonEditor.RunConfiguration.</value>
      <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">C:/Users/jkwiatkowski/Desktop/Pro100_Voice_rec/PyQt-GUIProject/widget.py</value>
-     <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">false</value>
+     <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">true</value>
      <value type="QString" key="PythonEditor.RunConfiguation.Script">C:\Users\jkwiatkowski\Desktop\Pro100_Voice_rec\PyQt-GUIProject\widget.py</value>
      <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
      <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
@@ -361,7 +363,7 @@
      <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">command_processes\system_functions.py</value>
      <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">PythonEditor.RunConfiguration.</value>
      <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">C:/Users/jkwiatkowski/Desktop/Pro100_Voice_rec/PyQt-GUIProject/command_processes/system_functions.py</value>
-     <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">false</value>
+     <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">true</value>
      <value type="QString" key="PythonEditor.RunConfiguation.Script">C:\Users\jkwiatkowski\Desktop\Pro100_Voice_rec\PyQt-GUIProject\command_processes\system_functions.py</value>
      <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
      <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
@@ -380,7 +382,7 @@
      <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">commands.py</value>
      <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">PythonEditor.RunConfiguration.</value>
      <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">C:/Users/jkwiatkowski/Desktop/Pro100_Voice_rec/PyQt-GUIProject/commands.py</value>
-     <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">false</value>
+     <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">true</value>
      <value type="QString" key="PythonEditor.RunConfiguation.Script">C:\Users\jkwiatkowski\Desktop\Pro100_Voice_rec\PyQt-GUIProject\commands.py</value>
      <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
      <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
@@ -399,7 +401,7 @@
      <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">dialogs\calibration_widget.py</value>
      <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">PythonEditor.RunConfiguration.</value>
      <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">C:/Users/jkwiatkowski/Desktop/Pro100_Voice_rec/PyQt-GUIProject/dialogs/calibration_widget.py</value>
-     <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">false</value>
+     <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">true</value>
      <value type="QString" key="PythonEditor.RunConfiguation.Script">C:\Users\jkwiatkowski\Desktop\Pro100_Voice_rec\PyQt-GUIProject\dialogs\calibration_widget.py</value>
      <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
      <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
@@ -418,7 +420,7 @@
      <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">dialogs\confirm_dialog.py</value>
      <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">PythonEditor.RunConfiguration.</value>
      <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">C:/Users/jkwiatkowski/Desktop/Pro100_Voice_rec/PyQt-GUIProject/dialogs/confirm_dialog.py</value>
-     <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">false</value>
+     <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">true</value>
      <value type="QString" key="PythonEditor.RunConfiguation.Script">C:\Users\jkwiatkowski\Desktop\Pro100_Voice_rec\PyQt-GUIProject\dialogs\confirm_dialog.py</value>
      <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
      <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
@@ -437,7 +439,7 @@
      <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">dialogs\create_command_widget.py</value>
      <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">PythonEditor.RunConfiguration.</value>
      <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">C:/Users/jkwiatkowski/Desktop/Pro100_Voice_rec/PyQt-GUIProject/dialogs/create_command_widget.py</value>
-     <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">false</value>
+     <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">true</value>
      <value type="QString" key="PythonEditor.RunConfiguation.Script">C:\Users\jkwiatkowski\Desktop\Pro100_Voice_rec\PyQt-GUIProject\dialogs\create_command_widget.py</value>
      <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
      <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
@@ -456,7 +458,7 @@
      <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">dialogs\edit_command_widget.py</value>
      <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">PythonEditor.RunConfiguration.</value>
      <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">C:/Users/jkwiatkowski/Desktop/Pro100_Voice_rec/PyQt-GUIProject/dialogs/edit_command_widget.py</value>
-     <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">false</value>
+     <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">true</value>
      <value type="QString" key="PythonEditor.RunConfiguation.Script">C:\Users\jkwiatkowski\Desktop\Pro100_Voice_rec\PyQt-GUIProject\dialogs\edit_command_widget.py</value>
      <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
      <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
@@ -475,7 +477,7 @@
      <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">dialogs\ui_calibration.py</value>
      <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">PythonEditor.RunConfiguration.</value>
      <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">C:/Users/jkwiatkowski/Desktop/Pro100_Voice_rec/PyQt-GUIProject/dialogs/ui_calibration.py</value>
-     <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">false</value>
+     <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">true</value>
      <value type="QString" key="PythonEditor.RunConfiguation.Script">C:\Users\jkwiatkowski\Desktop\Pro100_Voice_rec\PyQt-GUIProject\dialogs\ui_calibration.py</value>
      <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
      <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
@@ -494,7 +496,7 @@
      <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">dialogs\ui_confirm_dialog.py</value>
      <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">PythonEditor.RunConfiguration.</value>
      <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">C:/Users/jkwiatkowski/Desktop/Pro100_Voice_rec/PyQt-GUIProject/dialogs/ui_confirm_dialog.py</value>
-     <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">false</value>
+     <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">true</value>
      <value type="QString" key="PythonEditor.RunConfiguation.Script">C:\Users\jkwiatkowski\Desktop\Pro100_Voice_rec\PyQt-GUIProject\dialogs\ui_confirm_dialog.py</value>
      <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
      <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
@@ -531,7 +533,7 @@
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">command_handler.py</value>
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">PythonEditor.RunConfiguration.</value>
     <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">C:/Users/jkwiatkowski/Desktop/Pro100_Voice_rec/PyQt-GUIProject/command_handler.py</value>
-    <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">false</value>
+    <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">true</value>
     <value type="QString" key="PythonEditor.RunConfiguation.Script">C:\Users\jkwiatkowski\Desktop\Pro100_Voice_rec\PyQt-GUIProject\command_handler.py</value>
     <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
     <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
@@ -550,7 +552,7 @@
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">command_processes\audio.py</value>
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">PythonEditor.RunConfiguration.</value>
     <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">C:/Users/jkwiatkowski/Desktop/Pro100_Voice_rec/PyQt-GUIProject/command_processes/audio.py</value>
-    <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">false</value>
+    <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">true</value>
     <value type="QString" key="PythonEditor.RunConfiguation.Script">C:\Users\jkwiatkowski\Desktop\Pro100_Voice_rec\PyQt-GUIProject\command_processes\audio.py</value>
     <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
     <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
@@ -569,7 +571,7 @@
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">dialogs\ui_create_command.py</value>
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">PythonEditor.RunConfiguration.</value>
     <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">C:/Users/jkwiatkowski/Desktop/Pro100_Voice_rec/PyQt-GUIProject/dialogs/ui_create_command.py</value>
-    <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">false</value>
+    <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">true</value>
     <value type="QString" key="PythonEditor.RunConfiguation.Script">C:\Users\jkwiatkowski\Desktop\Pro100_Voice_rec\PyQt-GUIProject\dialogs\ui_create_command.py</value>
     <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
     <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
@@ -588,7 +590,7 @@
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">dialogs\ui_edit_command.py</value>
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">PythonEditor.RunConfiguration.</value>
     <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">C:/Users/jkwiatkowski/Desktop/Pro100_Voice_rec/PyQt-GUIProject/dialogs/ui_edit_command.py</value>
-    <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">false</value>
+    <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">true</value>
     <value type="QString" key="PythonEditor.RunConfiguation.Script">C:\Users\jkwiatkowski\Desktop\Pro100_Voice_rec\PyQt-GUIProject\dialogs\ui_edit_command.py</value>
     <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
     <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
@@ -607,7 +609,7 @@
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">home_page.py</value>
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">PythonEditor.RunConfiguration.</value>
     <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">C:/Users/jkwiatkowski/Desktop/Pro100_Voice_rec/PyQt-GUIProject/home_page.py</value>
-    <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">false</value>
+    <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">true</value>
     <value type="QString" key="PythonEditor.RunConfiguation.Script">C:\Users\jkwiatkowski\Desktop\Pro100_Voice_rec\PyQt-GUIProject\home_page.py</value>
     <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
     <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
@@ -626,7 +628,7 @@
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">log_handler.py</value>
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">PythonEditor.RunConfiguration.</value>
     <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">C:/Users/jkwiatkowski/Desktop/Pro100_Voice_rec/PyQt-GUIProject/log_handler.py</value>
-    <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">false</value>
+    <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">true</value>
     <value type="QString" key="PythonEditor.RunConfiguation.Script">C:\Users\jkwiatkowski\Desktop\Pro100_Voice_rec\PyQt-GUIProject\log_handler.py</value>
     <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
     <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
@@ -645,7 +647,7 @@
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">log_page.py</value>
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">PythonEditor.RunConfiguration.</value>
     <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">C:/Users/jkwiatkowski/Desktop/Pro100_Voice_rec/PyQt-GUIProject/log_page.py</value>
-    <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">false</value>
+    <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">true</value>
     <value type="QString" key="PythonEditor.RunConfiguation.Script">C:\Users\jkwiatkowski\Desktop\Pro100_Voice_rec\PyQt-GUIProject\log_page.py</value>
     <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
     <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
@@ -664,7 +666,7 @@
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">recorder.py</value>
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">PythonEditor.RunConfiguration.</value>
     <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">C:/Users/jkwiatkowski/Desktop/Pro100_Voice_rec/PyQt-GUIProject/recorder.py</value>
-    <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">false</value>
+    <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">true</value>
     <value type="QString" key="PythonEditor.RunConfiguation.Script">C:\Users\jkwiatkowski\Desktop\Pro100_Voice_rec\PyQt-GUIProject\recorder.py</value>
     <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
     <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
@@ -683,7 +685,7 @@
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">settings_handler.py</value>
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">PythonEditor.RunConfiguration.</value>
     <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">C:/Users/jkwiatkowski/Desktop/Pro100_Voice_rec/PyQt-GUIProject/settings_handler.py</value>
-    <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">false</value>
+    <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">true</value>
     <value type="QString" key="PythonEditor.RunConfiguation.Script">C:\Users\jkwiatkowski\Desktop\Pro100_Voice_rec\PyQt-GUIProject\settings_handler.py</value>
     <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
     <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
@@ -702,7 +704,7 @@
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">settings_page.py</value>
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">PythonEditor.RunConfiguration.</value>
     <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">C:/Users/jkwiatkowski/Desktop/Pro100_Voice_rec/PyQt-GUIProject/settings_page.py</value>
-    <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">false</value>
+    <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">true</value>
     <value type="QString" key="PythonEditor.RunConfiguation.Script">C:\Users\jkwiatkowski\Desktop\Pro100_Voice_rec\PyQt-GUIProject\settings_page.py</value>
     <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
     <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
@@ -721,7 +723,7 @@
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">widget.py</value>
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">PythonEditor.RunConfiguration.</value>
     <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">C:/Users/jkwiatkowski/Desktop/Pro100_Voice_rec/PyQt-GUIProject/widget.py</value>
-    <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">false</value>
+    <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">true</value>
     <value type="QString" key="PythonEditor.RunConfiguation.Script">C:\Users\jkwiatkowski\Desktop\Pro100_Voice_rec\PyQt-GUIProject\widget.py</value>
     <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
     <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
@@ -740,7 +742,7 @@
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">command_processes\system_functions.py</value>
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">PythonEditor.RunConfiguration.</value>
     <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">C:/Users/jkwiatkowski/Desktop/Pro100_Voice_rec/PyQt-GUIProject/command_processes/system_functions.py</value>
-    <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">false</value>
+    <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">true</value>
     <value type="QString" key="PythonEditor.RunConfiguation.Script">C:\Users\jkwiatkowski\Desktop\Pro100_Voice_rec\PyQt-GUIProject\command_processes\system_functions.py</value>
     <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
     <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
@@ -759,7 +761,7 @@
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">commands.py</value>
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">PythonEditor.RunConfiguration.</value>
     <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">C:/Users/jkwiatkowski/Desktop/Pro100_Voice_rec/PyQt-GUIProject/commands.py</value>
-    <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">false</value>
+    <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">true</value>
     <value type="QString" key="PythonEditor.RunConfiguation.Script">C:\Users\jkwiatkowski\Desktop\Pro100_Voice_rec\PyQt-GUIProject\commands.py</value>
     <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
     <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
@@ -778,7 +780,7 @@
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">dialogs\calibration_widget.py</value>
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">PythonEditor.RunConfiguration.</value>
     <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">C:/Users/jkwiatkowski/Desktop/Pro100_Voice_rec/PyQt-GUIProject/dialogs/calibration_widget.py</value>
-    <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">false</value>
+    <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">true</value>
     <value type="QString" key="PythonEditor.RunConfiguation.Script">C:\Users\jkwiatkowski\Desktop\Pro100_Voice_rec\PyQt-GUIProject\dialogs\calibration_widget.py</value>
     <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
     <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
@@ -797,7 +799,7 @@
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">dialogs\confirm_dialog.py</value>
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">PythonEditor.RunConfiguration.</value>
     <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">C:/Users/jkwiatkowski/Desktop/Pro100_Voice_rec/PyQt-GUIProject/dialogs/confirm_dialog.py</value>
-    <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">false</value>
+    <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">true</value>
     <value type="QString" key="PythonEditor.RunConfiguation.Script">C:\Users\jkwiatkowski\Desktop\Pro100_Voice_rec\PyQt-GUIProject\dialogs\confirm_dialog.py</value>
     <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
     <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
@@ -816,7 +818,7 @@
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">dialogs\create_command_widget.py</value>
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">PythonEditor.RunConfiguration.</value>
     <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">C:/Users/jkwiatkowski/Desktop/Pro100_Voice_rec/PyQt-GUIProject/dialogs/create_command_widget.py</value>
-    <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">false</value>
+    <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">true</value>
     <value type="QString" key="PythonEditor.RunConfiguation.Script">C:\Users\jkwiatkowski\Desktop\Pro100_Voice_rec\PyQt-GUIProject\dialogs\create_command_widget.py</value>
     <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
     <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
@@ -835,7 +837,7 @@
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">dialogs\edit_command_widget.py</value>
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">PythonEditor.RunConfiguration.</value>
     <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">C:/Users/jkwiatkowski/Desktop/Pro100_Voice_rec/PyQt-GUIProject/dialogs/edit_command_widget.py</value>
-    <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">false</value>
+    <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">true</value>
     <value type="QString" key="PythonEditor.RunConfiguation.Script">C:\Users\jkwiatkowski\Desktop\Pro100_Voice_rec\PyQt-GUIProject\dialogs\edit_command_widget.py</value>
     <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
     <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
@@ -854,7 +856,7 @@
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">dialogs\ui_calibration.py</value>
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">PythonEditor.RunConfiguration.</value>
     <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">C:/Users/jkwiatkowski/Desktop/Pro100_Voice_rec/PyQt-GUIProject/dialogs/ui_calibration.py</value>
-    <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">false</value>
+    <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">true</value>
     <value type="QString" key="PythonEditor.RunConfiguation.Script">C:\Users\jkwiatkowski\Desktop\Pro100_Voice_rec\PyQt-GUIProject\dialogs\ui_calibration.py</value>
     <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
     <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
@@ -873,7 +875,7 @@
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">dialogs\ui_confirm_dialog.py</value>
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">PythonEditor.RunConfiguration.</value>
     <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">C:/Users/jkwiatkowski/Desktop/Pro100_Voice_rec/PyQt-GUIProject/dialogs/ui_confirm_dialog.py</value>
-    <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">false</value>
+    <value type="bool" key="ProjectExplorer.RunConfiguration.Customized">true</value>
     <value type="QString" key="PythonEditor.RunConfiguation.Script">C:\Users\jkwiatkowski\Desktop\Pro100_Voice_rec\PyQt-GUIProject\dialogs\ui_confirm_dialog.py</value>
     <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
     <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>

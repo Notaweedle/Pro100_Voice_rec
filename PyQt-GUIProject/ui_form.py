@@ -221,6 +221,7 @@ class Ui_Widget(object):
         self.customCommandsTable.setVerticalScrollMode(QAbstractItemView.ScrollMode.ScrollPerPixel)
         self.customCommandsTable.setHorizontalScrollMode(QAbstractItemView.ScrollMode.ScrollPerPixel)
         self.customCommandsTable.setGridStyle(Qt.PenStyle.SolidLine)
+        self.customCommandsTable.setWordWrap(False)
         self.customCommandsTable.setRowCount(0)
         self.customCommandsTable.setColumnCount(5)
         self.customCommandsTable.horizontalHeader().setDefaultSectionSize(110)
@@ -672,6 +673,26 @@ class Ui_Widget(object):
 
         self.verticalLayout_11.addWidget(self.tabWidget)
 
+        self.helpTab = QWidget()
+        self.helpTab.setObjectName(u"helpTab")
+        import markdown
+        with open("README.md", "r", encoding="utf-8") as f:
+            md_content = f.read()
+
+        # Layout for Help Tab
+        self.verticalLayout_help = QVBoxLayout(self.helpTab)
+        self.verticalLayout_help.setObjectName(u"verticalLayout_help")
+        from PySide6.QtWidgets import QTextBrowser
+        self.helpBrowser = QTextBrowser(self.helpTab)
+
+        self.verticalLayout_help.addWidget(self.helpBrowser)
+        html_content = markdown.markdown(md_content)
+
+        # Populate Help tab
+        self.helpBrowser.setHtml(html_content)
+
+        self.helpBrowser.setHtml(html_content)
+        self.tabWidget.addTab(self.helpTab, "Help")
 
         self.retranslateUi(Widget)
 

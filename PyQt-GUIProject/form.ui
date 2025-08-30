@@ -347,6 +347,7 @@
            <property name="font">
             <font>
              <bold>false</bold>
+             <kerning>true</kerning>
             </font>
            </property>
            <property name="verticalScrollBarPolicy">
@@ -381,6 +382,9 @@
            </property>
            <property name="gridStyle">
             <enum>Qt::PenStyle::SolidLine</enum>
+           </property>
+           <property name="wordWrap">
+            <bool>false</bool>
            </property>
            <property name="rowCount">
             <number>0</number>
