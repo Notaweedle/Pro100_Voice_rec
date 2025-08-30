@@ -14,7 +14,7 @@
    <enum>Qt::ContextMenuPolicy::DefaultContextMenu</enum>
   </property>
   <property name="windowTitle">
-   <string>Speech Recognition</string>
+   <string>Rat Rant</string>
   </property>
   <property name="windowIcon">
    <iconset>
@@ -39,7 +39,7 @@
       <enum>QTabWidget::TabShape::Rounded</enum>
      </property>
      <property name="currentIndex">
-      <number>3</number>
+      <number>0</number>
      </property>
      <property name="usesScrollButtons">
       <bool>false</bool>
@@ -182,17 +182,17 @@
        <item>
         <widget class="QLabel" name="label_13">
          <property name="text">
-          <string>for easily testing commands without recording</string>
+          <string/>
          </property>
         </widget>
        </item>
        <item>
         <widget class="QLineEdit" name="mockSpeechEdit">
          <property name="text">
-          <string>uhhh open browser please</string>
+          <string/>
          </property>
          <property name="placeholderText">
-          <string>Speech Text</string>
+          <string>Enter Command Here</string>
          </property>
         </widget>
        </item>
