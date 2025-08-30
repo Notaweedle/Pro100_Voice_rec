@@ -180,17 +180,7 @@
         </layout>
        </item>
        <item>
-        <widget class="QLabel" name="label_13">
-         <property name="text">
-          <string/>
-         </property>
-        </widget>
-       </item>
-       <item>
         <widget class="QLineEdit" name="mockSpeechEdit">
-         <property name="text">
-          <string/>
-         </property>
          <property name="placeholderText">
           <string>Enter Command Here</string>
          </property>

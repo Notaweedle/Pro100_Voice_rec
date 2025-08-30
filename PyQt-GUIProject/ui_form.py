@@ -3,7 +3,7 @@
 ################################################################################
 ## Form generated from reading UI file 'form.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.9.1
+## Created by: Qt User Interface Compiler version 6.9.2
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -116,11 +116,6 @@ class Ui_Widget(object):
 
 
         self.verticalLayout_2.addLayout(self.recordingButtonLayout)
-
-        self.label_13 = QLabel(self.homeTab)
-        self.label_13.setObjectName(u"label_13")
-
-        self.verticalLayout_2.addWidget(self.label_13)
 
         self.mockSpeechEdit = QLineEdit(self.homeTab)
         self.mockSpeechEdit.setObjectName(u"mockSpeechEdit")
@@ -676,47 +671,23 @@ class Ui_Widget(object):
 
         self.verticalLayout_11.addWidget(self.tabWidget)
 
-        self.verticalLayout_11.addWidget(self.tabWidget)
-
-        self.helpTab = QWidget()
-        self.helpTab.setObjectName(u"helpTab")
-        import markdown
-        with open("README.md", "r", encoding="utf-8") as f:
-            md_content = f.read()
-
-        # Layout for Help Tab
-        self.verticalLayout_help = QVBoxLayout(self.helpTab)
-        self.verticalLayout_help.setObjectName(u"verticalLayout_help")
-        from PySide6.QtWidgets import QTextBrowser
-        self.helpBrowser = QTextBrowser(self.helpTab)
-
-        self.verticalLayout_help.addWidget(self.helpBrowser)
-        html_content = markdown.markdown(md_content)
-
-        # Populate Help tab
-        self.helpBrowser.setHtml(html_content)
-
-        self.helpBrowser.setHtml(html_content)
-        self.tabWidget.addTab(self.helpTab, "Help")
 
         self.retranslateUi(Widget)
 
-        self.tabWidget.setCurrentIndex(3)
+        self.tabWidget.setCurrentIndex(0)
 
 
         QMetaObject.connectSlotsByName(Widget)
     # setupUi
 
     def retranslateUi(self, Widget):
-        Widget.setWindowTitle(QCoreApplication.translate("Widget", u"Speech Recognition", None))
+        Widget.setWindowTitle(QCoreApplication.translate("Widget", u"Rat Rant", None))
         self.label_2.setText(QCoreApplication.translate("Widget", u"Detected Speech History", None))
         self.removeSpeechHistoryItemBtn.setText(QCoreApplication.translate("Widget", u"Delete Selected Item", None))
         self.clearSpeechHistoryBtn.setText(QCoreApplication.translate("Widget", u"Clear History", None))
         self.startRecordingBtn.setText(QCoreApplication.translate("Widget", u"Start Recording", None))
         self.stopRecordingBtn.setText(QCoreApplication.translate("Widget", u"Stop Recording", None))
-        self.label_13.setText(QCoreApplication.translate("Widget", u"for easily testing commands without recording", None))
-        self.mockSpeechEdit.setText(QCoreApplication.translate("Widget", u"uhhh open browser please", None))
-        self.mockSpeechEdit.setPlaceholderText(QCoreApplication.translate("Widget", u"Speech Text", None))
+        self.mockSpeechEdit.setPlaceholderText(QCoreApplication.translate("Widget", u"Enter Command Here", None))
         self.executeMockSpeechBtn.setText(QCoreApplication.translate("Widget", u"execute command", None))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.homeTab), QCoreApplication.translate("Widget", u"Home", None))
         self.label_10.setText(QCoreApplication.translate("Widget", u"Executed Command History", None))

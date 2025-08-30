@@ -3,7 +3,7 @@
 ################################################################################
 ## Form generated from reading UI file 'edit_command.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.9.1
+## Created by: Qt User Interface Compiler version 6.9.2
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -47,7 +47,7 @@ class Ui_EditCommandWidget(object):
 
         self.label_5 = QLabel(EditCommandWidget)
         self.label_5.setObjectName(u"label_5")
-        self.label_5.setAlignment(Qt.AlignmentFlag.AlignCenter)
+        self.label_5.setAlignment(Qt.AlignmentFlag.AlignLeading|Qt.AlignmentFlag.AlignLeft|Qt.AlignmentFlag.AlignVCenter)
 
         self.verticalLayout_7.addWidget(self.label_5)
 
@@ -68,7 +68,7 @@ class Ui_EditCommandWidget(object):
 
         self.label_4 = QLabel(EditCommandWidget)
         self.label_4.setObjectName(u"label_4")
-        self.label_4.setAlignment(Qt.AlignmentFlag.AlignCenter)
+        self.label_4.setAlignment(Qt.AlignmentFlag.AlignLeading|Qt.AlignmentFlag.AlignLeft|Qt.AlignmentFlag.AlignVCenter)
 
         self.verticalLayout_6.addWidget(self.label_4)
 
@@ -86,7 +86,7 @@ class Ui_EditCommandWidget(object):
         self.verticalLayout_2.setObjectName(u"verticalLayout_2")
         self.label_2 = QLabel(EditCommandWidget)
         self.label_2.setObjectName(u"label_2")
-        self.label_2.setAlignment(Qt.AlignmentFlag.AlignCenter)
+        self.label_2.setAlignment(Qt.AlignmentFlag.AlignLeading|Qt.AlignmentFlag.AlignLeft|Qt.AlignmentFlag.AlignVCenter)
 
         self.verticalLayout_2.addWidget(self.label_2)
 
@@ -130,7 +130,7 @@ class Ui_EditCommandWidget(object):
         self.verticalLayout_4.setObjectName(u"verticalLayout_4")
         self.label = QLabel(EditCommandWidget)
         self.label.setObjectName(u"label")
-        self.label.setAlignment(Qt.AlignmentFlag.AlignCenter)
+        self.label.setAlignment(Qt.AlignmentFlag.AlignLeading|Qt.AlignmentFlag.AlignLeft|Qt.AlignmentFlag.AlignVCenter)
 
         self.verticalLayout_4.addWidget(self.label)
 
@@ -195,7 +195,7 @@ class Ui_EditCommandWidget(object):
         self.verticalLayout_10.setObjectName(u"verticalLayout_10")
         self.label_8 = QLabel(EditCommandWidget)
         self.label_8.setObjectName(u"label_8")
-        self.label_8.setAlignment(Qt.AlignmentFlag.AlignCenter)
+        self.label_8.setAlignment(Qt.AlignmentFlag.AlignLeading|Qt.AlignmentFlag.AlignLeft|Qt.AlignmentFlag.AlignVCenter)
 
         self.verticalLayout_10.addWidget(self.label_8)
 

@@ -134,6 +134,7 @@ if __name__ == "__main__":
         icon_path = r".\assets\RatBalling.png"
     else:
         icon_path = r".\PyQt-GUIProject\Assets\RatBalling.png"
+
     widget.ui.tabWidget.setCurrentIndex(0)
     widget.setWindowIcon(QIcon(icon_path))
     tray = QSystemTrayIcon(QIcon(icon_path), parent=app)

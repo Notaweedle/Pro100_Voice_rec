@@ -40,6 +40,7 @@ QLineEdit{
     border: none;
     border-radius: 0px;
     color: rgb(78, 78, 78);
+    margin-top: 10px;
 }
 
 QLineEdit#searchInput::placeholder {
@@ -319,6 +320,7 @@ QLineEdit{
     border: none;
     border-radius: 0px;
     color: #f0f0f0;
+    margin-top: 10px;
 }
 
 QLineEdit#searchInput::placeholder {
