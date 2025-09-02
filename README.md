@@ -2,115 +2,109 @@
 
 Supports both Windows and Linux.
 
-Starting Commands:
+Default Commands:
 
 # Volume Controls
     
 ### Turn Down Volume 
-    - Default Speech (volume down) 
-    - Lowers Your PC Volume
+    - Default Speech: "volume down"
+    - Lowers volume by a small increment
     
 ### Turn Up Volume
-    - Default Speech (volume up) 
-    - Raises Your PC Volume
+    - Default Speech: "volume up"
+    - Raises volume by a small increment
     
 ### Mute Volume
-    - Default Speech (Mute Volume) 
-    - Mutes Your Pc Volume
+    - Default Speech: "mute volume"
+    - Mutes volume
  
 ### Unmute Volume
-    - Default Speech (Unmute volume) 
-    - Unmutes Your Pc Volume
+    - Default Speech: "unmute volume"
+    - Unmutes volume
     
 ### Min Volume 
-    - Default Speech (Minimize volume) 
-    - Puts Your PC Volume At Min Value
+    - Default Speech: "minimize volume"
+    - Lowers volume to the minimum value
     
 ### Max Volume
-    - Default Speech (Max volume) 
-    - Puts Your PC Volume At Max Value
+    - Default Speech: "maximize volume"
+    - Raises volume to the maximum value 
     
 ### Mute Mic
-    - Default Speech (Mute Microphone) 
-    - Mutes Your Microphone
+    - Default Speech: "mute microphone"
+    - Mutes your microphone
     
 ### Unmute Mic
-    - Default Speech (Unmute Microphone) *So Useful*
-    - Unmutes Your Microphone *Not Very Useful*
+    - Default Speech: "unmute microphone"
+    - Unmutes your microphone
     
 # Screen Controls
     
 ### Minimum Brightness
-    - Default Speech (Minimum Brightness) 
-    - Puts Your PC Brightness At Minimum Value
+    - Default Speech: "minimum brightness"
+    - Lowers brightness to minimum value
     
 ### Max Brightness
-    - Default Speech (Max Brightness) 
-    - Puts Your PC Brightness At Maximum Value
+    - Default Speech: "maximum brightness"
+    - Raises brightness to maximum value
     
 ### Decrease Brightness
-    - Default Speech (Decrease Brightness) 
-    - Lowers Your PC Brightness Value *Decrease by 10%*
+    - Default Speech: "brightness down"
+    - Lowers brightness by a small increment (20%)
     
 ### Increase Brightness 
-    - Default Speech (Increase Brightness) 
-    - Raises Your PC Brightness Value *Increase by 10%*
+    - Default Speech: "brightness up"
+    - Raises brightness by a small increment (20%)
 
 # Media Controls
-### Play Song
-    - Default Speech (Play Music) 
-    - It Plays The Curent Media *Song/Video/etc*
+### Play Music
+    - Default Speech: "play music"
+    - Plays (or unpauses) currently selected media (video, music, etc.)
     
 ### Pause Song
-    - Default Speech (Pause Music) 
-    - It Pauses The Curent Media *Song/Video/etc* 
+    - Default Speech: "pause music"
+    - Pauses currently selected media (video, music, etc.)
 
 ### Next Song
-    - Default Speech (Next Song) 
-    - Plays The Next Media *Song/Video/etc*
+    - Default Speech: "next song"
+    - Skips to the next song or video in queue
     
 ### Previous Song
-    - Default Speech (Previous Song) 
-    - Plays The Previous Media *Song/Video/etc*
+    - Default Speech: "previous song"
+    - Goes back to the previous song or video in queue
     
 ### Rewind Song
-    - Default Speech (Rewind Song) 
-    - Rewinds the Media *Song/Video/etc*
+    - Default Speech: "rewind song"
+    - Restarts the currently selected media
     
 # Misc Commands
     
 ### Close Window
-    - Default Speech (Close Active Window) 
-    - Closes The Active Window
-    
-### Exit
-    - Default Speech (Mute Microphone) 
-    - Closes The Program
-    
+    - Default Speech: "close active window"
+    - Closes the active window
+
 ### Add Command
-    - Default Speech (n/a)
+    - Default Speech: n/a
     - Allows You To Add Custom Commands
     
 ### Steam
-    - Default Speech (Steam) 
+    - Default Speech: "open steam"
     - Opens Steam If it installed
     
 ### Open Browser
-    - Default Speech (Browser) 
+    - Default Speech: "open browser"
     - Opens to your default browser to Google.com
 
 # Computer Commands *Use Caution*
 
 ### Lock Computer
-    - Default Speech (Lock Computer) 
-    - Locks Computer
+    - Default Speech: "lock computer"
+    - Locks device to login page
     
 ### Restart Computer
-    - Default Speech (Restart Computer) 
-    - Restart Computer 
-    - Delay Of 4 Sec
+    - Default Speech: "restart computer"
+    - Restarts device with a delay of 4 seconds
     
 ### Shutdown Computer
-    - Default Speech (Shutdown Computer) 
-    - Shutdown Computer
-    - Delay Of 4 Sec
+    - Default Speech: "shutdown computer"
+    - Shuts down device with a delay of 4 seconds (can be cancelled)
