@@ -174,29 +174,5 @@
     "category": "Default",
     "type": "Browser",
     "target": "google.com"
-  },
-  {
-    "name": "Notepad++",
-    "speech": "open notepad",
-    "enabled": "True",
-    "category": "testing",
-    "type": "Program",
-    "target": "C:/Users/waypa/Downloads/Don't Sleep.wav"
-  },
-  {
-    "name": "Youtube",
-    "speech": "open youtube",
-    "enabled": "True",
-    "category": "testing",
-    "type": "Browser",
-    "target": "youtube.com"
-  },
-  {
-    "name": "Test Script",
-    "speech": "test script",
-    "enabled": "True",
-    "category": "testing",
-    "type": "Script",
-    "target": "C:\\Users\\waypa\\Downloads\\test_script.py"
   }
 ]

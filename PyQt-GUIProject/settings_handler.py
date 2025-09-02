@@ -54,3 +54,12 @@ class SettingsHandler():
             with open(self.settings_file, "w") as f:
                 json.dump(settings, f, indent=2)
                 f.close()
+
+# _______________________________________________________________________
+
+# Ignore this, just to keep it all together 
+
+def get_tts():
+    #yes I know this just loads the settings again, but its needed here
+    with open("./data/settings.json", "r") as f: json.load(f)
+    return json.load(f)

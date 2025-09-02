@@ -1,4 +1,5 @@
 import os, ctypes, time, sys
+from settings_handler import get_tts
 
 user_device = sys.platform
 
@@ -8,8 +9,10 @@ if user_device == 'win32':
     from ctypes import cast, POINTER
 
 elif user_device == 'linux':
-
     import pyvolume as pyinner
+
+
+tts_settings = get_tts()
 
 
 # These are for the speakers not the input, so output!!
@@ -159,15 +162,18 @@ def mute_mic():
 
 # Text to speech code
 def speak(text):
-    import pyttsx3
-    engine = pyttsx3.init() 
-    engine.setProperty("rate", 120)  
-    engine.setProperty("volume", 1) 
-    voices = engine.getProperty("voices") 
-    engine.setProperty("voice", voices[0].id)
-    engine.say(text)
-    engine.runAndWait()
-    engine.stop()
+    if tts_settings["text_to_speech"] == False: 
+        pass
+    else:
+        import pyttsx3
+        engine = pyttsx3.init() 
+        engine.setProperty("rate", 120)  
+        engine.setProperty("volume", tts_settings["output_volume"] / 100) 
+        voices = engine.getProperty("voices") 
+        engine.setProperty("voice", voices[0].id)
+        engine.say(text)
+        engine.runAndWait()
+        engine.stop()
 
 # ________________________________________________________________________
 
