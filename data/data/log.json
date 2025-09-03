@@ -11,83 +11,6 @@
         "target": "youtube.com"
     },
     {
-        "time": "03:30:19 PM",
-        "date": "09/02/2025",
-        "name": "Min Brightness",
-        "speech": "min brightness",
-        "success": "True",
-        "error_reason": "N/A",
-        "category": "Default",
-        "type": "Utility",
-        "target": "N/A"
-    },
-    {
-        "time": "11:20:09 PM",
-        "date": "09/02/2025",
-        "name": "Min Brightness",
-        "speech": "min brightness",
-        "success": "True",
-        "error_reason": "N/A",
-        "category": "Default",
-        "type": "Utility",
-        "target": "N/A"
-    },
-    {
-        "time": "11:21:14 PM",
-        "date": "09/02/2025",
-        "name": "Min Brightness",
-        "speech": "min brightness",
-        "success": "True",
-        "error_reason": "N/A",
-        "category": "Default",
-        "type": "Utility",
-        "target": "N/A"
-    },
-    {
-        "time": "11:21:40 PM",
-        "date": "09/02/2025",
-        "name": "Min Brightness",
-        "speech": "min brightness",
-        "success": "True",
-        "error_reason": "N/A",
-        "category": "Default",
-        "type": "Utility",
-        "target": "N/A"
-    },
-    {
-        "time": "11:21:59 PM",
-        "date": "09/02/2025",
-        "name": "Min Brightness",
-        "speech": "min brightness",
-        "success": "True",
-        "error_reason": "N/A",
-        "category": "Default",
-        "type": "Utility",
-        "target": "N/A"
-    },
-    {
-        "time": "11:22:05 PM",
-        "date": "09/02/2025",
-        "name": "Min Brightness",
-        "speech": "min brightness",
-        "success": "True",
-        "error_reason": "N/A",
-        "category": "Default",
-        "type": "Utility",
-        "target": "N/A"
-    },
-    {
-        "time": "11:24:12 PM",
-        "date": "09/02/2025",
-        "name": "Min Brightness",
-        "speech": "min brightness",
-        "success": "True",
-        "error_reason": "N/A",
-        "category": "Default",
-        "type": "Utility",
-        "target": "N/A"
-    },
-    {
         "time": "11:24:22 PM",
         "date": "09/02/2025",
         "name": "Min Brightness",
@@ -152,5 +75,16 @@
         "category": "Default",
         "type": "Utility",
         "target": "N/A"
+    },
+    {
+        "time": "04:15:47 PM",
+        "date": "09/03/2025",
+        "name": "Youtube",
+        "speech": "open youtube",
+        "success": "True",
+        "error_reason": "N/A",
+        "category": "browser",
+        "type": "Browser",
+        "target": "https://www.youtube.com"
     }
 ]

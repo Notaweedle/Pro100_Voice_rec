@@ -70,18 +70,7 @@ class CommandHandler():
     def check_consecutive_words(self, phrase_list, speech_list):
         # makes sure phrase_list can even fit in speech_list
         if len(speech_list) >= len(phrase_list):
-            # finds amount of loops by taking
-            # length of speech_list - length of phrase_list (+1 cus 0-index)
-            # for example, if phrase_list = ["open","browser"]
-            # and speech_list = ["uh","open","browser","please"]
-            # then it can only go to i=2 before it would be out of range
-            # because if i=3, then it would try to start from 'please'
             for i in range(len(speech_list) - len(phrase_list)+1):
-                # creates substring from i to i+length of phrase list
-                # e.g. same example from above
-                # if i=2, i+len([phrase_list]) = 4
-                # so speech_list[2:4] = ["open","browser"] (since end number is exclusive for whatever reason)
-                # which would mean it matches in this example!! :D
                 if speech_list[i:i + len(phrase_list)] == phrase_list:
                     return True
         return False

@@ -21,7 +21,6 @@ class CommandExecutor():
                     return self.execute_browser_command(command['target'], command['name'])
                 case 'Script':
                     return self.execute_script_command(command['target'],command['name'])
-        # DON'T FORGET TO ADD COMMAND LOGGING
 
     def execute_program_command(self, program_path, name):
         if os.path.exists(program_path):
