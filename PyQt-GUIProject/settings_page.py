@@ -158,6 +158,7 @@ class SettingsPageHandler():
         self.input_device['name'] = self.parentWindow.ui.inputDeviceBox.currentText()
         self.input_device['index'] = self.parentWindow.ui.inputDeviceBox.currentData()
         print("Input Device Changed: " + self.input_device['name'] + " (" + str(self.input_device['index']) + ")")
+        self.onSaveSettings()
 
     def onChangeInputVolSlider(self, new_vol):
         # make sure the other is only being updated once
@@ -170,6 +171,7 @@ class SettingsPageHandler():
         # only one of these needs to call updateInputVolume
         # since both of these will get triggered when one changes
         self.input_volume = new_vol
+        self.onSaveSettings()
 
 
     def onChangeInputVolSpinBox(self, new_vol):
@@ -177,12 +179,14 @@ class SettingsPageHandler():
         old_vol = slider.value()
         if new_vol != old_vol:
             slider.setValue(new_vol)
+            self.onSaveSettings()
 
     def onChangeOutputDevice(self, inputbox_index):
         self.output_device = {}
         self.output_device['name'] = self.parentWindow.ui.outputDeviceBox.currentText()
         self.output_device['index'] = self.parentWindow.ui.outputDeviceBox.currentData()
         print("Output Device Changed: " + self.output_device['name'] + " (" + str(self.output_device['index']) + ")")
+        self.onSaveSettings()
 
     def onChangeOutputVolSlider(self, new_vol):
         spinBox = self.parentWindow.ui.outputVolSpinBox
@@ -190,19 +194,23 @@ class SettingsPageHandler():
         if new_vol != old_vol:
             spinBox.setValue(new_vol)
         self.output_volume = new_vol
+        self.onSaveSettings()
 
     def onChangeOutputVolSpinBox(self, new_vol):
         slider = self.parentWindow.ui.outputVolSlider
         old_vol = slider.value()
         if new_vol != old_vol:
             slider.setValue(new_vol)
+            self.onSaveSettings()
 
     def onChangeTextToSpeech(self, checked):
         if checked:
             self.tts_enabled = True
+            self.onSaveSettings()
             #print("Text to Speech turned on!")
         else:
             self.tts_enabled = False
+            self.onSaveSettings()
             #print("Text to Speech turned off!")
 
     def onChangePauseThreshSlider(self, new_value):
@@ -213,6 +221,7 @@ class SettingsPageHandler():
             spinBox.setValue(new_value)
 
         self.pause_threshold = new_value
+        self.onSaveSettings()
 
     def onChangePauseThreshSpinBox(self, new_value):
         slider = self.parentWindow.ui.pauseThreshSlider
@@ -220,6 +229,7 @@ class SettingsPageHandler():
         old_value = slider.value()
         if new_value != old_value:
             slider.setValue(new_value)
+            self.onSaveSettings()
 
     def onChangeSpeechModel(self, inputbox_index):
         self.model = self.parentWindow.ui.speechModelBox.currentText()
@@ -229,6 +239,7 @@ class SettingsPageHandler():
             self.ConfirmDialog.show()
             os.startfile(os.path.abspath("../"))
         #print("Speech Model Changed: " + self.model)
+        self.onSaveSettings()
 
     def onChooseSaveDir(self):
         self.FileDialog = QtWidgets.QFileDialog()
@@ -242,6 +253,7 @@ class SettingsPageHandler():
         if len(selected_files) > 0:
             self.save_directory = selected_files[0]
             self.parentWindow.ui.saveDirEdit.setText(self.save_directory)
+            self.onSaveSettings()
 
     # OPENING A NEW WINDOW FOR CALIBRATION
     def showCalibration(self):

@@ -12,8 +12,6 @@ elif user_device == 'linux':
     import pyvolume as pyinner
 
 
-tts_settings = get_tts()
-
 
 # These are for the speakers not the input, so output!!
 def get_Speaker_volume():
@@ -162,6 +160,8 @@ def mute_mic():
 
 # Text to speech code
 def speak(text):
+    tts_settings = get_tts()
+
     if tts_settings["text_to_speech"] == False: 
         pass
     else:
@@ -169,8 +169,6 @@ def speak(text):
         engine = pyttsx3.init() 
         engine.setProperty("rate", 120)  
         engine.setProperty("volume", tts_settings["output_volume"] / 100) 
-        voices = engine.getProperty("voices") 
-        engine.setProperty("voice", voices[0].id)
         engine.say(text)
         engine.runAndWait()
         engine.stop()

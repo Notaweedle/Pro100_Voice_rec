@@ -174,5 +174,13 @@
     "category": "Default",
     "type": "Browser",
     "target": "google.com"
+  },
+  {
+    "name": "Youtube",
+    "speech": "open youtube",
+    "enabled": "True",
+    "category": "browser",
+    "type": "Browser",
+    "target": "https://www.youtube.com"
   }
 ]

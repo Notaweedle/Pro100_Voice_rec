@@ -20,5 +20,137 @@
         "category": "Default",
         "type": "Utility",
         "target": "N/A"
+    },
+    {
+        "time": "11:20:09 PM",
+        "date": "09/02/2025",
+        "name": "Min Brightness",
+        "speech": "min brightness",
+        "success": "True",
+        "error_reason": "N/A",
+        "category": "Default",
+        "type": "Utility",
+        "target": "N/A"
+    },
+    {
+        "time": "11:21:14 PM",
+        "date": "09/02/2025",
+        "name": "Min Brightness",
+        "speech": "min brightness",
+        "success": "True",
+        "error_reason": "N/A",
+        "category": "Default",
+        "type": "Utility",
+        "target": "N/A"
+    },
+    {
+        "time": "11:21:40 PM",
+        "date": "09/02/2025",
+        "name": "Min Brightness",
+        "speech": "min brightness",
+        "success": "True",
+        "error_reason": "N/A",
+        "category": "Default",
+        "type": "Utility",
+        "target": "N/A"
+    },
+    {
+        "time": "11:21:59 PM",
+        "date": "09/02/2025",
+        "name": "Min Brightness",
+        "speech": "min brightness",
+        "success": "True",
+        "error_reason": "N/A",
+        "category": "Default",
+        "type": "Utility",
+        "target": "N/A"
+    },
+    {
+        "time": "11:22:05 PM",
+        "date": "09/02/2025",
+        "name": "Min Brightness",
+        "speech": "min brightness",
+        "success": "True",
+        "error_reason": "N/A",
+        "category": "Default",
+        "type": "Utility",
+        "target": "N/A"
+    },
+    {
+        "time": "11:24:12 PM",
+        "date": "09/02/2025",
+        "name": "Min Brightness",
+        "speech": "min brightness",
+        "success": "True",
+        "error_reason": "N/A",
+        "category": "Default",
+        "type": "Utility",
+        "target": "N/A"
+    },
+    {
+        "time": "11:24:22 PM",
+        "date": "09/02/2025",
+        "name": "Min Brightness",
+        "speech": "min brightness",
+        "success": "True",
+        "error_reason": "N/A",
+        "category": "Default",
+        "type": "Utility",
+        "target": "N/A"
+    },
+    {
+        "time": "11:30:49 PM",
+        "date": "09/02/2025",
+        "name": "Youtube",
+        "speech": "open youtube",
+        "success": "True",
+        "error_reason": "N/A",
+        "category": "browser",
+        "type": "Browser",
+        "target": "https://www.youtube.com"
+    },
+    {
+        "time": "11:31:26 PM",
+        "date": "09/02/2025",
+        "name": "Lock Computer",
+        "speech": "lock computer",
+        "success": "True",
+        "error_reason": "N/A",
+        "category": "Default",
+        "type": "Utility",
+        "target": "N/A"
+    },
+    {
+        "time": "11:31:44 PM",
+        "date": "09/02/2025",
+        "name": "Youtube",
+        "speech": "open youtube",
+        "success": "True",
+        "error_reason": "N/A",
+        "category": "browser",
+        "type": "Browser",
+        "target": "https://www.youtube.com"
+    },
+    {
+        "time": "11:32:45 PM",
+        "date": "09/02/2025",
+        "name": "Next Song",
+        "speech": "next song",
+        "success": "True",
+        "error_reason": "N/A",
+        "category": "Default",
+        "type": "Utility",
+        "target": "N/A"
+    },
+    {
+        "time": "11:33:45 PM",
+        "date": "09/02/2025",
+        "name": "Previous Song",
+        "speech": "previous song",
+        "success": "True",
+        "error_reason": "N/A",
+        "category": "Default",
+        "type": "Utility",
+        "target": "N/A"
     }
 ]

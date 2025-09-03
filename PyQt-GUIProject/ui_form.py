@@ -209,7 +209,10 @@ class Ui_Widget(object):
         sizePolicy1.setVerticalStretch(0)
         sizePolicy1.setHeightForWidth(self.customCommandsTable.sizePolicy().hasHeightForWidth())
         self.customCommandsTable.setSizePolicy(sizePolicy1)
-        self.customCommandsTable.setFont(font1)
+        font2 = QFont()
+        font2.setBold(False)
+        font2.setKerning(True)
+        self.customCommandsTable.setFont(font2)
         self.customCommandsTable.setVerticalScrollBarPolicy(Qt.ScrollBarPolicy.ScrollBarAsNeeded)
         self.customCommandsTable.setHorizontalScrollBarPolicy(Qt.ScrollBarPolicy.ScrollBarAsNeeded)
         self.customCommandsTable.setSizeAdjustPolicy(QAbstractScrollArea.SizeAdjustPolicy.AdjustIgnored)
@@ -280,10 +283,10 @@ class Ui_Widget(object):
 
         self.label_14 = QLabel(self.settingsTab)
         self.label_14.setObjectName(u"label_14")
-        font2 = QFont()
-        font2.setPointSize(11)
-        font2.setBold(True)
-        self.label_14.setFont(font2)
+        font3 = QFont()
+        font3.setPointSize(11)
+        font3.setBold(True)
+        self.label_14.setFont(font3)
         self.label_14.setAlignment(Qt.AlignmentFlag.AlignLeading|Qt.AlignmentFlag.AlignLeft|Qt.AlignmentFlag.AlignVCenter)
 
         self.verticalLayout_15.addWidget(self.label_14)
@@ -318,7 +321,7 @@ class Ui_Widget(object):
         sizePolicy2.setVerticalStretch(0)
         sizePolicy2.setHeightForWidth(self.label_7.sizePolicy().hasHeightForWidth())
         self.label_7.setSizePolicy(sizePolicy2)
-        self.label_7.setFont(font2)
+        self.label_7.setFont(font3)
 
         self.verticalLayout_10.addWidget(self.label_7)
 
@@ -368,32 +371,8 @@ class Ui_Widget(object):
 
         self.verticalLayout_9.addItem(self.verticalSpacer_7)
 
-        self.label_6 = QLabel(self.settingsTab)
-        self.label_6.setObjectName(u"label_6")
-        sizePolicy2.setHeightForWidth(self.label_6.sizePolicy().hasHeightForWidth())
-        self.label_6.setSizePolicy(sizePolicy2)
-        self.label_6.setFont(font2)
-
-        self.verticalLayout_9.addWidget(self.label_6)
-
         self.horizontalLayout_3 = QHBoxLayout()
         self.horizontalLayout_3.setObjectName(u"horizontalLayout_3")
-        self.horizontalSlider_4 = QSlider(self.settingsTab)
-        self.horizontalSlider_4.setObjectName(u"horizontalSlider_4")
-        self.horizontalSlider_4.setEnabled(False)
-        sizePolicy3.setHeightForWidth(self.horizontalSlider_4.sizePolicy().hasHeightForWidth())
-        self.horizontalSlider_4.setSizePolicy(sizePolicy3)
-        self.horizontalSlider_4.setMinimumSize(QSize(50, 0))
-        self.horizontalSlider_4.setOrientation(Qt.Orientation.Horizontal)
-
-        self.horizontalLayout_3.addWidget(self.horizontalSlider_4)
-
-        self.doubleSpinBox_2 = QDoubleSpinBox(self.settingsTab)
-        self.doubleSpinBox_2.setObjectName(u"doubleSpinBox_2")
-        self.doubleSpinBox_2.setEnabled(False)
-
-        self.horizontalLayout_3.addWidget(self.doubleSpinBox_2)
-
 
         self.verticalLayout_9.addLayout(self.horizontalLayout_3)
 
@@ -449,7 +428,7 @@ class Ui_Widget(object):
         self.label_9.setObjectName(u"label_9")
         sizePolicy2.setHeightForWidth(self.label_9.sizePolicy().hasHeightForWidth())
         self.label_9.setSizePolicy(sizePolicy2)
-        self.label_9.setFont(font2)
+        self.label_9.setFont(font3)
 
         self.verticalLayout_5.addWidget(self.label_9)
 
@@ -481,7 +460,7 @@ class Ui_Widget(object):
         self.label_3.setObjectName(u"label_3")
         sizePolicy2.setHeightForWidth(self.label_3.sizePolicy().hasHeightForWidth())
         self.label_3.setSizePolicy(sizePolicy2)
-        self.label_3.setFont(font2)
+        self.label_3.setFont(font3)
         self.label_3.setAlignment(Qt.AlignmentFlag.AlignLeading|Qt.AlignmentFlag.AlignLeft|Qt.AlignmentFlag.AlignVCenter)
 
         self.verticalLayout_3.addWidget(self.label_3)
@@ -508,7 +487,7 @@ class Ui_Widget(object):
 
         self.label_15 = QLabel(self.settingsTab)
         self.label_15.setObjectName(u"label_15")
-        self.label_15.setFont(font2)
+        self.label_15.setFont(font3)
 
         self.verticalLayout_16.addWidget(self.label_15)
 
@@ -542,7 +521,7 @@ class Ui_Widget(object):
         self.label.setObjectName(u"label")
         sizePolicy2.setHeightForWidth(self.label.sizePolicy().hasHeightForWidth())
         self.label.setSizePolicy(sizePolicy2)
-        self.label.setFont(font2)
+        self.label.setFont(font3)
 
         self.verticalLayout_7.addWidget(self.label)
 
@@ -592,7 +571,7 @@ class Ui_Widget(object):
         self.label_8.setObjectName(u"label_8")
         sizePolicy2.setHeightForWidth(self.label_8.sizePolicy().hasHeightForWidth())
         self.label_8.setSizePolicy(sizePolicy2)
-        self.label_8.setFont(font2)
+        self.label_8.setFont(font3)
 
         self.verticalLayout_4.addWidget(self.label_8)
 
@@ -624,7 +603,7 @@ class Ui_Widget(object):
         self.label_5.setObjectName(u"label_5")
         sizePolicy2.setHeightForWidth(self.label_5.sizePolicy().hasHeightForWidth())
         self.label_5.setSizePolicy(sizePolicy2)
-        self.label_5.setFont(font2)
+        self.label_5.setFont(font3)
 
         self.verticalLayout_8.addWidget(self.label_5)
 
@@ -673,6 +652,11 @@ class Ui_Widget(object):
 
         self.verticalLayout_11.addWidget(self.tabWidget)
 
+
+        self.retranslateUi(Widget)
+
+        self.tabWidget.setCurrentIndex(3)
+
         self.helpTab = QWidget()
         self.helpTab.setObjectName(u"helpTab")
         import markdown
@@ -693,11 +677,6 @@ class Ui_Widget(object):
 
         self.helpBrowser.setHtml(html_content)
         self.tabWidget.addTab(self.helpTab, "Help")
-
-        self.retranslateUi(Widget)
-
-        self.tabWidget.setCurrentIndex(2)
-
 
         QMetaObject.connectSlotsByName(Widget)
     # setupUi
@@ -728,10 +707,6 @@ class Ui_Widget(object):
         self.speechModelBox.setItemText(2, QCoreApplication.translate("Widget", u"PocketSphinx", None))
 
         self.label_7.setText(QCoreApplication.translate("Widget", u"Output Volume", None))
-#if QT_CONFIG(whatsthis)
-        self.label_6.setWhatsThis(QCoreApplication.translate("Widget", u"<html><head/><body><p><br/></p></body></html>", None))
-#endif // QT_CONFIG(whatsthis)
-        self.label_6.setText(QCoreApplication.translate("Widget", u"Setting Name", None))
         self.ttsCheckBox.setText("")
         self.saveSettingsBtn.setText(QCoreApplication.translate("Widget", u"Save Settings", None))
         self.label_9.setText(QCoreApplication.translate("Widget", u"Input Device", None))

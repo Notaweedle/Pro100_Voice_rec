@@ -220,6 +220,7 @@ class Ui_EditCommandWidget(object):
 
         self.chooseTargetBtn = QPushButton(EditCommandWidget)
         self.chooseTargetBtn.setObjectName(u"chooseTargetBtn")
+        self.chooseTargetBtn.setMinimumSize(QSize(120, 0))
 
         self.horizontalLayout_6.addWidget(self.chooseTargetBtn)
 
@@ -269,7 +270,7 @@ class Ui_EditCommandWidget(object):
         self.enabledCheck.setText("")
         self.label_8.setText(QCoreApplication.translate("EditCommandWidget", u"Target", None))
         self.targetEdit.setText("")
-        self.targetEdit.setPlaceholderText(QCoreApplication.translate("EditCommandWidget", u"Website/Program", None))
+        self.targetEdit.setPlaceholderText(QCoreApplication.translate("EditCommandWidget", u"Enter Website link or...", None))
         self.chooseTargetBtn.setText(QCoreApplication.translate("EditCommandWidget", u"Choose File", None))
     # retranslateUi
 

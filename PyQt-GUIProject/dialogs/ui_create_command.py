@@ -131,7 +131,7 @@ class Ui_CreateCommandWidget(object):
 
         self.chooseTargetBtn = QPushButton(CreateCommandWidget)
         self.chooseTargetBtn.setObjectName(u"chooseTargetBtn")
-        self.chooseTargetBtn.setMinimumSize(QSize(80, 0))
+        self.chooseTargetBtn.setMinimumSize(QSize(120, 0))
         self.chooseTargetBtn.setMaximumSize(QSize(80, 16777215))
 
         self.horizontalLayout_5.addWidget(self.chooseTargetBtn)
@@ -252,7 +252,7 @@ class Ui_CreateCommandWidget(object):
         self.enabledCheck.setText("")
         self.label_6.setText(QCoreApplication.translate("CreateCommandWidget", u"Target", None))
         self.targetEdit.setText("")
-        self.targetEdit.setPlaceholderText(QCoreApplication.translate("CreateCommandWidget", u"Website/Program", None))
+        self.targetEdit.setPlaceholderText(QCoreApplication.translate("CreateCommandWidget", u"Enter Website link or...", None))
         self.chooseTargetBtn.setText(QCoreApplication.translate("CreateCommandWidget", u"Choose File", None))
         self.cancelBtn.setText(QCoreApplication.translate("CreateCommandWidget", u"Cancel", None))
         self.createBtn.setText(QCoreApplication.translate("CreateCommandWidget", u"Create", None))
